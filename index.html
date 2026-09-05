@@ -1,848 +1,1163 @@
 <!DOCTYPE html>
 <html lang="ml">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>AL-HASANA | Islamic Knowledge Platform</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
-<style>
-:root{
-    --primary:#16a56b;
-    --primary-dark:#08784a;
-    --dark:#20252a;
-    --light:#f7faf8;
-    --gold:#d8af4d;
-    --text:#4b5563;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Noto Sans Malayalam',sans-serif;
-    background:#f8faf9;
-    color:var(--dark);
-}
-
-/* NAVBAR */
-
-nav{
-    position:fixed;
-    top:0;
-    width:100%;
-    height:78px;
-    background:rgba(255,255,255,.96);
-    backdrop-filter:blur(15px);
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 7%;
-    z-index:1000;
-    box-shadow:0 2px 20px rgba(0,0,0,.05);
-}
-
-.brand{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-.brand img{
-    width:52px;
-    height:52px;
-    object-fit:contain;
-}
-
-.brand-name{
-    font-size:20px;
-    font-weight:800;
-    letter-spacing:2px;
-    color:#222;
-}
-
-.brand-name span{
-    color:var(--primary);
-}
-
-.nav-links{
-    display:flex;
-    align-items:center;
-    gap:25px;
-}
-
-.nav-links a{
-    text-decoration:none;
-    color:#444;
-    font-size:14px;
-    font-weight:600;
-    transition:.3s;
-}
-
-.nav-links a:hover{
-    color:var(--primary);
-}
-
-.menu-btn{
-    display:none;
-    font-size:26px;
-    cursor:pointer;
-}
-
-/* HERO */
-
-.hero{
-    min-height:100vh;
-    padding:120px 8% 70px;
-    display:flex;
-    align-items:center;
-    position:relative;
-    overflow:hidden;
-    background:
-    radial-gradient(circle at 80% 30%,rgba(22,165,107,.15),transparent 28%),
-    linear-gradient(135deg,#f7faf8,#edf5f0);
-}
-
-.hero::before{
-    content:"☪";
-    position:absolute;
-    right:8%;
-    top:12%;
-    font-size:420px;
-    color:rgba(22,165,107,.045);
-    line-height:1;
-}
-
-.hero-content{
-    max-width:720px;
-    position:relative;
-    z-index:2;
-}
-
-.badge{
-    display:inline-block;
-    background:#e2f5eb;
-    color:var(--primary-dark);
-    padding:10px 18px;
-    border-radius:30px;
-    font-size:13px;
-    font-weight:700;
-    margin-bottom:25px;
-}
-
-.hero h1{
-    font-size:clamp(38px,6vw,75px);
-    line-height:1.25;
-    margin-bottom:20px;
-    font-weight:800;
-}
-
-.hero h1 span{
-    color:var(--primary);
-}
-
-.hero p{
-    max-width:650px;
-    color:#667085;
-    font-size:17px;
-    line-height:1.9;
-    margin-bottom:30px;
-}
-
-.hero-buttons{
-    display:flex;
-    gap:15px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    text-decoration:none;
-    padding:15px 25px;
-    border-radius:10px;
-    font-weight:700;
-    transition:.3s;
-}
-
-.btn-primary{
-    background:var(--primary);
-    color:white;
-    box-shadow:0 10px 25px rgba(22,165,107,.25);
-}
-
-.btn-primary:hover{
-    transform:translateY(-3px);
-    background:var(--primary-dark);
-}
-
-.btn-outline{
-    border:1px solid #d7dfda;
-    color:#333;
-    background:white;
-}
-
-.btn-outline:hover{
-    border-color:var(--primary);
-    color:var(--primary);
-}
-
-/* SECTION */
-
-section{
-    padding:90px 8%;
-}
-
-.section-tag{
-    color:var(--primary);
-    font-weight:800;
-    font-size:14px;
-    letter-spacing:1px;
-    text-transform:uppercase;
-}
-
-.section-title{
-    font-size:38px;
-    margin:12px 0;
-}
-
-.section-description{
-    color:#6b7280;
-    max-width:650px;
-    line-height:1.8;
-}
-
-/* FEATURES */
-
-.features{
-    background:white;
-}
-
-.cards{
-    margin-top:45px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:22px;
-}
-
-.card{
-    background:#fff;
-    padding:30px;
-    border-radius:18px;
-    border:1px solid #edf0ee;
-    transition:.35s;
-    position:relative;
-    overflow:hidden;
-}
-
-.card:hover{
-    transform:translateY(-7px);
-    box-shadow:0 20px 45px rgba(0,0,0,.08);
-    border-color:#cdebdc;
-}
-
-.card-icon{
-    width:60px;
-    height:60px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:28px;
-    background:#e9f7ef;
-    border-radius:16px;
-    margin-bottom:20px;
-}
-
-.card h3{
-    font-size:20px;
-    margin-bottom:12px;
-}
-
-.card p{
-    color:#747b85;
-    line-height:1.7;
-    font-size:14px;
-}
-
-.card a{
-    display:inline-block;
-    margin-top:20px;
-    color:var(--primary);
-    text-decoration:none;
-    font-weight:700;
-    font-size:14px;
-}
-
-/* QURAN SECTION */
-
-.quote-section{
-    background:linear-gradient(135deg,#0c5d3a,#15965f);
-    color:white;
-    text-align:center;
-    position:relative;
-    overflow:hidden;
-}
-
-.quote-section::before,
-.quote-section::after{
-    content:"✦";
-    position:absolute;
-    font-size:250px;
-    color:rgba(255,255,255,.05);
-}
-
-.quote-section::before{
-    left:5%;
-    top:-80px;
-}
-
-.quote-section::after{
-    right:5%;
-    bottom:-100px;
-}
-
-.arabic{
-    font-size:32px;
-    line-height:2;
-    margin-bottom:20px;
-    position:relative;
-}
-
-.quote{
-    max-width:750px;
-    margin:auto;
-    font-size:20px;
-    line-height:1.9;
-    position:relative;
-}
-
-.reference{
-    margin-top:20px;
-    color:#b9f1d3;
-}
-
-/* LATEST */
-
-.latest{
-    background:#f4f8f6;
-}
-
-.article-grid{
-    margin-top:40px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
-}
-
-.article{
-    background:white;
-    border-radius:18px;
-    overflow:hidden;
-    transition:.3s;
-}
-
-.article:hover{
-    transform:translateY(-6px);
-    box-shadow:0 15px 40px rgba(0,0,0,.08);
-}
-
-.article-image{
-    height:180px;
-    background:linear-gradient(135deg,#d9f2e3,#b9e4cb);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:60px;
-}
-
-.article-content{
-    padding:24px;
-}
-
-.article-content small{
-    color:var(--primary);
-    font-weight:bold;
-}
-
-.article-content h3{
-    margin:12px 0;
-    font-size:18px;
-}
-
-.article-content p{
-    font-size:14px;
-    color:#777;
-    line-height:1.7;
-}
-
-/* CTA */
-
-.cta{
-    text-align:center;
-    background:white;
-}
-
-.cta-box{
-    max-width:950px;
-    margin:auto;
-    padding:60px 30px;
-    border-radius:25px;
-    background:linear-gradient(135deg,#eef9f3,#e0f3e8);
-}
-
-.cta-box h2{
-    font-size:35px;
-    margin-bottom:15px;
-}
-
-.cta-box p{
-    color:#68706c;
-    margin-bottom:28px;
-}
-
-/* FOOTER */
-
-footer{
-    background:#1f2523;
-    color:#d9dfdc;
-    padding:60px 8% 25px;
-}
-
-.footer-grid{
-    display:grid;
-    grid-template-columns:2fr 1fr 1fr;
-    gap:40px;
-    margin-bottom:45px;
-}
-
-.footer-logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin-bottom:15px;
-}
-
-.footer-logo img{
-    width:60px;
-    background:white;
-    border-radius:50%;
-}
-
-.footer-logo h2{
-    letter-spacing:2px;
-    color:white;
-}
-
-footer p{
-    color:#9ba5a0;
-    line-height:1.8;
-    font-size:14px;
-}
-
-footer h4{
-    color:white;
-    margin-bottom:18px;
-}
-
-footer ul{
-    list-style:none;
-}
-
-footer li{
-    margin-bottom:10px;
-}
-
-footer a{
-    color:#9ba5a0;
-    text-decoration:none;
-    font-size:14px;
-}
-
-footer a:hover{
-    color:#42d98e;
-}
-
-.copyright{
-    border-top:1px solid #39413d;
-    padding-top:22px;
-    text-align:center;
-    font-size:13px;
-    color:#8a9590;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:900px){
-
-    .nav-links{
-        display:none;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Al Hasana Online | അറിവിന്റെ വേദി</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@400;700&family=Noto+Sans+Malayalam:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Noto Sans Malayalam','Manjari',sans-serif;
+      background:#f7faf8;
+      color:#1d2b25;
+      line-height:1.8;
+    }
+
+    /* ================= HEADER ================= */
+
+    header{
+      width:100%;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,0.96);
+      backdrop-filter:blur(15px);
+      box-shadow:0 2px 15px rgba(0,0,0,0.06);
+    }
+
+    .navbar{
+      max-width:1200px;
+      margin:auto;
+      padding:14px 25px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+    }
+
+    .brand-logo{
+      width:48px;
+      height:48px;
+      border-radius:50%;
+      overflow:hidden;
+      border:2px solid #1fa36a;
+      background:white;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .brand-logo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1.2;
+    }
+
+    .brand-text strong{
+      font-family:'Playfair Display',serif;
+      font-size:20px;
+      color:#163d2d;
+      letter-spacing:.5px;
+    }
+
+    .brand-text span{
+      font-size:11px;
+      color:#1fa36a;
+      letter-spacing:2px;
+      margin-top:3px;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:23px;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:#34463d;
+      font-size:14px;
+      font-weight:600;
+      transition:.3s;
+      white-space:nowrap;
+    }
+
+    nav a:hover{
+      color:#15915d;
     }
 
     .menu-btn{
-        display:block;
+      display:none;
+      font-size:25px;
+      border:none;
+      background:none;
+      cursor:pointer;
     }
 
-    .cards,
-    .article-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
 
-    .footer-grid{
-        grid-template-columns:1fr 1fr;
-    }
-}
-
-@media(max-width:600px){
-
-    nav{
-        padding:0 5%;
-        height:70px;
-    }
-
-    .brand img{
-        width:45px;
-        height:45px;
-    }
-
-    .brand-name{
-        font-size:16px;
-    }
+    /* ================= HERO ================= */
 
     .hero{
-        padding:110px 7% 60px;
+      min-height:650px;
+      position:relative;
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+
+      background:
+      linear-gradient(135deg,rgba(6,48,32,.94),rgba(12,102,65,.82)),
+      url('https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&w=1600&q=80');
+
+      background-size:cover;
+      background-position:center;
     }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+      radial-gradient(circle at 80% 20%,rgba(255,215,120,.15),transparent 30%);
+    }
+
+    .hero-content{
+      max-width:1200px;
+      width:100%;
+      margin:auto;
+      padding:80px 25px;
+      position:relative;
+      color:white;
+    }
+
+    .hero-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:9px 18px;
+      border:1px solid rgba(255,255,255,.35);
+      border-radius:30px;
+      background:rgba(255,255,255,.1);
+      backdrop-filter:blur(10px);
+      font-size:13px;
+      margin-bottom:25px;
+    }
+
+    .hero h1{
+      font-size:clamp(38px,6vw,75px);
+      line-height:1.25;
+      max-width:850px;
+      font-weight:800;
+      margin-bottom:18px;
+    }
+
+    .hero h1 span{
+      color:#7ee0ad;
+    }
+
+    .hero p{
+      max-width:720px;
+      font-size:18px;
+      color:#e1eee8;
+      margin-bottom:32px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:15px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 27px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:700;
+      transition:.3s;
+    }
+
+    .btn-primary{
+      background:#27a86b;
+      color:white;
+    }
+
+    .btn-primary:hover{
+      background:#168554;
+      transform:translateY(-2px);
+    }
+
+    .btn-outline{
+      border:1px solid rgba(255,255,255,.6);
+      color:white;
+    }
+
+    .btn-outline:hover{
+      background:white;
+      color:#174a35;
+    }
+
+
+    /* ================= SECTION ================= */
 
     section{
-        padding:65px 7%;
+      padding:85px 25px;
     }
 
-    .cards,
-    .article-grid{
-        grid-template-columns:1fr;
+    .container{
+      max-width:1200px;
+      margin:auto;
     }
 
     .section-title{
-        font-size:28px;
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .section-title span{
+      color:#1fa36a;
+      font-size:14px;
+      font-weight:bold;
+      letter-spacing:2px;
+    }
+
+    .section-title h2{
+      font-size:36px;
+      color:#173b2b;
+      margin-top:8px;
+    }
+
+    .section-title p{
+      max-width:650px;
+      margin:12px auto 0;
+      color:#66766e;
+      font-size:15px;
+    }
+
+
+    /* ================= WELCOME ================= */
+
+    .welcome-section{
+      background:#ffffff;
+    }
+
+    .welcome-box{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .welcome-image{
+      min-height:430px;
+      border-radius:20px;
+      overflow:hidden;
+      position:relative;
+
+      background:
+      linear-gradient(to top,rgba(4,50,31,.7),transparent),
+      url('https://images.unsplash.com/photo-1519817650390-64a93db511aa?auto=format&fit=crop&w=1000&q=80');
+
+      background-size:cover;
+      background-position:center;
+    }
+
+    .welcome-image .image-text{
+      position:absolute;
+      bottom:30px;
+      left:30px;
+      color:white;
+      font-size:26px;
+      font-weight:bold;
+    }
+
+    .welcome-content h2{
+      font-size:36px;
+      line-height:1.5;
+      color:#183c2d;
+      margin-bottom:22px;
+    }
+
+    .welcome-content h2 span{
+      color:#1da166;
+    }
+
+    .welcome-content p{
+      color:#596b62;
+      margin-bottom:17px;
+      font-size:16px;
+    }
+
+    .highlight-box{
+      margin-top:25px;
+      padding:22px;
+      border-left:4px solid #20a66a;
+      background:#eff8f3;
+      border-radius:0 12px 12px 0;
+      color:#28523e;
+      font-weight:600;
+    }
+
+
+    /* ================= FEATURES ================= */
+
+    .features{
+      background:#f2f8f4;
+    }
+
+    .feature-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+    }
+
+    .feature-card{
+      background:white;
+      padding:32px 25px;
+      border-radius:16px;
+      text-align:center;
+      box-shadow:0 8px 25px rgba(24,72,47,.06);
+      transition:.3s;
+      border:1px solid #e7f0ea;
+    }
+
+    .feature-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 18px 35px rgba(24,72,47,.12);
+    }
+
+    .feature-icon{
+      width:70px;
+      height:70px;
+      margin:0 auto 18px;
+      border-radius:50%;
+      background:#e9f7ef;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:30px;
+    }
+
+    .feature-card h3{
+      color:#1c4734;
+      margin-bottom:8px;
+      font-size:18px;
+    }
+
+    .feature-card p{
+      font-size:13px;
+      color:#718078;
+      line-height:1.7;
+    }
+
+
+    /* ================= KNOWLEDGE SECTION ================= */
+
+    .knowledge-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:25px;
+    }
+
+    .knowledge-card{
+      background:white;
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid #e4ece7;
+      transition:.3s;
+    }
+
+    .knowledge-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 15px 35px rgba(0,0,0,.08);
+    }
+
+    .knowledge-image{
+      height:190px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:65px;
+      background:linear-gradient(135deg,#e5f5ec,#d4ecdf);
+    }
+
+    .knowledge-content{
+      padding:25px;
+    }
+
+    .knowledge-content h3{
+      color:#173e2c;
+      margin-bottom:10px;
+      font-size:20px;
+    }
+
+    .knowledge-content p{
+      color:#718078;
+      font-size:14px;
+      margin-bottom:15px;
+    }
+
+    .read-more{
+      color:#15935d;
+      text-decoration:none;
+      font-weight:bold;
+      font-size:14px;
+    }
+
+
+    /* ================= MESSAGE ================= */
+
+    .message-section{
+      background:
+      linear-gradient(135deg,#083b27,#11613e);
+      color:white;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .message-section::before{
+      content:"☪";
+      position:absolute;
+      right:8%;
+      top:-40px;
+      font-size:300px;
+      opacity:.04;
+    }
+
+    .message-content{
+      max-width:900px;
+      margin:auto;
+      text-align:center;
+      position:relative;
+    }
+
+    .message-content .quote{
+      font-size:55px;
+      color:#72d8a0;
+      line-height:1;
+    }
+
+    .message-content h2{
+      font-size:34px;
+      margin-bottom:25px;
+    }
+
+    .message-content p{
+      font-size:18px;
+      color:#dcece4;
+    }
+
+
+    /* ================= CTA ================= */
+
+    .cta{
+      background:#fff;
+    }
+
+    .cta-box{
+      background:linear-gradient(135deg,#e7f7ed,#d4efdf);
+      padding:60px;
+      border-radius:25px;
+      text-align:center;
+    }
+
+    .cta-box h2{
+      font-size:34px;
+      color:#16412e;
+      margin-bottom:15px;
+    }
+
+    .cta-box p{
+      color:#587064;
+      max-width:700px;
+      margin:auto auto 25px;
+    }
+
+
+    /* ================= FOOTER ================= */
+
+    footer{
+      background:#08281c;
+      color:#d9e5df;
+      padding:65px 25px 20px;
     }
 
     .footer-grid{
-        grid-template-columns:1fr;
+      max-width:1200px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr;
+      gap:50px;
     }
 
-    .arabic{
-        font-size:24px;
+    .footer-brand h3{
+      font-family:'Playfair Display',serif;
+      font-size:27px;
+      color:white;
+      margin-bottom:12px;
     }
-}
-</style>
+
+    .footer-brand p{
+      color:#a9c1b5;
+      font-size:14px;
+      max-width:420px;
+    }
+
+    .footer-links h4{
+      color:white;
+      margin-bottom:15px;
+    }
+
+    .footer-links a{
+      display:block;
+      text-decoration:none;
+      color:#a9c1b5;
+      margin-bottom:8px;
+      font-size:14px;
+    }
+
+    .footer-links a:hover{
+      color:#6bd59b;
+    }
+
+    .copyright{
+      max-width:1200px;
+      margin:40px auto 0;
+      padding-top:20px;
+      border-top:1px solid rgba(255,255,255,.1);
+      text-align:center;
+      font-size:13px;
+      color:#8ba59a;
+    }
+
+
+    /* ================= RESPONSIVE ================= */
+
+    @media(max-width:900px){
+
+      nav{
+        display:none;
+        position:absolute;
+        top:76px;
+        left:0;
+        width:100%;
+        background:white;
+        flex-direction:column;
+        padding:25px;
+        box-shadow:0 10px 20px rgba(0,0,0,.08);
+      }
+
+      nav.active{
+        display:flex;
+      }
+
+      .menu-btn{
+        display:block;
+      }
+
+      .welcome-box{
+        grid-template-columns:1fr;
+      }
+
+      .feature-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .knowledge-grid{
+        grid-template-columns:1fr;
+      }
+
+      .footer-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:550px){
+
+      .navbar{
+        padding:12px 18px;
+      }
+
+      .brand-text strong{
+        font-size:17px;
+      }
+
+      .hero{
+        min-height:600px;
+      }
+
+      .hero h1{
+        font-size:38px;
+      }
+
+      .hero p{
+        font-size:15px;
+      }
+
+      .feature-grid{
+        grid-template-columns:1fr;
+      }
+
+      .section-title h2{
+        font-size:28px;
+      }
+
+      .welcome-content h2{
+        font-size:27px;
+      }
+
+      .cta-box{
+        padding:40px 20px;
+      }
+
+      .cta-box h2{
+        font-size:27px;
+      }
+    }
+
+  </style>
 </head>
+
 
 <body>
 
-<!-- NAVIGATION -->
 
-<nav>
-    <div class="brand">
-        <img src="logo.png" alt="AL-HASANA Logo">
-        <div class="brand-name">AL-<span>HASANA</span></div>
-    </div>
+<!-- ================= HEADER ================= -->
 
-    <div class="nav-links">
-        <a href="#home">🏠 Home</a>
-        <a href="#quran">📖 ഖുർആൻ</a>
-        <a href="#hadith">🕌 ഹദീസ്</a>
-        <a href="#study">🎓 പഠനം</a>
-        <a href="#library">📚 ലൈബ്രറി</a>
-        <a href="#dua">🤲 ദുആ</a>
-        <a href="#media">🎥 മീഡിയ</a>
-        <a href="#about">ℹ️ ഞങ്ങളെക്കുറിച്ച്</a>
-    </div>
+<header>
+  <div class="navbar">
 
-    <div class="menu-btn">☰</div>
-</nav>
+    <a href="#home" class="brand">
+
+      <div class="brand-logo">
+        <!-- logo.png GitHub-ലേക്ക് upload ചെയ്താൽ ഇത് കാണിക്കും -->
+        <img src="logo.png" alt="Al Hasana Online Logo"
+        onerror="this.style.display='none'">
+      </div>
+
+      <div class="brand-text">
+        <strong>AL-HASANA</strong>
+        <span>ONLINE</span>
+      </div>
+
+    </a>
 
 
-<!-- HERO -->
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+
+    <nav id="navMenu">
+      <a href="#home">🏠 Home</a>
+      <a href="#quran">📖 ഖുർആൻ</a>
+      <a href="#hadith">🕌 ഹദീസ്</a>
+      <a href="#study">🎓 പഠനം</a>
+      <a href="#library">📚 ലൈബ്രറി</a>
+      <a href="#dua">🤲 ദുആ</a>
+      <a href="#media">🎥 മീഡിയ</a>
+      <a href="#about">ℹ️ ഞങ്ങളെക്കുറിച്ച്</a>
+    </nav>
+
+  </div>
+</header>
+
+
+
+<!-- ================= HERO ================= -->
 
 <section class="hero" id="home">
 
-    <div class="hero-content">
+  <div class="hero-content">
 
-        <div class="badge">
-            ✨ Islamic Knowledge & Learning Platform
-        </div>
-
-        <h1>
-            അറിവിലൂടെ ജീവിതത്തെ
-            <span>പ്രകാശിപ്പിക്കാം</span>
-        </h1>
-
-        <p>
-            ഖുർആൻ, ഹദീസ്, ഇസ്ലാമിക പഠനം, ദുആകൾ,
-            പുസ്തകങ്ങൾ, മീഡിയ എന്നിവയിലൂടെ വിശ്വാസത്തിന്റെയും
-            അറിവിന്റെയും മനോഹരമായ യാത്രയിലേക്ക് സ്വാഗതം.
-        </p>
-
-        <div class="hero-buttons">
-            <a href="#study" class="btn btn-primary">
-                📖 പഠനം ആരംഭിക്കുക
-            </a>
-
-            <a href="#library" class="btn btn-outline">
-                📚 ലൈബ്രറി സന്ദർശിക്കുക
-            </a>
-        </div>
-
+    <div class="hero-badge">
+      ✨ വിജ്ഞാനത്തിന്റെ പുതിയ വേദി
     </div>
 
-</section>
+    <h1>
+      അറിവിന്റെ പ്രകാശം<br>
+      <span>എല്ലാവരിലേക്കും എത്തിക്കാൻ</span>
+    </h1>
 
-
-<!-- FEATURES -->
-
-<section class="features">
-
-    <div class="section-tag">EXPLORE AL-HASANA</div>
-
-    <h2 class="section-title">
-        അറിവിന്റെ ലോകം അന്വേഷിക്കൂ
-    </h2>
-
-    <p class="section-description">
-        ഇസ്ലാമിക അറിവിന്റെ വിവിധ മേഖലകൾ ഒരൊറ്റ പ്ലാറ്റ്ഫോമിൽ.
+    <p>
+      ഖുർആൻ, ഹദീസ്, ഇസ്ലാമിക വിജ്ഞാനം, അറിവ് ചോദ്യങ്ങൾ,
+      വൈജ്ഞാനിക പഠനങ്ങൾ എന്നിവ ഒരുമിച്ച് ലഭ്യമാക്കുന്ന
+      ഒരു അറിവിന്റെ ഡിജിറ്റൽ വേദി.
     </p>
 
+    <div class="hero-buttons">
+      <a href="#about" class="btn btn-primary">
+        അറിവിന്റെ ലോകത്തേക്ക് →
+      </a>
 
-    <div class="cards">
-
-        <div class="card" id="quran">
-            <div class="card-icon">📖</div>
-            <h3>ഖുർആൻ</h3>
-            <p>
-                പരിശുദ്ധ ഖുർആൻ വായിക്കാനും കേൾക്കാനും
-                പഠിക്കാനും സഹായിക്കുന്ന വിഭാഗം.
-            </p>
-            <a href="#">കൂടുതൽ അറിയുക →</a>
-        </div>
-
-
-        <div class="card" id="hadith">
-            <div class="card-icon">🕌</div>
-            <h3>ഹദീസ്</h3>
-            <p>
-                പ്രവാചകൻ മുഹമ്മദ് ﷺ യുടെ അമൂല്യമായ
-                വചനങ്ങളും ജീവിതപാഠങ്ങളും.
-            </p>
-            <a href="#">കൂടുതൽ അറിയുക →</a>
-        </div>
-
-
-        <div class="card" id="study">
-            <div class="card-icon">🎓</div>
-            <h3>പഠനം</h3>
-            <p>
-                വിവിധ ഇസ്ലാമിക വിഷയങ്ങളിൽ
-                ക്രമീകരിച്ച പഠന വിഭവങ്ങൾ.
-            </p>
-            <a href="#">പഠനം ആരംഭിക്കുക →</a>
-        </div>
-
-
-        <div class="card" id="library">
-            <div class="card-icon">📚</div>
-            <h3>ലൈബ്രറി</h3>
-            <p>
-                തിരഞ്ഞെടുക്കപ്പെട്ട ഇസ്ലാമിക പുസ്തകങ്ങളും
-                പഠന വിഭവങ്ങളും.
-            </p>
-            <a href="#">ലൈബ്രറിയിലേക്ക് →</a>
-        </div>
-
-
-        <div class="card" id="dua">
-            <div class="card-icon">🤲</div>
-            <h3>ദുആ</h3>
-            <p>
-                നിത്യജീവിതത്തിൽ ആവശ്യമായ
-                പ്രധാനപ്പെട്ട ദുആകൾ.
-            </p>
-            <a href="#">ദുആകൾ കാണുക →</a>
-        </div>
-
-
-        <div class="card" id="media">
-            <div class="card-icon">🎥</div>
-            <h3>മീഡിയ</h3>
-            <p>
-                വിജ്ഞാനപ്രദമായ വീഡിയോകൾ,
-                ഓഡിയോകൾ, മറ്റ് മീഡിയ വിഭവങ്ങൾ.
-            </p>
-            <a href="#">മീഡിയ കാണുക →</a>
-        </div>
-
+      <a href="#study" class="btn btn-outline">
+        കൂടുതൽ അറിയുക
+      </a>
     </div>
+
+  </div>
 
 </section>
 
 
-<!-- QUOTE -->
 
-<section class="quote-section">
+<!-- ================= WELCOME ================= -->
 
-    <div class="arabic">
-        وَقُل رَّبِّ زِدْنِي عِلْمًا
+<section class="welcome-section" id="about">
+
+  <div class="container">
+
+    <div class="welcome-box">
+
+      <div class="welcome-image">
+        <div class="image-text">
+          അറിവ് • പഠനം • പങ്കുവെക്കൽ
+        </div>
+      </div>
+
+
+      <div class="welcome-content">
+
+        <h2>
+          എല്ലാവരെയും ഈ <span>വിജ്ഞാന വേദിയിലേക്ക്</span>
+          സ്വാഗതം ചെയ്യുന്നു
+        </h2>
+
+        <p>
+          <strong>അറിയാനും അറിയിക്കാനും</strong> എന്ന ലക്ഷ്യത്തോടെ
+          രൂപീകരിക്കപ്പെട്ട ഒരു വിജ്ഞാന കൂട്ടായ്മയാണ്
+          <strong>Al Hasana Online</strong>.
+        </p>
+
+        <p>
+          സുഊദി അറേബ്യയിലെ മറാത്ത് ദഅവാ സെന്റർ ഇറക്കുന്ന
+          ഹദീസ് പോസ്റ്ററുകളും, അറിവ് ചോദ്യങ്ങളും,
+          മറ്റു വൈജ്ഞാനിക കാര്യങ്ങളും ഈ വേദിയിലൂടെ
+          നിങ്ങൾക്ക് ലഭിക്കും <strong>إن شاء الله</strong>.
+        </p>
+
+        <div class="highlight-box">
+          📌 നിങ്ങൾക്ക് ലഭിക്കുന്ന അറിവുകൾ പഠിക്കുകയും,
+          രേഖപ്പെടുത്തി വെക്കുകയും, മറ്റുള്ളവരിലേക്ക്
+          എത്തിച്ചുകൊടുക്കുകയും ചെയ്യാൻ ശ്രമിക്കുക.
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="quote">
-        "എന്റെ രക്ഷിതാവേ, എനിക്ക് അറിവ് വർധിപ്പിച്ചു തരേണമേ"
-    </div>
-
-    <div class="reference">
-        — പരിശുദ്ധ ഖുർആൻ
-    </div>
+  </div>
 
 </section>
 
 
-<!-- LATEST CONTENT -->
 
-<section class="latest">
+<!-- ================= FEATURES ================= -->
 
-    <div class="section-tag">LATEST CONTENT</div>
+<section class="features" id="study">
 
-    <h2 class="section-title">
-        പുതിയ അറിവുകൾ
-    </h2>
+  <div class="container">
 
-    <div class="article-grid">
-
-        <div class="article">
-            <div class="article-image">📖</div>
-
-            <div class="article-content">
-                <small>ഖുർആൻ പഠനം</small>
-                <h3>ഖുർആനുമായി ബന്ധം ശക്തമാക്കാം</h3>
-                <p>
-                    നിത്യജീവിതത്തിൽ ഖുർആൻ പഠനത്തിന്
-                    കൂടുതൽ സമയം കണ്ടെത്താനുള്ള മാർഗങ്ങൾ.
-                </p>
-            </div>
-        </div>
+    <div class="section-title">
+      <span>WHAT WE SHARE</span>
+      <h2>അറിവിന്റെ വിവിധ മേഖലകൾ</h2>
+      <p>
+        ഇസ്ലാമിക വിജ്ഞാനത്തിന്റെ പ്രധാന വിഷയങ്ങൾ
+        ലളിതമായും മനോഹരമായും അവതരിപ്പിക്കുന്നു.
+      </p>
+    </div>
 
 
-        <div class="article">
-            <div class="article-image">🕌</div>
+    <div class="feature-grid">
 
-            <div class="article-content">
-                <small>ഹദീസ്</small>
-                <h3>നബി ﷺ യുടെ മനോഹരമായ ജീവിതപാഠങ്ങൾ</h3>
-                <p>
-                    നമ്മുടെ ജീവിതത്തെ മാറ്റിമറിക്കുന്ന
-                    പ്രധാനപ്പെട്ട പ്രവാചക വചനങ്ങൾ.
-                </p>
-            </div>
-        </div>
+      <div class="feature-card">
+        <div class="feature-icon">📖</div>
+        <h3>ഖുർആൻ</h3>
+        <p>
+          ഖുർആൻ പഠനം, വിശദീകരണങ്ങൾ,
+          സന്ദേശങ്ങൾ, തിരഞ്ഞെടുക്കപ്പെട്ട ആയത്തുകൾ.
+        </p>
+      </div>
 
 
-        <div class="article">
-            <div class="article-image">🤲</div>
+      <div class="feature-card">
+        <div class="feature-icon">🕌</div>
+        <h3>ഹദീസ്</h3>
+        <p>
+          പ്രവാചകൻ മുഹമ്മദ് ﷺ യുടെ
+          മഹത്തായ വചനങ്ങളും പഠനങ്ങളും.
+        </p>
+      </div>
 
-            <div class="article-content">
-                <small>ദുആ</small>
-                <h3>ദുആയുടെ ശക്തി</h3>
-                <p>
-                    അല്ലാഹുവുമായുള്ള മനുഷ്യന്റെ ഏറ്റവും
-                    മനോഹരമായ ബന്ധമാണ് ദുആ.
-                </p>
-            </div>
-        </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🎓</div>
+        <h3>പഠനം</h3>
+        <p>
+          വിവിധ ഇസ്ലാമിക വിഷയങ്ങളെ
+          ലളിതമായി പഠിക്കാനുള്ള അവസരം.
+        </p>
+      </div>
+
+
+      <div class="feature-card">
+        <div class="feature-icon">❓</div>
+        <h3>അറിവ് ചോദ്യങ്ങൾ</h3>
+        <p>
+          നിങ്ങളുടെ അറിവ് പരിശോധിക്കാനും
+          പുതിയത് പഠിക്കാനുമുള്ള ചോദ്യങ്ങൾ.
+        </p>
+      </div>
 
     </div>
+
+  </div>
 
 </section>
 
 
-<!-- CTA -->
+
+<!-- ================= KNOWLEDGE ================= -->
+
+<section id="quran">
+
+  <div class="container">
+
+    <div class="section-title">
+      <span>EXPLORE KNOWLEDGE</span>
+      <h2>വിജ്ഞാനത്തിന്റെ ലോകം</h2>
+      <p>
+        വിവിധ വിഷയങ്ങളിലൂടെ ഇസ്ലാമിക അറിവ്
+        കൂടുതൽ മനസ്സിലാക്കാം.
+      </p>
+    </div>
+
+
+    <div class="knowledge-grid">
+
+      <div class="knowledge-card">
+
+        <div class="knowledge-image">
+          📖
+        </div>
+
+        <div class="knowledge-content">
+          <h3>ഖുർആൻ വിജ്ഞാനം</h3>
+          <p>
+            വിശുദ്ധ ഖുർആനിലെ സന്ദേശങ്ങളും
+            ജീവിത മാർഗ്ഗനിർദ്ദേശങ്ങളും.
+          </p>
+          <a href="#" class="read-more">കൂടുതൽ വായിക്കുക →</a>
+        </div>
+
+      </div>
+
+
+
+      <div class="knowledge-card" id="hadith">
+
+        <div class="knowledge-image">
+          🕌
+        </div>
+
+        <div class="knowledge-content">
+          <h3>ഹദീസ് പഠനം</h3>
+          <p>
+            നബി മുഹമ്മദ് ﷺ യുടെ വചനങ്ങളിലൂടെ
+            ജീവിതത്തെ മനോഹരമാക്കാം.
+          </p>
+          <a href="#" class="read-more">കൂടുതൽ വായിക്കുക →</a>
+        </div>
+
+      </div>
+
+
+
+      <div class="knowledge-card" id="library">
+
+        <div class="knowledge-image">
+          📚
+        </div>
+
+        <div class="knowledge-content">
+          <h3>വൈജ്ഞാനിക ലൈബ്രറി</h3>
+          <p>
+            തിരഞ്ഞെടുക്കപ്പെട്ട ലേഖനങ്ങളും
+            പഠന വിഭവങ്ങളും ഒരിടത്ത്.
+          </p>
+          <a href="#" class="read-more">ലൈബ്രറിയിലേക്ക് →</a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ================= DUA ================= -->
+
+<section class="features" id="dua">
+
+  <div class="container">
+
+    <div class="section-title">
+      <span>SPIRITUAL CONNECTION</span>
+      <h2>ദുആയും ആത്മീയതയും</h2>
+      <p>
+        അല്ലാഹുവിലേക്കുള്ള നമ്മുടെ ഏറ്റവും മനോഹരമായ ബന്ധം.
+      </p>
+    </div>
+
+    <div class="feature-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon">🤲</div>
+        <h3>ദൈനംദിന ദുആകൾ</h3>
+        <p>എല്ലാ ദിവസവും ആവശ്യമായ ദുആകൾ.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🌙</div>
+        <h3>ഇസ്ലാമിക ജീവിതം</h3>
+        <p>ജീവിതത്തെ ഇസ്ലാമികമായി ക്രമപ്പെടുത്താം.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🕋</div>
+        <h3>ഇബാദത്ത്</h3>
+        <p>ആരാധനകളെ കൂടുതൽ അർത്ഥവത്താക്കാം.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">💚</div>
+        <h3>നല്ല സ്വഭാവം</h3>
+        <p>നബി ﷺ പഠിപ്പിച്ച സദാചാര ജീവിതം.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ================= IMPORTANT MESSAGE ================= -->
+
+<section class="message-section">
+
+  <div class="container">
+
+    <div class="message-content">
+
+      <div class="quote">“</div>
+
+      <h2>
+        ഓരോ സമയവും വിലപിടിപ്പുള്ളതാണ്
+      </h2>
+
+      <p>
+        ഉത്തരവാദിത്തങ്ങൾ സമയത്തേക്കാൾ അധികമാണ്.
+        അതിനാൽ ലഭിക്കുന്ന ഓരോ അവസരവും അറിവ് നേടാനും,
+        അത് ജീവിതത്തിൽ പ്രാവർത്തികമാക്കാനും,
+        മറ്റുള്ളവരിലേക്ക് എത്തിക്കാനും ഉപയോഗിക്കാം.
+      </p>
+
+      <br>
+
+      <p>
+        അറിവ് പഠിക്കുക • രേഖപ്പെടുത്തുക • പങ്കുവെക്കുക
+      </p>
+
+      <div class="quote" style="transform:rotate(180deg);">
+        “
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ================= MEDIA ================= -->
+
+<section id="media">
+
+  <div class="container">
+
+    <div class="section-title">
+      <span>MEDIA</span>
+      <h2>വീഡിയോകളും മീഡിയയും</h2>
+      <p>
+        വിജ്ഞാനപ്രദമായ വീഡിയോ ഉള്ളടക്കങ്ങളും
+        മറ്റ് മീഡിയ വിഭവങ്ങളും.
+      </p>
+    </div>
+
+
+    <div class="knowledge-grid">
+
+      <div class="knowledge-card">
+        <div class="knowledge-image">🎥</div>
+        <div class="knowledge-content">
+          <h3>ഇസ്ലാമിക വീഡിയോകൾ</h3>
+          <p>വിജ്ഞാനപ്രദമായ വീഡിയോ പഠനങ്ങൾ.</p>
+          <a href="#" class="read-more">കാണുക →</a>
+        </div>
+      </div>
+
+
+      <div class="knowledge-card">
+        <div class="knowledge-image">🎙️</div>
+        <div class="knowledge-content">
+          <h3>പ്രഭാഷണങ്ങൾ</h3>
+          <p>പ്രമുഖ പണ്ഡിതരുടെ വിജ്ഞാനപ്രദമായ സന്ദേശങ്ങൾ.</p>
+          <a href="#" class="read-more">കേൾക്കുക →</a>
+        </div>
+      </div>
+
+
+      <div class="knowledge-card">
+        <div class="knowledge-image">📰</div>
+        <div class="knowledge-content">
+          <h3>പോസ്റ്ററുകൾ</h3>
+          <p>ഹദീസ് പോസ്റ്ററുകളും വിജ്ഞാന സന്ദേശങ്ങളും.</p>
+          <a href="#" class="read-more">കാണുക →</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ================= CTA ================= -->
 
 <section class="cta">
 
+  <div class="container">
+
     <div class="cta-box">
 
-        <h2>അറിവിന്റെ യാത്ര ഇന്ന് ആരംഭിക്കൂ</h2>
+      <h2>അറിവ് പങ്കുവെക്കൂ, നന്മ പ്രചരിപ്പിക്കൂ</h2>
 
-        <p>
-            വിശ്വാസവും അറിവും ഒരുമിക്കുന്ന മനോഹരമായ
-            ഡിജിറ്റൽ പ്ലാറ്റ്ഫോം.
-        </p>
+      <p>
+        നിങ്ങൾക്ക് ലഭിക്കുന്ന ഉപകാരപ്രദമായ അറിവുകൾ
+        മറ്റുള്ളവരിലേക്കും എത്തിക്കാൻ ശ്രമിക്കുക.
+        ഒരു നല്ല അറിവ് മറ്റൊരാളുടെ ജീവിതം മാറ്റിമറിച്ചേക്കാം.
+      </p>
 
-        <a href="#study" class="btn btn-primary">
-            പഠനം ആരംഭിക്കുക →
-        </a>
+      <a href="#home" class="btn btn-primary">
+        ↑ മുകളിലേക്ക് പോകുക
+      </a>
 
     </div>
+
+  </div>
 
 </section>
 
 
-<!-- FOOTER -->
 
-<footer id="about">
+<!-- ================= FOOTER ================= -->
 
-    <div class="footer-grid">
+<footer>
 
-        <div>
-            <div class="footer-logo">
-                <img src="logo.png">
-                <h2>AL-HASANA</h2>
-            </div>
+  <div class="footer-grid">
 
-            <p>
-                ഇസ്ലാമിക അറിവുകൾ എല്ലാവർക്കും
-                എളുപ്പത്തിൽ ലഭ്യമാക്കുക എന്ന ലക്ഷ്യത്തോടെ
-                രൂപീകരിച്ച ഒരു വിജ്ഞാന പ്ലാറ്റ്ഫോം.
-            </p>
-        </div>
+    <div class="footer-brand">
 
+      <h3>Al Hasana Online</h3>
 
-        <div>
-            <h4>പ്രധാന ലിങ്കുകൾ</h4>
-
-            <ul>
-                <li><a href="#quran">ഖുർആൻ</a></li>
-                <li><a href="#hadith">ഹദീസ്</a></li>
-                <li><a href="#study">പഠനം</a></li>
-                <li><a href="#library">ലൈബ്രറി</a></li>
-            </ul>
-        </div>
-
-
-        <div>
-            <h4>ബന്ധപ്പെടുക</h4>
-
-            <ul>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">YouTube</a></li>
-                <li><a href="#">Email</a></li>
-            </ul>
-        </div>
+      <p>
+        അറിയാനും അറിയിക്കാനും എന്ന ലക്ഷ്യത്തോടെ
+        ഇസ്ലാമിക വിജ്ഞാനവും വൈജ്ഞാനിക വിവരങ്ങളും
+        എല്ലാവരിലേക്കും എത്തിക്കുന്ന ഒരു ഡിജിറ്റൽ വേദി.
+      </p>
 
     </div>
 
 
-    <div class="copyright">
-        © 2026 AL-HASANA. All Rights Reserved.
+    <div class="footer-links">
+
+      <h4>പ്രധാന ലിങ്കുകൾ</h4>
+
+      <a href="#home">Home</a>
+      <a href="#quran">ഖുർആൻ</a>
+      <a href="#hadith">ഹദീസ്</a>
+      <a href="#study">പഠനം</a>
+
     </div>
+
+
+    <div class="footer-links">
+
+      <h4>വിഭാഗങ്ങൾ</h4>
+
+      <a href="#library">ലൈബ്രറി</a>
+      <a href="#dua">ദുആ</a>
+      <a href="#media">മീഡിയ</a>
+      <a href="#about">ഞങ്ങളെക്കുറിച്ച്</a>
+
+    </div>
+
+  </div>
+
+
+  <div class="copyright">
+    © 2026 Al Hasana Online. All Rights Reserved.
+    <br>
+    <span style="color:#5ac98b;">അല്ലാഹു അനുഗ്രഹിക്കട്ടെ 🤲</span>
+  </div>
 
 </footer>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+  function toggleMenu(){
+    document.getElementById("navMenu").classList.toggle("active");
+  }
+
+</script>
+
 
 </body>
 </html>

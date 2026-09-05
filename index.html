@@ -4,10 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Al Hasana Online | പഠന ക്വിസ്</title>
+<title>Al Hasana Online | വിജ്ഞാന വേദി</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap');
 
 *{
     margin:0;
@@ -15,172 +16,286 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-    font-family:'Noto Sans Malayalam','Inter',sans-serif;
-    background:#f4f7f5;
+    font-family:'Noto Sans Malayalam','Poppins',sans-serif;
+    background:#f5f7f6;
     color:#1d2b24;
 }
 
-header{
-    background:#123c2d;
+/* NAVBAR */
+
+nav{
+    width:100%;
+    background:#0c5135;
     color:white;
-    padding:15px 6%;
+    padding:14px 7%;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    box-shadow:0 3px 15px rgba(0,0,0,.12);
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 15px rgba(0,0,0,.15);
 }
 
-.brand{
+.logo{
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:10px;
 }
 
-.logo-circle{
+.logo-icon{
     width:45px;
     height:45px;
     border-radius:50%;
-    background:#ffffff;
-    color:#16875c;
+    background:#d7a83d;
     display:flex;
-    justify-content:center;
     align-items:center;
-    font-weight:bold;
-    font-size:20px;
-    border:3px solid #35b97d;
+    justify-content:center;
+    font-size:23px;
 }
 
-.brand h2{
-    font-size:17px;
+.logo-text h2{
+    font-family:Poppins;
+    font-size:18px;
 }
 
-.brand small{
-    opacity:.75;
-    font-size:11px;
+.logo-text small{
+    font-size:10px;
+    opacity:.8;
 }
 
-.home-btn{
-    text-decoration:none;
+.nav-links{
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
     color:white;
-    border:1px solid rgba(255,255,255,.4);
-    padding:9px 15px;
-    border-radius:8px;
-    font-size:13px;
+    text-decoration:none;
+    font-family:Poppins;
+    font-size:14px;
 }
 
-.container{
-    max-width:1050px;
-    margin:auto;
-    padding:35px 20px;
-}
+/* HERO */
 
-/* WELCOME */
-
-#welcomeScreen{
-    max-width:700px;
-    margin:35px auto;
-}
-
-.welcome-card{
-    background:white;
-    border-radius:20px;
-    padding:40px;
-    box-shadow:0 10px 35px rgba(0,0,0,.08);
-    border-top:6px solid #1c9a68;
-}
-
-.exam-icon{
-    width:80px;
-    height:80px;
-    margin:auto;
-    background:#e8f7f0;
-    border-radius:50%;
+.hero{
+    min-height:620px;
+    background:
+    linear-gradient(135deg,rgba(5,56,37,.96),rgba(10,96,62,.88)),
+    url('https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=1600&q=80');
+    background-size:cover;
+    background-position:center;
     display:flex;
-    justify-content:center;
     align-items:center;
-    font-size:38px;
+    text-align:center;
+    padding:80px 20px;
+    color:white;
+}
+
+.hero-content{
+    max-width:950px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    background:#d7a83d;
+    color:#173d2c;
+    padding:9px 22px;
+    border-radius:30px;
+    font-family:Poppins;
+    font-weight:600;
+    margin-bottom:22px;
+}
+
+.hero h1{
+    font-size:50px;
+    line-height:1.4;
     margin-bottom:20px;
 }
 
-.welcome-card h1{
+.hero p{
+    font-size:17px;
+    line-height:2;
+    max-width:800px;
+    margin:auto;
+    opacity:.95;
+}
+
+.hero-buttons{
+    margin-top:35px;
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:none;
+    padding:14px 28px;
+    border-radius:8px;
+    font-family:'Noto Sans Malayalam';
+    font-size:15px;
+    cursor:pointer;
+    transition:.3s;
+    text-decoration:none;
+    display:inline-block;
+}
+
+.btn-primary{
+    background:#d7a83d;
+    color:#183d2b;
+    font-weight:bold;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+}
+
+.btn-outline{
+    background:transparent;
+    border:1px solid white;
+    color:white;
+}
+
+/* SECTIONS */
+
+.section{
+    padding:80px 7%;
+}
+
+.section-title{
     text-align:center;
-    color:#123c2d;
-    font-size:28px;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:32px;
+    color:#0c5135;
     margin-bottom:12px;
 }
 
-.subtitle{
+.section-title p{
+    color:#68756e;
+}
+
+/* ABOUT */
+
+.about-card{
+    max-width:1000px;
+    margin:auto;
+    background:white;
+    border-radius:18px;
+    padding:45px;
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
+    border-top:5px solid #d7a83d;
+}
+
+.about-card p{
+    font-size:16px;
+    line-height:2.2;
+    margin-bottom:18px;
+}
+
+.highlight{
+    color:#0c5135;
+    font-weight:bold;
+}
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:30px 22px;
+    border-radius:16px;
     text-align:center;
-    color:#68766f;
+    box-shadow:0 8px 25px rgba(0,0,0,.07);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+}
+
+.card-icon{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    color:#0c5135;
+    margin-bottom:10px;
+}
+
+.card p{
     font-size:14px;
+    color:#65736b;
     line-height:1.8;
-    margin-bottom:25px;
+}
+
+/* EXAM */
+
+.exam-section{
+    background:linear-gradient(135deg,#0b4d34,#073825);
+    color:white;
+}
+
+.exam-box{
+    max-width:850px;
+    margin:auto;
+    background:white;
+    color:#1d2b24;
+    padding:45px;
+    border-radius:20px;
+    box-shadow:0 15px 50px rgba(0,0,0,.25);
+}
+
+.exam-box h2{
+    text-align:center;
+    color:#0c5135;
+    margin-bottom:10px;
 }
 
 .exam-info{
-    background:#f1f8f4;
-    padding:18px;
-    border-radius:12px;
-    margin-bottom:25px;
-}
-
-.exam-info div{
-    display:flex;
-    justify-content:space-between;
-    padding:7px 0;
-    font-size:14px;
+    text-align:center;
+    color:#65736b;
+    margin-bottom:30px;
 }
 
 .input-group{
-    margin-bottom:18px;
+    margin-bottom:20px;
 }
 
 .input-group label{
     display:block;
-    margin-bottom:7px;
-    font-size:14px;
-    font-weight:600;
+    margin-bottom:8px;
+    font-weight:bold;
 }
 
 .input-group input{
     width:100%;
-    padding:14px;
-    border:1px solid #d9e2dd;
-    border-radius:9px;
-    font-family:inherit;
-    font-size:14px;
-    outline:none;
-}
-
-.input-group input:focus{
-    border-color:#1c9a68;
-    box-shadow:0 0 0 3px rgba(28,154,104,.1);
-}
-
-.start-btn{
-    width:100%;
     padding:15px;
-    background:#16875c;
-    color:white;
-    border:none;
-    border-radius:10px;
-    font-size:16px;
-    font-family:inherit;
-    font-weight:700;
-    cursor:pointer;
-    transition:.3s;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-family:'Noto Sans Malayalam';
+    font-size:15px;
 }
 
-.start-btn:hover{
-    background:#0f6c48;
-    transform:translateY(-2px);
-}
+/* QUIZ */
 
-
-/* EXAM */
-
-#examScreen{
+#quizArea{
     display:none;
 }
 
@@ -189,342 +304,141 @@ header{
     justify-content:space-between;
     align-items:center;
     margin-bottom:25px;
-    background:white;
-    padding:16px 20px;
-    border-radius:12px;
-    box-shadow:0 5px 18px rgba(0,0,0,.05);
-}
-
-.student-name{
-    font-size:14px;
-    font-weight:600;
+    background:#edf6f0;
+    padding:15px;
+    border-radius:10px;
 }
 
 .timer{
-    background:#fff0ed;
-    color:#d84b35;
-    padding:9px 16px;
+    background:#c62828;
+    color:white;
+    padding:8px 15px;
     border-radius:8px;
+    font-family:Poppins;
     font-weight:bold;
-    font-family:Inter;
-}
-
-.progress-area{
-    margin-bottom:25px;
-}
-
-.progress-text{
-    display:flex;
-    justify-content:space-between;
-    font-size:13px;
-    margin-bottom:8px;
-}
-
-.progress-bar{
-    height:8px;
-    background:#dfe8e3;
-    border-radius:10px;
-    overflow:hidden;
-}
-
-.progress-fill{
-    height:100%;
-    background:#1c9a68;
-    width:5%;
-    transition:.3s;
-}
-
-.question-card{
-    background:white;
-    padding:35px;
-    border-radius:18px;
-    box-shadow:0 10px 30px rgba(0,0,0,.07);
-}
-
-.question-number{
-    color:#16875c;
-    font-size:13px;
-    font-weight:700;
-    margin-bottom:15px;
 }
 
 .question{
-    font-size:20px;
-    font-weight:700;
-    line-height:1.8;
-    margin-bottom:25px;
-    color:#182820;
+    background:#f8faf9;
+    border:1px solid #e2e8e4;
+    padding:25px;
+    margin-bottom:22px;
+    border-radius:12px;
 }
 
-.options{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:14px;
+.question h3{
+    font-size:16px;
+    line-height:1.8;
+    margin-bottom:18px;
+    color:#153c2a;
 }
 
 .option{
-    border:1.5px solid #dce5e0;
-    padding:16px;
-    border-radius:10px;
+    display:block;
+    padding:13px;
+    border:1px solid #dce5df;
+    border-radius:8px;
+    margin:10px 0;
     cursor:pointer;
     transition:.2s;
-    font-size:14px;
-    line-height:1.7;
-    display:flex;
-    align-items:flex-start;
-    gap:10px;
 }
 
 .option:hover{
-    border-color:#1c9a68;
-    background:#f4fbf7;
+    background:#edf7f1;
+    border-color:#0c5135;
 }
 
-.option.selected{
-    background:#e8f7f0;
-    border-color:#16875c;
+.option input{
+    margin-right:10px;
 }
-
-.option-letter{
-    width:28px;
-    height:28px;
-    min-width:28px;
-    border-radius:50%;
-    background:#edf2ef;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:12px;
-    font-weight:bold;
-}
-
-.option.selected .option-letter{
-    background:#16875c;
-    color:white;
-}
-
-.navigation{
-    display:flex;
-    justify-content:space-between;
-    margin-top:28px;
-}
-
-.nav-btn{
-    padding:12px 22px;
-    border:none;
-    border-radius:9px;
-    font-family:inherit;
-    cursor:pointer;
-    font-weight:600;
-}
-
-.prev-btn{
-    background:#e9efeb;
-    color:#345;
-}
-
-.next-btn{
-    background:#16875c;
-    color:white;
-}
-
-.submit-btn{
-    background:#d84b35;
-    color:white;
-}
-
-
-/* QUESTION NAVIGATOR */
-
-.question-nav{
-    margin-top:25px;
-    background:white;
-    padding:20px;
-    border-radius:14px;
-}
-
-.question-nav h4{
-    margin-bottom:15px;
-    font-size:14px;
-}
-
-.q-grid{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-}
-
-.q-dot{
-    width:38px;
-    height:38px;
-    border-radius:8px;
-    border:1px solid #dce5e0;
-    background:white;
-    cursor:pointer;
-    font-weight:600;
-}
-
-.q-dot.active{
-    background:#16875c;
-    color:white;
-    border-color:#16875c;
-}
-
-.q-dot.answered{
-    background:#dff4e9;
-    border-color:#62bd91;
-}
-
 
 /* RESULT */
 
-#resultScreen{
+#resultArea{
     display:none;
-    max-width:700px;
-    margin:30px auto;
-}
-
-.result-card{
-    background:white;
-    border-radius:20px;
-    padding:40px;
     text-align:center;
-    box-shadow:0 10px 35px rgba(0,0,0,.08);
 }
 
 .result-icon{
-    font-size:60px;
-    margin-bottom:10px;
+    font-size:70px;
 }
 
-.result-card h1{
-    color:#123c2d;
-    margin-bottom:10px;
-}
-
-.score-circle{
-    width:170px;
-    height:170px;
+.score-box{
     margin:25px auto;
-    border-radius:50%;
-    background:#e9f8f0;
-    border:8px solid #16875c;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+    background:#edf7f1;
+    max-width:400px;
+    padding:30px;
+    border-radius:15px;
 }
 
 .score{
-    font-family:Inter;
-    font-size:42px;
-    font-weight:800;
-    color:#16875c;
+    font-size:50px;
+    font-family:Poppins;
+    font-weight:bold;
+    color:#0c5135;
 }
 
-.score-label{
-    font-size:13px;
-    color:#66756d;
+.result-text{
+    color:#65736b;
+    line-height:2;
 }
 
-.result-details{
-    display:grid;
-    grid-template-columns:1fr 1fr 1fr;
-    gap:10px;
-    margin-top:20px;
-}
-
-.result-box{
-    padding:15px;
-    background:#f5f8f6;
-    border-radius:10px;
-}
-
-.result-box b{
-    display:block;
-    font-size:22px;
-    color:#123c2d;
-}
-
-.result-box span{
-    font-size:11px;
-    color:#718078;
-}
-
-.retry-btn{
-    margin-top:25px;
-    padding:13px 25px;
-    background:#16875c;
-    color:white;
-    border:none;
-    border-radius:9px;
-    cursor:pointer;
-    font-family:inherit;
-}
+/* FOOTER */
 
 footer{
+    background:#062b1d;
+    color:white;
     text-align:center;
-    padding:30px;
-    color:#77847d;
-    font-size:12px;
+    padding:35px 20px;
 }
+
+footer p{
+    opacity:.8;
+    font-size:13px;
+    margin-top:8px;
+}
+
+/* LOADING */
+
+.loading{
+    display:none;
+    text-align:center;
+    color:#0c5135;
+    margin-top:15px;
+}
+
+/* MOBILE */
 
 @media(max-width:700px){
 
-    header{
-        padding:12px 15px;
-    }
-
-    .brand h2{
-        font-size:14px;
-    }
-
-    .home-btn{
+    .nav-links{
         display:none;
     }
 
-    .container{
-        padding:20px 12px;
+    .hero h1{
+        font-size:30px;
     }
 
-    .welcome-card,
-    .question-card{
-        padding:22px;
+    .hero p{
+        font-size:14px;
     }
 
-    .welcome-card h1{
-        font-size:22px;
+    .section{
+        padding:55px 5%;
     }
 
-    .question{
-        font-size:17px;
+    .about-card{
+        padding:25px;
     }
 
-    .options{
-        grid-template-columns:1fr;
-    }
-
-    .option{
-        padding:13px;
-        font-size:13px;
+    .exam-box{
+        padding:25px 18px;
     }
 
     .exam-top{
-        padding:13px;
+        font-size:12px;
     }
 
-    .question-nav{
-        padding:15px;
-    }
-
-    .q-dot{
-        width:34px;
-        height:34px;
-    }
-
-    .result-details{
-        grid-template-columns:1fr;
-    }
 }
 
 </style>
@@ -532,473 +446,702 @@ footer{
 
 <body>
 
-<header>
-    <div class="brand">
-        <div class="logo-circle">أ</div>
-        <div>
-            <h2>Al Hasana Online</h2>
-            <small>Online Learning Platform</small>
-        </div>
-    </div>
+<!-- NAVIGATION -->
 
-    <a href="index.html" class="home-btn">⌂ Home</a>
-</header>
+<nav>
+
+<div class="logo">
+
+<div class="logo-icon">☪</div>
+
+<div class="logo-text">
+<h2>Al Hasana Online</h2>
+<small>വിജ്ഞാന വേദി</small>
+</div>
+
+</div>
+
+<div class="nav-links">
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#knowledge">വിജ്ഞാനം</a>
+<a href="#exam">Exam</a>
+</div>
+
+</nav>
 
 
-<div class="container">
+<!-- HERO -->
 
+<section class="hero" id="home">
 
-<!-- WELCOME SCREEN -->
+<div class="hero-content">
 
-<div id="welcomeScreen">
+<div class="badge">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
 
-<div class="welcome-card">
+<h1>വിജ്ഞാനം നേടാം<br>വിജ്ഞാനം പങ്കുവെക്കാം</h1>
 
-<div class="exam-icon">📖</div>
-
-<h1>ഖുർആനോടൊപ്പം ഒരു യാത്ര</h1>
-
-<p class="subtitle">
-പഠന ക്വിസ്<br>
-സൂറത്തുൽ ഫാതിഹ & സൂറത്തുൽ ബഖറ (ആയത്തുകൾ 1–3)
+<p>
+അറിയാനും അറിയിക്കാനും ഒരു വിജ്ഞാന വേദി.
+ഇസ്ലാമിക അറിവുകളും ഹദീസ് സന്ദേശങ്ങളും
+വൈജ്ഞാനിക വിവരങ്ങളും നിങ്ങളിലേക്ക് എത്തിക്കുന്നു.
 </p>
 
-<div class="exam-info">
-    <div>
-        <span>📝 ആകെ ചോദ്യങ്ങൾ</span>
-        <b>20</b>
-    </div>
+<div class="hero-buttons">
 
-    <div>
-        <span>⭐ ആകെ മാർക്ക്</span>
-        <b>20</b>
-    </div>
+<a href="#about" class="btn btn-outline">
+കൂടുതൽ അറിയുക
+</a>
 
-    <div>
-        <span>⏱️ സമയം</span>
-        <b>20 മിനിറ്റ്</b>
-    </div>
+<a href="#exam" class="btn btn-primary">
+📝 പരീക്ഷ എഴുതുക
+</a>
+
 </div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="section" id="about">
+
+<div class="section-title">
+
+<h2>വിജ്ഞാന വേദിയിലേക്ക് സ്വാഗതം</h2>
+
+<p>Welcome to Al Hasana Online Knowledge Platform</p>
+
+</div>
+
+<div class="about-card">
+
+<p>
+എല്ലാവരേയും ഈ <span class="highlight">വിജ്ഞാന വേദിയിലേക്ക് സ്വാഗതം ചെയ്യുന്നു.</span>
+</p>
+
+<p>
+<span class="highlight">അറിയാനും അറിയിക്കാനും</span>
+</p>
+
+<p>
+സുഊദി അറേബ്യയിലെ മറാത്ത് ദഅവാ സെന്റർ ഇറക്കുന്ന
+ഹദീസ് പോസ്റ്ററുകളും, അറിവ് ചോദ്യങ്ങളും,
+മറ്റു വൈജ്ഞാനിക കാര്യങ്ങളും ഈ ഗ്രൂപ്പിലൂടെ
+നിങ്ങൾക്ക് ലഭിക്കും إن شاء الله.
+</p>
+
+<p>
+ഉത്തരവാദിത്തങ്ങൾ സമയത്തേക്കാൾ അധികമാണ്.
+ഓരോ സമയവും വിലപിടിപ്പുള്ളതാണ്.
+</p>
+
+<p>
+നിങ്ങൾക്ക് അയച്ചു തരുന്ന അറിവുകൾ പഠിക്കുകയും,
+രേഖപ്പെടുത്തി വെക്കുകയും,
+മറ്റുള്ളവർക്ക് എത്തിച്ചുകൊടുക്കുകയും ചെയ്യാൻ ശ്രമിക്കുക.
+</p>
+
+<p class="highlight">
+അല്ലാഹു അനുഗ്രഹിക്കട്ടെ 🤲
+</p>
+
+</div>
+
+</section>
+
+
+<!-- KNOWLEDGE -->
+
+<section class="section" id="knowledge">
+
+<div class="section-title">
+
+<h2>നമ്മുടെ വിജ്ഞാന പ്രവർത്തനങ്ങൾ</h2>
+
+<p>Learn • Remember • Share</p>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<div class="card-icon">📜</div>
+
+<h3>ഹദീസ് പോസ്റ്ററുകൾ</h3>
+
+<p>
+നിത്യജീവിതത്തിൽ പ്രാവർത്തികമാക്കാവുന്ന
+നബിവചനങ്ങളും ഹദീസ് സന്ദേശങ്ങളും.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">❓</div>
+
+<h3>അറിവ് ചോദ്യങ്ങൾ</h3>
+
+<p>
+ഇസ്ലാമികവും വൈജ്ഞാനികവുമായ
+അറിവ് ചോദ്യങ്ങളിലൂടെ പഠനം.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">📚</div>
+
+<h3>വൈജ്ഞാനിക അറിവുകൾ</h3>
+
+<p>
+പുതിയ അറിവുകൾ കണ്ടെത്താനും
+മറ്റുള്ളവരിലേക്ക് എത്തിക്കാനും.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">🤲</div>
+
+<h3>അറിവ് പങ്കുവെക്കാം</h3>
+
+<p>
+നേടിയ അറിവുകൾ മറ്റുള്ളവരിലേക്ക്
+എത്തിക്കുക എന്നതാണ് ലക്ഷ്യം.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- EXAM -->
+
+<section class="section exam-section" id="exam">
+
+<div class="exam-box">
+
+<div id="startArea">
+
+<h2>📝 Online Examination</h2>
+
+<p class="exam-info">
+പരീക്ഷ ആരംഭിക്കുന്നതിന് മുമ്പ് നിങ്ങളുടെ പേര് നൽകുക
+</p>
 
 <div class="input-group">
-<label>വിദ്യാർത്ഥിയുടെ പേര് *</label>
-<input type="text" id="studentName" placeholder="നിങ്ങളുടെ പേര് നൽകുക">
+
+<label>നിങ്ങളുടെ മുഴുവൻ പേര്</label>
+
+<input
+type="text"
+id="studentName"
+placeholder="പേര് ഇവിടെ എഴുതുക"
+>
+
 </div>
 
-<div class="input-group">
-<label>റോൾ നമ്പർ / ബാച്ച്</label>
-<input type="text" id="studentBatch" placeholder="Roll Number / Batch">
-</div>
+<button class="btn btn-primary"
+style="width:100%"
+onclick="startExam()">
 
-<button class="start-btn" onclick="startExam()">
-▶ പരീക്ഷ ആരംഭിക്കുക
+പരീക്ഷ ആരംഭിക്കുക 🚀
+
 </button>
 
 </div>
 
-</div>
 
+<!-- QUIZ AREA -->
 
-
-<!-- EXAM SCREEN -->
-
-<div id="examScreen">
+<div id="quizArea">
 
 <div class="exam-top">
 
 <div>
-<div class="student-name" id="displayName"></div>
+👤 <span id="displayName"></span>
 </div>
 
 <div class="timer">
-⏱ <span id="timer">20:00</span>
+⏱️ <span id="timer">10:00</span>
 </div>
 
 </div>
 
 
-<div class="progress-area">
+<form id="examForm">
 
-<div class="progress-text">
-<span id="progressText">ചോദ്യം 1 / 20</span>
-<span id="answeredText">Answered: 0</span>
+<!-- QUESTION 1 -->
+
+<div class="question">
+
+<h3>1. ഇസ്ലാമിന്റെ അടിസ്ഥാന സ്തംഭങ്ങൾ എത്രയാണ്?</h3>
+
+<label class="option">
+<input type="radio" name="q1" value="a">
+3
+</label>
+
+<label class="option">
+<input type="radio" name="q1" value="b">
+4
+</label>
+
+<label class="option">
+<input type="radio" name="q1" value="c">
+5
+</label>
+
+<label class="option">
+<input type="radio" name="q1" value="d">
+6
+</label>
+
 </div>
 
-<div class="progress-bar">
-<div class="progress-fill" id="progressFill"></div>
-</div>
+
+<!-- QUESTION 2 -->
+
+<div class="question">
+
+<h3>2. ഖുർആൻ അവതരിച്ചത് ഏത് ഭാഷയിലാണ്?</h3>
+
+<label class="option">
+<input type="radio" name="q2" value="a">
+മലയാളം
+</label>
+
+<label class="option">
+<input type="radio" name="q2" value="b">
+അറബി
+</label>
+
+<label class="option">
+<input type="radio" name="q2" value="c">
+ഇംഗ്ലീഷ്
+</label>
+
+<label class="option">
+<input type="radio" name="q2" value="d">
+ഉർദു
+</label>
 
 </div>
 
 
-<div class="question-card">
+<!-- QUESTION 3 -->
 
-<div class="question-number" id="questionNumber"></div>
+<div class="question">
 
-<div class="question" id="questionText"></div>
+<h3>3. അവസാന പ്രവാചകൻ ആര്?</h3>
 
-<div class="options" id="optionsContainer"></div>
+<label class="option">
+<input type="radio" name="q3" value="a">
+മൂസാ (അ)
+</label>
+
+<label class="option">
+<input type="radio" name="q3" value="b">
+ഈസാ (അ)
+</label>
+
+<label class="option">
+<input type="radio" name="q3" value="c">
+മുഹമ്മദ് ﷺ
+</label>
+
+<label class="option">
+<input type="radio" name="q3" value="d">
+ഇബ്രാഹീം (അ)
+</label>
+
+</div>
 
 
-<div class="navigation">
+<!-- QUESTION 4 -->
 
-<button class="nav-btn prev-btn" onclick="previousQuestion()">
-← Previous
+<div class="question">
+
+<h3>4. ഒരു ദിവസത്തിൽ എത്ര നേരം നിർബന്ധ നമസ്കാരമുണ്ട്?</h3>
+
+<label class="option">
+<input type="radio" name="q4" value="a">
+3
+</label>
+
+<label class="option">
+<input type="radio" name="q4" value="b">
+4
+</label>
+
+<label class="option">
+<input type="radio" name="q4" value="c">
+5
+</label>
+
+<label class="option">
+<input type="radio" name="q4" value="d">
+6
+</label>
+
+</div>
+
+
+<!-- QUESTION 5 -->
+
+<div class="question">
+
+<h3>5. റമളാൻ മാസത്തിലെ നിർബന്ധ ആരാധന ഏതാണ്?</h3>
+
+<label class="option">
+<input type="radio" name="q5" value="a">
+ഹജ്ജ്
+</label>
+
+<label class="option">
+<input type="radio" name="q5" value="b">
+നോമ്പ്
+</label>
+
+<label class="option">
+<input type="radio" name="q5" value="c">
+ഉംറ
+</label>
+
+<label class="option">
+<input type="radio" name="q5" value="d">
+ഖുർബാനി
+</label>
+
+</div>
+
+
+<!-- QUESTION 6 -->
+
+<div class="question">
+
+<h3>6. മുസ്ലിംകളുടെ വിശുദ്ധ ഗ്രന്ഥം ഏതാണ്?</h3>
+
+<label class="option">
+<input type="radio" name="q6" value="a">
+ബൈബിൾ
+</label>
+
+<label class="option">
+<input type="radio" name="q6" value="b">
+തൗറാത്ത്
+</label>
+
+<label class="option">
+<input type="radio" name="q6" value="c">
+ഖുർആൻ
+</label>
+
+<label class="option">
+<input type="radio" name="q6" value="d">
+ഇൻജീൽ
+</label>
+
+</div>
+
+
+<!-- QUESTION 7 -->
+
+<div class="question">
+
+<h3>7. നമസ്കാരത്തിന് മുമ്പ് നിർബന്ധമായ ശുദ്ധീകരണം ഏതാണ്?</h3>
+
+<label class="option">
+<input type="radio" name="q7" value="a">
+വുളൂ
+</label>
+
+<label class="option">
+<input type="radio" name="q7" value="b">
+ഹജ്ജ്
+</label>
+
+<label class="option">
+<input type="radio" name="q7" value="c">
+സകാത്ത്
+</label>
+
+<label class="option">
+<input type="radio" name="q7" value="d">
+നോമ്പ്
+</label>
+
+</div>
+
+
+<!-- QUESTION 8 -->
+
+<div class="question">
+
+<h3>8. ഇസ്ലാമിക വർഷത്തിലെ ആദ്യ മാസം ഏതാണ്?</h3>
+
+<label class="option">
+<input type="radio" name="q8" value="a">
+റമളാൻ
+</label>
+
+<label class="option">
+<input type="radio" name="q8" value="b">
+മുഹറം
+</label>
+
+<label class="option">
+<input type="radio" name="q8" value="c">
+ശവ്വാൽ
+</label>
+
+<label class="option">
+<input type="radio" name="q8" value="d">
+റജബ്
+</label>
+
+</div>
+
+
+<!-- QUESTION 9 -->
+
+<div class="question">
+
+<h3>9. ഖുർആനിലെ ആദ്യ സൂറത്ത് ഏതാണ്?</h3>
+
+<label class="option">
+<input type="radio" name="q9" value="a">
+അൽ ബഖറ
+</label>
+
+<label class="option">
+<input type="radio" name="q9" value="b">
+അൽ ഫാതിഹ
+</label>
+
+<label class="option">
+<input type="radio" name="q9" value="c">
+അൽ ഇഖ്ലാസ്
+</label>
+
+<label class="option">
+<input type="radio" name="q9" value="d">
+അൻ നാസ്
+</label>
+
+</div>
+
+
+<!-- QUESTION 10 -->
+
+<div class="question">
+
+<h3>10. അറിവ് മറ്റുള്ളവർക്ക് പങ്കുവെക്കുന്നത് എന്താണ്?</h3>
+
+<label class="option">
+<input type="radio" name="q10" value="a">
+നല്ല പ്രവൃത്തി
+</label>
+
+<label class="option">
+<input type="radio" name="q10" value="b">
+മോശം പ്രവൃത്തി
+</label>
+
+<label class="option">
+<input type="radio" name="q10" value="c">
+അനാവശ്യ പ്രവൃത്തി
+</label>
+
+<label class="option">
+<input type="radio" name="q10" value="d">
+ഒന്നുമല്ല
+</label>
+
+</div>
+
+
+<button
+type="button"
+class="btn btn-primary"
+style="width:100%"
+onclick="submitExam()">
+
+പരീക്ഷ സമർപ്പിക്കുക ✅
+
 </button>
 
-<button class="nav-btn next-btn" id="nextBtn" onclick="nextQuestion()">
-Next →
-</button>
+<div class="loading" id="loading">
+
+⏳ Result saving...
 
 </div>
 
-</div>
-
-
-<div class="question-nav">
-
-<h4>ചോദ്യങ്ങളിലേക്ക് പോകുക</h4>
-
-<div class="q-grid" id="questionGrid"></div>
-
-</div>
+</form>
 
 </div>
 
 
+<!-- RESULT AREA -->
 
-<!-- RESULT SCREEN -->
-
-<div id="resultScreen">
-
-<div class="result-card">
+<div id="resultArea">
 
 <div class="result-icon">🎉</div>
 
-<h1>പരീക്ഷ പൂർത്തിയായി!</h1>
+<h2>പരീക്ഷ പൂർത്തിയായി!</h2>
 
-<p id="resultMessage"></p>
+<p id="resultName"></p>
 
-<div class="score-circle">
+<div class="score-box">
 
-<div class="score" id="scoreDisplay">0/20</div>
+<div class="score">
+<span id="score">0</span>/10
+</div>
 
-<div class="score-label">നിങ്ങളുടെ സ്കോർ</div>
+<p>നിങ്ങളുടെ മാർക്ക്</p>
 
 </div>
 
+<p class="result-text">
 
-<div class="result-details">
+നിങ്ങളുടെ പരീക്ഷാ ഫലം വിജയകരമായി രേഖപ്പെടുത്തി.<br>
 
-<div class="result-box">
-<b id="correctCount">0</b>
-<span>ശരിയുത്തരം</span>
-</div>
+അല്ലാഹു നിങ്ങൾക്ക് കൂടുതൽ വിജ്ഞാനം നൽകട്ടെ 🤲
 
-<div class="result-box">
-<b id="wrongCount">0</b>
-<span>തെറ്റായ ഉത്തരം</span>
-</div>
-
-<div class="result-box">
-<b id="percentage">0%</b>
-<span>Percentage</span>
-</div>
-
-</div>
-
-<button class="retry-btn" onclick="location.reload()">
-↻ വീണ്ടും പരീക്ഷ എഴുതുക
-</button>
+</p>
 
 </div>
 
 </div>
 
-
-</div>
+</section>
 
 
 <footer>
-© 2026 Al Hasana Online · All Rights Reserved
+
+<h3>Al Hasana Online</h3>
+
+<p>അറിയാനും അറിയിക്കാനും ഒരു വിജ്ഞാന വേദി</p>
+
+<p>
+© 2026 Al Hasana Online | All Rights Reserved
+</p>
+
 </footer>
 
 
 
-<script>
+<!-- FIREBASE -->
 
-const questions = [
+<script type="module">
 
-{
-question:"ഖുർആനിൽ ആദ്യം വരുന്ന പ്രാർത്ഥന ഏതാണ്?",
-options:[
-"الرَّحْمٰنِ الرَّحِيمِ",
-"اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
-"إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
-"الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ"
-],
-answer:1
-},
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 
-{
-question:"'ആവർത്തിച്ച് ഓതപ്പെടുന്ന 7 ആയത്തുകൾ' എന്ന അർത്ഥത്തിൽ സൂറത്തുൽ ഫാതിഹ അറിയപ്പെടുന്ന പേര് ഏതാണ്?",
-options:[
-"ഉമ്മുൽ കിതാബ്",
-"അൽ-ഖുർആനുൽ അളീം",
-"അസ്സബ്ഉൽ മഥാനീ",
-"അസ്-സ്വലാത്ത്"
-],
-answer:2
-},
-
-{
-question:"തൗഹീദുൽ ഉലൂഹിയ്യ (ആരാധനയിലെ ഏകത്വം) വ്യക്തമാക്കുന്ന സൂറത്തുൽ ഫാതിഹയിലെ ആയത്ത് ഏതാണ്?",
-options:[
-"الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
-"الرَّحْمٰنِ الرَّحِيمِ",
-"مَالِكِ يَوْمِ الدِّينِ",
-"إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ"
-],
-answer:3
-},
-
-{
-question:"സൂറത്തുൽ ഫാതിഹയിലെ 'صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ' എന്നതുകൊണ്ട് ഉദ്ദേശിക്കുന്നത് ആരെയൊക്കെയാണ്?",
-options:[
-"നബിമാർ, സിദ്ദീഖുകൾ, ശുഹദാഅ്, സ്വാലിഹുകൾ",
-"ധനികരും ഭരണാധികാരികളും",
-"കോപത്തിന് ഇരയായവരും വഴിപിഴച്ചവരും",
-"മലക്കുകളും ജിന്നുകളും"
-],
-answer:0
-},
-
-{
-question:"വിശുദ്ധ ഖുർആൻ ആർക്കാണ് യഥാർത്ഥ മാർഗ്ഗദർശനം (ഹിദായത്ത്) നൽകുന്നത്?",
-options:[
-"സർവ്വ മനുഷ്യർക്കും ഒരുപോലെ",
-"മുത്തഖീകൾക്ക് (സൂക്ഷ്മത പാലിക്കുന്നവർക്ക്)",
-"അവിശ്വാസികൾക്ക് മാത്രം",
-"അറിവില്ലാത്തവർക്ക് മാത്രം"
-],
-answer:1
-},
-
-{
-question:"സൂറത്തുൽ ബഖറയിൽ (1–3 ആയത്തുകൾ) അല്ലാഹു എടുത്തുപറയുന്ന മുത്തഖീങ്ങളുടെ പ്രധാന ഗുണങ്ങളിൽ ഉൾപ്പെടാത്തത് ഏത്?",
-options:[
-"അദൃശ്യ കാര്യങ്ങളിൽ വിശ്വസിക്കുക",
-"നമസ്കാരം ക്രമപ്രകാരം നിലനിർത്തുക",
-"അല്ലാഹു നൽകിയ സമ്പത്തിൽ നിന്ന് ചെലവഴിക്കുക",
-"പ്രശസ്തിക്ക് വേണ്ടി ദാനം ചെയ്യുക"
-],
-answer:3
-},
-
-{
-question:"സൂറത്തുൽ ബഖറയിലെ 'يُؤْمِنُونَ بِالْغَيْبِ' എന്നതിൽ 'അദൃശ്യ കാര്യങ്ങൾ' എന്നതുകൊണ്ട് അർത്ഥമാക്കുന്നത് എന്താണ്?",
-options:[
-"കണ്ണുകൊണ്ട് കാണുന്ന ഭൗതിക കാര്യങ്ങൾ",
-"അല്ലാഹു, മലക്കുകൾ, പരലോകം, ഖദ്ർ തുടങ്ങിയവ",
-"ഭാവിയിലെ ശാസ്ത്രീയ കണ്ടുപിടുത്തങ്ങൾ",
-"മനുഷ്യരുടെ മനസ്സിലുള്ള രഹസ്യങ്ങൾ"
-],
-answer:1
-},
-
-{
-question:"'മാർഗ്ഗദർശനം / വഴികാട്ടി' എന്ന അർത്ഥം വരുന്ന അറബി പദം ഏതാണ്?",
-options:[
-"هُدًى",
-"لَا رَيْبَ",
-"يُنْفِقُونَ",
-"الضَّالَّة"
-],
-answer:0
-},
-
-{
-question:"പ്രാർത്ഥനയുടെ പ്രധാന മര്യാദയായി (അദബ്) ഖുർആൻ നമ്മെ പഠിപ്പിക്കുന്നത് എന്താണ്?",
-options:[
-"ആവശ്യങ്ങൾ മാത്രം നേരിട്ട് ചോദിക്കുക",
-"ആദ്യം അല്ലാഹുവിനെ സ്തുതിക്കുകയും നാമങ്ങൾ ഓർക്കുകയും ചെയ്ത ശേഷം ചോദിക്കുക",
-"നമസ്കാരത്തിൽ മാത്രം പ്രാർത്ഥിക്കുക",
-"വലിയ ശബ്ദത്തിൽ പ്രാർത്ഥിക്കുക"
-],
-answer:1
-},
-
-{
-question:"അല്ലാഹുവിന്റെ കോപത്തിന് ഇരയായവർ (الْمَغْضُوبِ عَلَيْهِمْ) എന്ന് വിശേഷിപ്പിക്കപ്പെട്ടവരുടെ പ്രത്യേകത എന്താണ്?",
-options:[
-"സത്യം മനസ്സിലാക്കിയിട്ടും അത് സ്വീകരിക്കാതെ അഹങ്കാരം നടിച്ചവർ",
-"അറിവില്ലാതെ അന്ധമായി പ്രവർത്തിച്ചവർ",
-"പ്രാർത്ഥന നടത്താത്തവർ",
-"ദാനം ചെയ്യാത്തവർ"
-],
-answer:0
-},
-
-{
-question:"'പ്രതിഫല നാളിന്റെ ഉടമസ്ഥൻ' എന്നതിന്റെ അറബി രൂപം ഏതാണ്?",
-options:[
-"رَبِّ الْعَالَمِينَ",
-"مَالِكِ يَوْمِ الدِّينِ",
-"إِيَّاكَ نَسْتَعِينُ",
-"غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ"
-],
-answer:1
-},
-
-{
-question:"അല്ലാഹുവിലേക്ക് എത്തിക്കുന്ന ഏക പാത ഏതാണ് എന്നാണ് പഠനക്കുറിപ്പിൽ വ്യക്തമാക്കുന്നത്?",
-options:[
-"ഇസ്ലാം",
-"ലൗകിക വിജ്ഞാനം",
-"തത്വചിന്ത",
-"സാഹിത്യം"
-],
-answer:0
-},
-
-{
-question:"സൂറത്തുൽ ഫാതിഹയിലെ ഏതൊക്കെ ആയത്തുകളിലാണ് അല്ലാഹുവിന്റെ കാരുണ്യത്തെക്കുറിച്ച് പരാമർശിക്കുന്നത്?",
-options:[
-"ആയത്ത് 1, 2",
-"ആയത്ത് 1, 3",
-"ആയത്ത് 4, 5",
-"ആയത്ത് 6, 7"
-],
-answer:1
-},
-
-{
-question:"'ഞങ്ങൾ നിന്നോട് മാത്രം സഹായം തേടുന്നു' എന്ന പ്രഖ്യാപനത്തിൽ ഏതെല്ലാം കാര്യങ്ങളാണ് ഉൾപ്പെടുന്നത്?",
-options:[
-"ലൗകിക കാര്യങ്ങൾ മാത്രം",
-"മതാധിഷ്ഠിത കാര്യങ്ങൾ മാത്രം",
-"ദീനീ-ദുൻയവീ (മതപരവും ലൗകികവുമായ) കാര്യങ്ങൾ",
-"സാമ്പത്തിക കാര്യങ്ങൾ മാത്രം"
-],
-answer:2
-},
-
-{
-question:"സ്വഹീഹുൽ ബുഖാരിയിലെ ഹദീസ് പ്രകാരം ഖുർആനിലെ ഏറ്റവും മഹത്തായ സൂറത്ത് ഏതാണ്?",
-options:[
-"സൂറത്തുൽ ബഖറ",
-"സൂറത്തുൽ യാസീൻ",
-"അൽഹംദു ലില്ലാഹി റബ്ബിൽ ആലമീൻ (സൂറത്തുൽ ഫാതിഹ)",
-"സൂറത്തുൽ ഇഖ്ലാസ്"
-],
-answer:2
-},
-
-{
-question:"തൗറാത്തിലും ഇൻജീലിലും സബൂറിലും ഖുർആനിലും ഫാതിഹക്ക് തുല്യമായ ഒന്ന് അവതരിപ്പിക്കപ്പെട്ടിട്ടില്ല എന്ന് നിവേദനം ചെയ്ത ഗ്രന്ഥം ഏതാണ്?",
-options:[
-"തിർമിദി",
-"സ്വഹീഹ് മുസ്ലിം",
-"അബൂദാവൂദ്",
-"ഇബ്നു മാജഃ"
-],
-answer:0
-},
-
-{
-question:"സൂറത്തുൽ ബഖറയിലെ 1–3 ആയത്തുകൾ പ്രകാരം അദൃശ്യ കാര്യങ്ങളിൽ വിശ്വസിക്കേണ്ട വിഷയങ്ങളിൽപ്പെടാത്തത് ഏതാണ്?",
-options:[
-"അല്ലാഹുവും മലക്കുകളും",
-"പരലോകവും ഖദ്‌റും",
-"കണ്ണുകൊണ്ട് നേരിട്ട് കാണുന്ന ഭൗതിക വസ്തുക്കൾ",
-"ഖുർആനും സുന്നത്തും വഴി അറിയിക്കപ്പെട്ട കാര്യങ്ങൾ"
-],
-answer:2
-},
-
-{
-question:"സൂറത്തുൽ ബഖറയിലെ 'رَزَقْنَاهُمْ' എന്ന വാക്കിന്റെ അർത്ഥം എന്താണ്?",
-options:[
-"അവർ വിശ്വസിച്ചു",
-"അവർ ചെലവഴിച്ചു",
-"അവർക്ക് നാം നൽകി",
-"അവർ നിലനിർത്തുന്നു"
-],
-answer:2
-},
-
-{
-question:"നാം ഫാതിഹ ഓതുമ്പോൾ അല്ലാഹു അതിന് മറുപടി നൽകുന്നുണ്ടെന്ന് വ്യക്തമാക്കുന്ന ഹദീസ് ഏതാണ്?",
-options:[
-"സ്വഹീഹുൽ ബുഖാരിയിലെ ഹദീസ്",
-"സ്വഹീഹ് മുസ്ലിമിലെ ഖുദ്സിയായ ഹദീസ്",
-"മുർസലായ ഹദീസ്",
-"ഹസനായ ഹദീസ്"
-],
-answer:1
-},
-
-{
-question:"പഠനക്കുറിപ്പുകളുടെ തഫ്സീർ അവലംബമായി നൽകിയിട്ടുള്ള പ്രധാന ഗ്രന്ഥങ്ങൾ ഏതെല്ലാമാണ്?",
-options:[
-"തഫ്സീർ അസ്സഅദി / തഫ്സീർ ഇബ്നു കഥീർ",
-"തഫ്സീർ അൽ-ഖുർതുബി / തഫ്സീർ ആലുസി",
-"തഫ്സീർ ഇബ്നു ജരീർ / തഫ്സീർ റാസി",
-"തഫ്സീർ ജലാലൈനി / തഫ്സീർ മുനീർ"
-],
-answer:0
+import {
+getFirestore,
+collection,
+addDoc,
+serverTimestamp
 }
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
-];
+
+/* FIREBASE CONFIG */
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyDFbef70zL4xISreb2FubzLlF2GkHJwarM",
+
+authDomain: "al-hasana-online.firebaseapp.com",
+
+projectId: "al-hasana-online",
+
+storageBucket: "al-hasana-online.firebasestorage.app",
+
+messagingSenderId: "610914231755",
+
+appId: "1:610914231755:web:476e058a0e56bd42ca824e"
+
+};
 
 
-let currentQuestion = 0;
-let answers = new Array(questions.length).fill(null);
-let timeLeft = 20 * 60;
+/* INITIALIZE */
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+
+/* GLOBAL VARIABLES */
+
+let studentName = "";
+
+let timeLeft = 600;
+
 let timerInterval;
 
 
 /* START EXAM */
 
-function startExam(){
+window.startExam = function(){
 
-const name = document.getElementById("studentName").value.trim();
+const name =
+document.getElementById("studentName").value.trim();
 
 if(name === ""){
-alert("ദയവായി വിദ്യാർത്ഥിയുടെ പേര് നൽകുക");
+
+alert("ദയവായി നിങ്ങളുടെ പേര് നൽകുക");
+
 return;
+
 }
 
-document.getElementById("welcomeScreen").style.display="none";
-document.getElementById("examScreen").style.display="block";
+studentName = name;
 
-document.getElementById("displayName").innerHTML =
-"👤 " + name;
+document.getElementById("displayName").innerText = name;
 
-renderQuestion();
-createQuestionNavigator();
+document.getElementById("startArea").style.display = "none";
+
+document.getElementById("quizArea").style.display = "block";
+
 startTimer();
 
-window.scrollTo({
-top:0,
+document.getElementById("exam")
+.scrollIntoView({
 behavior:"smooth"
 });
 
-}
+};
 
 
 /* TIMER */
 
 function startTimer(){
 
-timerInterval = setInterval(()=>{
+timerInterval = setInterval(function(){
 
-let minutes = Math.floor(timeLeft / 60);
-let seconds = timeLeft % 60;
+let minutes =
+Math.floor(timeLeft / 60);
 
-document.getElementById("timer").innerHTML =
-String(minutes).padStart(2,"0") + ":" +
-String(seconds).padStart(2,"0");
+let seconds =
+timeLeft % 60;
+
+document.getElementById("timer").innerText =
+minutes + ":" +
+(seconds < 10 ? "0" : "") + seconds;
 
 timeLeft--;
 
@@ -1006,7 +1149,7 @@ if(timeLeft < 0){
 
 clearInterval(timerInterval);
 
-alert("സമയം അവസാനിച്ചു! പരീക്ഷ Auto Submit ചെയ്യുന്നു.");
+alert("സമയം അവസാനിച്ചു! പരീക്ഷ സ്വയം submit ചെയ്യുന്നു.");
 
 submitExam();
 
@@ -1017,284 +1160,123 @@ submitExam();
 }
 
 
-/* RENDER QUESTION */
+/* SUBMIT EXAM */
 
-function renderQuestion(){
-
-const q = questions[currentQuestion];
-
-document.getElementById("questionNumber").innerHTML =
-"QUESTION " + (currentQuestion + 1);
-
-document.getElementById("questionText").innerHTML =
-q.question;
-
-const container =
-document.getElementById("optionsContainer");
-
-container.innerHTML="";
-
-const letters=["A","B","C","D"];
-
-q.options.forEach((option,index)=>{
-
-const optionDiv=document.createElement("div");
-
-optionDiv.className="option";
-
-if(answers[currentQuestion] === index){
-optionDiv.classList.add("selected");
-}
-
-optionDiv.innerHTML=`
-<div class="option-letter">${letters[index]}</div>
-<div>${option}</div>
-`;
-
-optionDiv.onclick=()=>selectAnswer(index);
-
-container.appendChild(optionDiv);
-
-});
-
-
-document.getElementById("progressText").innerHTML =
-"ചോദ്യം " + (currentQuestion+1) + " / " + questions.length;
-
-document.getElementById("progressFill").style.width =
-((currentQuestion+1)/questions.length*100)+"%";
-
-
-const answeredCount =
-answers.filter(a=>a!==null).length;
-
-document.getElementById("answeredText").innerHTML =
-"Answered: "+answeredCount;
-
-
-const nextBtn=document.getElementById("nextBtn");
-
-if(currentQuestion === questions.length-1){
-
-nextBtn.innerHTML="Submit Exam ✓";
-nextBtn.className="nav-btn submit-btn";
-
-}else{
-
-nextBtn.innerHTML="Next →";
-nextBtn.className="nav-btn next-btn";
-
-}
-
-updateNavigator();
-
-}
-
-
-/* SELECT ANSWER */
-
-function selectAnswer(index){
-
-answers[currentQuestion]=index;
-
-renderQuestion();
-
-}
-
-
-/* NEXT */
-
-function nextQuestion(){
-
-if(currentQuestion === questions.length-1){
-
-confirmSubmit();
-
-}else{
-
-currentQuestion++;
-renderQuestion();
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-}
-
-}
-
-
-/* PREVIOUS */
-
-function previousQuestion(){
-
-if(currentQuestion>0){
-
-currentQuestion--;
-
-renderQuestion();
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-}
-
-}
-
-
-/* QUESTION NAV */
-
-function createQuestionNavigator(){
-
-const grid=document.getElementById("questionGrid");
-
-grid.innerHTML="";
-
-questions.forEach((q,index)=>{
-
-const button=document.createElement("button");
-
-button.className="q-dot";
-
-button.innerHTML=index+1;
-
-button.onclick=()=>{
-
-currentQuestion=index;
-
-renderQuestion();
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-};
-
-grid.appendChild(button);
-
-});
-
-}
-
-
-function updateNavigator(){
-
-const dots=document.querySelectorAll(".q-dot");
-
-dots.forEach((dot,index)=>{
-
-dot.classList.remove("active","answered");
-
-if(answers[index]!==null){
-dot.classList.add("answered");
-}
-
-if(index===currentQuestion){
-dot.classList.add("active");
-}
-
-});
-
-}
-
-
-/* CONFIRM SUBMIT */
-
-function confirmSubmit(){
-
-const unanswered =
-answers.filter(a=>a===null).length;
-
-let message="പരീക്ഷ Submit ചെയ്യണോ?";
-
-if(unanswered>0){
-message += "\n\n⚠️ "+unanswered+" ചോദ്യങ്ങൾക്ക് ഉത്തരം നൽകിയിട്ടില്ല.";
-}
-
-if(confirm(message)){
-submitExam();
-}
-
-}
-
-
-/* SUBMIT */
-
-function submitExam(){
+window.submitExam = async function(){
 
 clearInterval(timerInterval);
 
-let correct=0;
 
-questions.forEach((q,index)=>{
+/* CORRECT ANSWERS */
 
-if(answers[index]===q.answer){
-correct++;
+const answers = {
+
+q1:"c",
+
+q2:"b",
+
+q3:"c",
+
+q4:"c",
+
+q5:"b",
+
+q6:"c",
+
+q7:"a",
+
+q8:"b",
+
+q9:"b",
+
+q10:"a"
+
+};
+
+
+let score = 0;
+
+
+/* CALCULATE SCORE */
+
+for(let question in answers){
+
+const selected =
+document.querySelector(
+`input[name="${question}"]:checked`
+);
+
+if(selected &&
+selected.value === answers[question]){
+
+score++;
+
 }
 
-});
-
-const wrong =
-answers.filter((a,index)=>
-a!==null && a!==questions[index].answer
-).length;
-
-const percentage =
-Math.round((correct/questions.length)*100);
-
-
-document.getElementById("examScreen").style.display="none";
-
-document.getElementById("resultScreen").style.display="block";
-
-
-document.getElementById("scoreDisplay").innerHTML =
-correct + "/20";
-
-document.getElementById("correctCount").innerHTML =
-correct;
-
-document.getElementById("wrongCount").innerHTML =
-wrong;
-
-document.getElementById("percentage").innerHTML =
-percentage+"%";
-
-
-let message="";
-
-if(percentage >= 90){
-message="🌟 മാഷാ അല്ലാഹ്! അത്യുജ്ജ്വല പ്രകടനം.";
 }
 
-else if(percentage >= 70){
-message="👏 വളരെ നല്ല പ്രകടനം! ഇനിയും മുന്നോട്ട് പോവുക.";
+
+document.getElementById("loading").style.display="block";
+
+
+try{
+
+
+/* SAVE RESULT TO FIRESTORE */
+
+await addDoc(
+collection(db,"examResults"),
+{
+
+name: studentName,
+
+score: score,
+
+total: 10,
+
+percentage: score * 10,
+
+submittedAt: serverTimestamp(),
+
+examName: "Al Hasana Online Examination"
+
 }
-
-else if(percentage >= 50){
-message="👍 നല്ല ശ്രമം. കൂടുതൽ പഠിച്ച് വീണ്ടും ശ്രമിക്കൂ.";
-}
-
-else{
-message="📚 കൂടുതൽ പഠനവും ആവർത്തനവും ആവശ്യമാണ്. വീണ്ടും ശ്രമിക്കൂ.";
-}
-
-document.getElementById("resultMessage").innerHTML =
-message;
+);
 
 
-window.scrollTo({
-top:0,
+/* SHOW RESULT */
+
+document.getElementById("quizArea").style.display="none";
+
+document.getElementById("resultArea").style.display="block";
+
+document.getElementById("score").innerText = score;
+
+document.getElementById("resultName").innerText =
+studentName + " - നിങ്ങളുടെ ഫലം";
+
+
+document.getElementById("exam")
+.scrollIntoView({
 behavior:"smooth"
 });
 
+
+}
+catch(error){
+
+console.error(error);
+
+alert(
+"Result save ചെയ്യുന്നതിൽ പ്രശ്നമുണ്ട്. വീണ്ടും ശ്രമിക്കുക."
+);
+
 }
 
+};
+
 </script>
+
 
 </body>
 </html>

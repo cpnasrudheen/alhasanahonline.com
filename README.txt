@@ -1,1 +1,8 @@
-Upload index.html and the entire assets folder to GitHub. Firebase exam logic and all 20 original questions are preserved.
+AL HASANA ONLINE - PREMIUM VERSION
+
+GitHub-ready structure:
+index.html
+logo.png
+hero.jpg
+
+All files are in the root folder. No assets folder is required.

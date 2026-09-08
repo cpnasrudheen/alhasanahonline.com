@@ -1,8 +1,1 @@
-AL HASANA ONLINE - PREMIUM VERSION
-
-GitHub-ready structure:
-index.html
-logo.png
-hero.jpg
-
-All files are in the root folder. No assets folder is required.
+Working version: Firebase Admin Login, dynamic exams with question builder, student Name + Phone, result storage, admin result details/delete, study materials and announcements.

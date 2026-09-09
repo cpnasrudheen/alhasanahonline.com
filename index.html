@@ -106,6 +106,9 @@ footer{background:linear-gradient(110deg,#032b22,#07513c);color:#dce8e2;padding:
 }
 @media(max-width:480px){nav a{padding:7px 9px;font-size:11px}.hero h2{font-size:45px}.hero:after{font-size:170px;right:0}.card{padding:20px}}
 
+
+.add-next-question{display:block;margin:12px 0 4px auto!important;border-radius:10px!important}
+.builder-question+.builder-question{margin-top:18px}
 </style>
 </head>
 <body>
@@ -142,7 +145,7 @@ footer{background:linear-gradient(110deg,#032b22,#07513c);color:#dce8e2;padding:
 
 <div class="modal" id="adminLoginModal"><div class="modal-box" style="max-width:500px"><span class="close" onclick="closeModal('adminLoginModal')">×</span><h2>🔐 Admin Login</h2><label>Email</label><input id="adminEmail" type="email" placeholder="Admin Email"><label>Password</label><input id="adminPassword" type="password" placeholder="Password"><button class="btn" onclick="adminLogin()">Admin Login</button></div></div>
 
-<div class="modal" id="examBuilderModal"><div class="modal-box"><span class="close" onclick="closeExamBuilder()">×</span><h2>➕ Create & Publish Exam</h2><label>Exam Title *</label><input id="builderExamTitle" placeholder="Exam name"><label>Short Description</label><textarea id="builderExamDescription" placeholder="Exam description"></textarea><div style="display:flex;justify-content:space-between;align-items:center"><h3>📝 Questions</h3><button class="btn small" onclick="addQuestionField()">+ Add New Question</button></div><div id="builderQuestions"></div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:18px"><span class="muted" id="questionCount">0 Questions Added</span><button class="btn gold" onclick="publishExam()">🚀 Publish Exam - എല്ലാവർക്കും കാണിക്കുക</button></div></div></div>
+<div class="modal" id="examBuilderModal"><div class="modal-box"><span class="close" onclick="closeExamBuilder()">×</span><h2>➕ Create & Publish Exam</h2><label>Exam Title *</label><input id="builderExamTitle" placeholder="Exam name"><label>Short Description</label><textarea id="builderExamDescription" placeholder="Exam description"></textarea><div style="display:flex;justify-content:space-between;align-items:center"><h3>📝 Questions</h3><span class="muted">Questions ഒന്നിന് ശേഷം അടുത്തത് താഴെ ചേർക്കാം</span></div><div id="builderQuestions"></div><button class="btn small add-next-question" onclick="addQuestionField()">+ Add New Question</button><div style="display:flex;justify-content:space-between;align-items:center;margin-top:18px"><span class="muted" id="questionCount">0 Questions Added</span><button class="btn gold" onclick="publishExam()">🚀 Publish Exam - എല്ലാവർക്കും കാണിക്കുക</button></div></div></div>
 
 <div class="modal" id="examModal"><div class="modal-box"><span class="close" onclick="closeExam()">×</span><div id="examContent"></div></div></div>
 <div class="modal" id="resultDetailModal"><div class="modal-box"><span class="close" onclick="closeModal('resultDetailModal')">×</span><div id="resultDetailContent"></div></div></div>

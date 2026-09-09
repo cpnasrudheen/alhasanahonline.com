@@ -58,8 +58,31 @@ footer{background:#032b22;color:#c7d3cd;padding:24px 5%;display:flex;justify-con
 .thankyou-screen h2{color:#07513c;margin:8px 0}
 .thankyou-screen p{color:#5f6d66;line-height:1.8;margin:8px auto;max-width:520px}
 .thankyou-screen .islamic-line{color:#b58425;font-weight:700;margin-top:18px}
+
+/* ===== MOBILE ADMIN LOGIN VISIBILITY FIX ===== */
+.mobile-admin-login{
+  display:none;
+  width:100%;
+  margin-top:6px;
+}
+.mobile-admin-login .admin-btn{
+  width:100%;
+  display:block;
+  text-align:center;
+  padding:11px 14px;
+}
+@media(max-width:760px){
+  .mobile-admin-login{display:block}
+  /* Keep the existing desktop admin button hidden in the mobile nav if it exists,
+     so there is one clear mobile login button. */
+  nav .admin-btn{display:none!important}
+}
 </style></head><body><div id="siteToast" class="site-toast"></div>
-<header class="top-header"><div class="brand"><img src="logo.png"><div><h1>Al Hasana <span>Online</span></h1><small>വിജ്ഞാന വേദി</small></div></div><nav><a class="active" href="#home">⌂ Home</a><a href="#about">♟ About</a><a href="#contents">▣ Study</a><a href="#exams">▤ Exams</a><a href="#results">▥ Results</a><a href="#results">♜ Leaderboard</a><a href="#about">✉ Contact</a><a class="admin-nav" href="javascript:void(0)" onclick="openAdminLogin()">🔐 Admin Login</a></nav></header>
+<header class="top-header"><div class="brand"><img src="logo.png"><div><h1>Al Hasana <span>Online</span></h1><small>വിജ്ഞാന വേദി</small></div></div><nav><a class="active" href="#home">⌂ Home</a><a href="#about">♟ About</a><a href="#contents">▣ Study</a><a href="#exams">▤ Exams</a><a href="#results">▥ Results</a><a href="#results">♜ Leaderboard</a><a href="#about">✉ Contact</a><a class="admin-nav" href="javascript:void(0)" onclick="openAdminLogin()">🔐 Admin Login</a></nav>
+<div class="mobile-admin-login">
+  <button class="admin-btn" onclick="openAdminLogin()">🔐 Admin Login</button>
+</div>
+</header>
 <section class="hero" id="home"><div class="hero-inner"><div class="hero-copy"><div class="eyebrow">A JOURNEY TOWARDS KNOWLEDGE AND RIGHTEOUSNESS</div><h2>Al Hasana <span>Online</span></h2><div class="mal">വിജ്ഞാന വേദി</div><p class="hero-desc">An online platform for Islamic education, learning, knowledge sharing, and self-assessment.</p><div class="hero-tags">Learn • Practice • Grow • Become Better</div><div class="quote"><div class="arabic">رَبِّ زِدْنِي عِلْمًا</div><p>“My Lord, increase me in knowledge”<br>(Quran 20:114)</p></div><div class="hero-actions"><a class="action primary" href="#contents">📖 Start Learning →</a><a class="action secondary" href="#exams">▤ Take an Exam →</a></div></div></div></section>
 <div class="quick-wrap"><a class="quick" href="#contents"><div class="qicon">▣</div><div><h3>Study</h3><p>Explore Islamic topics, articles and resources.</p></div></a><a class="quick" href="#exams"><div class="qicon">▤</div><div><h3>Exams</h3><p>Test your knowledge with online exams.</p></div></a><a class="quick" href="#admin"><div class="qicon">▥</div><div><h3>Results</h3><p>Check your performance and progress.</p></div></a><a class="quick" href="#admin"><div class="qicon">♜</div><div><h3>Leaderboard</h3><p>See top learners and get inspired.</p></div></a></div>
 <section id="about"><div class="container"><div class="section-title"><small>AL HASANA ONLINE</small><h2>വിജ്ഞാന വേദി</h2></div><div class="welcome-box"><p>എല്ലാവരേയും ഈ <span class="highlight">വിജ്ഞാന വേദിയിലേക്ക്</span> സ്വാഗതം ചെയ്യുന്നു.</p><p>സുഊദി അറേബ്യയിലെ മറാത്ത് ദഅവാ സെന്റർ ഇറക്കുന്ന ഹദീസ് പോസ്റ്ററുകളും അറിവ് ചോദ്യങ്ങളും മറ്റു വൈജ്ഞാനിക കാര്യങ്ങളും ഈ വേദിയിലൂടെ നിങ്ങൾക്ക് ലഭിക്കും إن شاء الله</p><p>നിങ്ങൾക്ക് അയച്ചു തരുന്ന അറിവുകൾ പഠിക്കുകയും രേഖപ്പെടുത്തി വെക്കുകയും മറ്റുള്ളവർക്ക് എത്തിച്ചുകൊടുക്കുകയും ചെയ്യാൻ ശ്രമിക്കുക.</p><p class="highlight">അല്ലാഹു അനുഗ്രഹിക്കട്ടെ 🤲</p></div></div></section>

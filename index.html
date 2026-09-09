@@ -110,11 +110,38 @@ footer{background:linear-gradient(110deg,#032b22,#07513c);color:#dce8e2;padding:
 .hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,43,33,.78),rgba(3,43,33,.35) 55%,rgba(3,43,33,.05));z-index:0}
 .hero>div{position:relative;z-index:1}
 @media(max-width:480px){.site-logo{width:46px;height:46px}}
+
+.hero{
+  position:relative;
+  overflow:hidden;
+  background-image:url("hero.jpg") !important;
+  background-position:center center !important;
+  background-size:cover !important;
+  background-repeat:no-repeat !important;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,rgba(3,45,34,.84) 0%,rgba(3,45,34,.58) 38%,rgba(3,45,34,.12) 72%,rgba(3,45,34,.02) 100%);
+  z-index:0;
+}
+.hero > *{position:relative;z-index:1}
+
+.site-logo{
+ width:68px !important;height:68px !important;
+ object-fit:contain !important;
+ border-radius:50%;
+ background:#fff;
+ display:block;
+ flex:none;
+}
+.brand{display:flex;align-items:center;gap:13px}
 </style>
 </head>
 <body>
 <header>
- <div class="brand"><img src="assets/logo.png" alt="Al Hasana" class="site-logo"><h1>Al Hasana <span>Online</span></h1><small>വിജ്ഞാന വേദി</small></div>
+ <div class="brand"><img src="logo.png" alt="Al Hasana Logo" class="site-logo"><h1>Al Hasana <span>Online</span></h1><small>വിജ്ഞാന വേദി</small></div>
  <nav><a href="#home">Home</a><a href="#study">Study</a><a href="#exams">Exams</a><a href="#announcements">Announcements</a><a href="javascript:void(0)" class="admin-link" onclick="openAdminLogin()">🔐 Admin Login</a></nav>
 </header>
 

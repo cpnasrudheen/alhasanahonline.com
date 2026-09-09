@@ -11,94 +11,24 @@ section{padding:70px 5%}.container{max-width:1250px;margin:auto}.section-title{t
 footer{background:#032b22;color:#c7d3cd;padding:24px 5%;display:flex;justify-content:space-between;flex-wrap:wrap;font:12px Poppins}
 @media(max-width:1000px){.quick-wrap{grid-template-columns:repeat(2,1fr)}.brand{min-width:auto}nav{overflow:auto;justify-content:flex-start}}@media(max-width:760px){.top-header{height:auto;padding:12px;flex-wrap:wrap}.brand{width:100%}.brand img{width:55px;height:55px}nav{width:100%;flex-wrap:nowrap}.admin-nav{display:none}.hero-inner{min-height:590px}.hero:before{background:linear-gradient(90deg,rgba(2,35,27,.97),rgba(3,45,34,.82)),url('hero.jpg') center/cover}.quick-wrap,.cards,.exam-grid,.stats{grid-template-columns:1fr}.section-title h2{font-size:30px}.hero h2{font-size:52px}.welcome-box{padding:25px 18px}}
 .admin-table{width:100%;border-collapse:collapse;font-family:Poppins,sans-serif}.admin-table th,.admin-table td{padding:12px 8px;border-bottom:1px solid #e7ece8;text-align:left;font-size:13px}.admin-table th{background:#f3f6f4}.small-btn{border:0;border-radius:8px;padding:7px 10px;cursor:pointer;background:#07513c;color:#fff;font:12px Poppins}.danger{background:#8b3030}.question-builder{border:1px dashed #b9c9c1;padding:12px;border-radius:12px;margin:10px 0;background:#fbfcfb}.question-builder input{margin:5px 0;padding:10px}.notice-list{max-width:900px;margin:0 auto}.notice{background:#fff8df;border-left:4px solid #e5bb57;padding:13px 16px;border-radius:10px;margin:10px 0}.material-link{display:block;background:#fff;border-radius:12px;padding:16px;margin:10px 0;border:1px solid #e5e5de;font-weight:700}.result-details{font-size:14px;text-align:left}.result-details .question{background:#fafcfb}.admin-actions{display:flex;gap:8px;flex-wrap:wrap}.tag{display:inline-block;background:#e9f3ee;color:#07513c;padding:4px 9px;border-radius:99px;font:700 11px Poppins}.builder-toolbar{position:sticky;bottom:0;background:#fff;padding:15px 0;border-top:1px solid #eee;margin-top:15px}.muted{color:#68756f;font-size:13px}.exam-meta{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:12px 0}.searchbar{display:flex;gap:10px;margin:12px 0}.searchbar input{flex:1}.question-number{background:#07513c;color:#fff;border-radius:50%;width:28px;height:28px;display:inline-grid;place-items:center;margin-right:8px;font:700 12px Poppins}
-/* ===== FINAL MOBILE + ADMIN RESULTS UX ===== */
-*{ -webkit-tap-highlight-color:transparent }
-button,a,input,select,textarea{touch-action:manipulation}
-.admin-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:14px}
-.result-card-list{display:none}
-.result-person{background:#fff;border:1px solid #e5ebe7;border-radius:16px;padding:16px;margin:10px 0;box-shadow:0 8px 20px rgba(3,43,34,.06)}
-.result-person .rp-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
-.result-person .rp-name{font-weight:800;font-size:17px;color:#173b30}
-.result-person .rp-meta{font-size:12px;color:#68756f;margin-top:3px}
-.result-person .rp-score{font:800 18px Poppins;color:#07513c;white-space:nowrap}
-.result-person .rp-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
-.result-person .rp-item{background:#f5f8f6;border-radius:10px;padding:9px}
-.result-person .rp-item b{display:block;font-size:10px;color:#718078;text-transform:uppercase;letter-spacing:.4px}
-.result-person .rp-item span{font-size:13px;font-weight:600}
-.result-person .rp-actions{display:flex;gap:8px}
-.result-person .rp-actions button{flex:1}
-.admin-section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.admin-section-head h3{margin:0}
-.count-badge{background:#e8f3ee;color:#07513c;padding:5px 10px;border-radius:999px;font:700 12px Poppins}
-#adminContentList .rank-row{gap:14px}
-#adminContentList .admin-actions{flex-shrink:0}
-#adminContentList .admin-actions button{min-width:66px}
-.builder-toolbar{z-index:5}
-.question-builder{background:#fff}
-.qb-option-row .qb-option{min-width:0}
-
-@media(max-width:760px){
-  body{font-size:15px}
-  .top-header{padding:12px 14px 10px;gap:10px}
-  .brand{width:100%;min-width:0;gap:9px}
-  .brand img{width:52px;height:52px}
-  .brand h1{font-size:23px}
-  .brand small{font-size:11px}
-  nav{width:100%;display:flex;overflow-x:auto;gap:4px;padding-bottom:3px;scrollbar-width:none}
-  nav::-webkit-scrollbar{display:none}
-  nav a{padding:9px 11px;white-space:nowrap;font-size:11px}
-  .admin-nav{display:block!important}
-  .hero{min-height:560px}
-  .hero-inner{min-height:560px;padding:34px 18px;align-items:flex-end}
-  .hero-copy{max-width:100%}
-  .eyebrow{letter-spacing:2.5px;font-size:9px}
-  .hero h2{font-size:clamp(40px,13vw,58px);line-height:1}
-  .mal{font-size:21px}
-  .hero-desc{font-size:14px}
-  .hero-tags{font-size:11px}
-  .quote{width:100%;max-width:300px}
-  .hero-actions{flex-direction:column;gap:9px}
-  .action{text-align:center;padding:12px 18px}
-  section{padding:45px 14px}
-  .section-title{margin-bottom:24px}
-  .section-title h2{font-size:28px}
-  .quick-wrap{padding:12px 14px;grid-template-columns:1fr 1fr;gap:10px}
-  .quick{min-height:105px;padding:14px;gap:9px}
-  .qicon,.card-icon{width:48px;height:48px;border-radius:12px;font-size:21px}
-  .quick h3,.card h3{font-size:18px}
-  .quick p,.card p{font-size:12px}
-  .cards,.exam-grid,.stats{grid-template-columns:1fr}
-  .card{padding:22px}
-  .exam-card{padding:22px 16px}
-  .modal{padding:8px}
-  .modal-box{padding:18px 14px;margin:8px auto;border-radius:18px;width:100%;max-height:94vh;overflow:auto}
-  .modal-title{font-size:23px}
-  input,select,textarea{font-size:16px!important;padding:12px!important}
-  .question-builder{padding:12px;margin:12px 0}
-  .qb-option-row{align-items:stretch!important}
-  .qb-option-row .qb-option{flex:1}
-  .builder-toolbar{position:sticky;bottom:-1px;padding:12px 0}
-  .builder-toolbar .submit-exam{font-size:14px!important}
-  #admin .cards{gap:12px}
-  #admin .card{padding:18px}
-  .admin-section-head{align-items:flex-start}
-  .admin-table-wrap{display:none}
-  .result-card-list{display:block}
-  .searchbar{margin:10px 0;display:block}
-  .searchbar input{width:100%;margin:0}
-  .result-person .rp-grid{grid-template-columns:1fr 1fr}
-  .rank-row{padding:12px 0}
-  #adminContentList .rank-row{align-items:flex-start}
-  #adminContentList .admin-actions{width:auto}
-  #adminContentList .admin-actions button{min-width:58px;padding:7px 8px}
-  footer{gap:8px;padding:20px 14px;text-align:center;justify-content:center}
+/* ===== NO ALERT POPUPS ===== */
+.site-toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,18px);z-index:99999;min-width:280px;max-width:calc(100vw - 28px);padding:13px 16px;border-radius:13px;background:#073d2f;color:#fff;box-shadow:0 14px 35px rgba(0,0,0,.22);font:600 13px Poppins,sans-serif;text-align:center;opacity:0;pointer-events:none;transition:.25s}
+.site-toast.show{opacity:1;transform:translate(-50%,0)}
+.site-toast.error{background:#8b3030}
+.site-toast.success{background:#07513c}
+.candidate-gate{background:linear-gradient(180deg,#f7fbf8,#fff);border:1px solid #e2ebe5;border-radius:18px;padding:20px;margin-bottom:16px}
+.candidate-gate h3{margin:0 0 6px;color:#07513c}
+.candidate-gate p{margin:0 0 16px;color:#68756f;font-size:13px}
+.candidate-actions{display:flex;gap:10px}
+.candidate-actions .btn{flex:1}
+.exam-stage{display:none}
+.exam-stage.active{display:block}
+@media(max-width:600px){
+ .site-toast{bottom:14px;min-width:0;width:calc(100vw - 28px)}
+ .candidate-gate{padding:16px}
+ .candidate-actions{flex-direction:column}
 }
-@media(max-width:390px){
-  .quick-wrap{grid-template-columns:1fr}
-  .hero h2{font-size:39px}
-  .result-person .rp-grid{grid-template-columns:1fr}
-}
-</style></head><body>
+</style></head><body><div id="siteToast" class="site-toast"></div>
 <header class="top-header"><div class="brand"><img src="logo.png"><div><h1>Al Hasana <span>Online</span></h1><small>വിജ്ഞാന വേദി</small></div></div><nav><a class="active" href="#home">⌂ Home</a><a href="#about">♟ About</a><a href="#contents">▣ Study</a><a href="#exams">▤ Exams</a><a href="#results">▥ Results</a><a href="#results">♜ Leaderboard</a><a href="#about">✉ Contact</a><a class="admin-nav" href="javascript:void(0)" onclick="openAdminLogin()">🔐 Admin Login</a></nav></header>
 <section class="hero" id="home"><div class="hero-inner"><div class="hero-copy"><div class="eyebrow">A JOURNEY TOWARDS KNOWLEDGE AND RIGHTEOUSNESS</div><h2>Al Hasana <span>Online</span></h2><div class="mal">വിജ്ഞാന വേദി</div><p class="hero-desc">An online platform for Islamic education, learning, knowledge sharing, and self-assessment.</p><div class="hero-tags">Learn • Practice • Grow • Become Better</div><div class="quote"><div class="arabic">رَبِّ زِدْنِي عِلْمًا</div><p>“My Lord, increase me in knowledge”<br>(Quran 20:114)</p></div><div class="hero-actions"><a class="action primary" href="#contents">📖 Start Learning →</a><a class="action secondary" href="#exams">▤ Take an Exam →</a></div></div></div></section>
 <div class="quick-wrap"><a class="quick" href="#contents"><div class="qicon">▣</div><div><h3>Study</h3><p>Explore Islamic topics, articles and resources.</p></div></a><a class="quick" href="#exams"><div class="qicon">▤</div><div><h3>Exams</h3><p>Test your knowledge with online exams.</p></div></a><a class="quick" href="#admin"><div class="qicon">▥</div><div><h3>Results</h3><p>Check your performance and progress.</p></div></a><a class="quick" href="#admin"><div class="qicon">♜</div><div><h3>Leaderboard</h3><p>See top learners and get inspired.</p></div></a></div>
@@ -116,12 +46,7 @@ button,a,input,select,textarea{touch-action:manipulation}
 <div class="card" style="text-align:left"><h3>📚 Add Study Material</h3><input id="materialTitle" placeholder="Title" style="margin:8px 0"><input id="materialLink" placeholder="PDF / Video Link" style="margin:8px 0"><button class="submit-exam" onclick="addMaterial()">Save Material</button></div>
 <div class="card" style="text-align:left"><h3>📢 Announcement</h3><input id="announcementText" placeholder="Write announcement" style="margin:8px 0"><button class="submit-exam" onclick="addAnnouncement()">Publish</button></div></div>
 <div class="ranking" style="margin-bottom:25px"><h3>📋 Published Exams & Content</h3><p class="muted">ഇവിടെ നിന്ന് Exam Edit/Delete ചെയ്യാനും മറ്റു content നിയന്ത്രിക്കാനും കഴിയും.</p><div id="adminContentList">Loading...</div></div>
-<div class="ranking">
-<div class="admin-section-head"><h3>👥 Exam എഴുതിയവർ</h3><span class="count-badge" id="resultCountBadge">0 Results</span></div>
-<div class="searchbar"><input id="resultSearch" placeholder="പേര് / Phone / Exam ഉപയോഗിച്ച് Search..." oninput="filterAdminResults()"></div>
-<div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Name</th><th>Phone</th><th>Exam</th><th>Score</th><th>Date</th><th>Action</th></tr></thead><tbody id="adminResultsTable"></tbody></table></div>
-<div class="result-card-list" id="adminResultsCards"></div>
-</div>
+<div class="ranking"><h3>👥 Exam എഴുതിയവർ</h3><div class="searchbar"><input id="resultSearch" placeholder="പേര് / Phone / Exam ഉപയോഗിച്ച് Search..." oninput="filterAdminResults()"></div><div style="overflow:auto"><table class="admin-table"><thead><tr><th>Name</th><th>Phone</th><th>Exam</th><th>Score</th><th>Date</th><th>Action</th></tr></thead><tbody id="adminResultsTable"></tbody></table></div></div>
 </div></div></section><footer><div>© 2026 Al Hasana Online. All rights reserved.</div><div>Learn • Practice • Grow • Become Better</div></footer>
 
 <div class="modal" id="examBuilderModal"><div class="modal-box" style="max-width:900px"><span class="close" onclick="closeExamBuilder()">×</span><div class="section-title" style="margin:5px 0 20px"><small>ADMIN AREA</small><h2 style="font-size:32px">➕ Create & Publish Exam</h2><p style="font-size:13px;color:#68756f">Questions ചേർത്ത് അവസാനം Publish Exam അമർത്തിയാൽ എല്ലാവർക്കും Exam page-ൽ കാണാം.</p></div><div class="input-group"><label>Exam Title *</label><input id="newExamTitle" placeholder="ഉദാ: Islamic General Knowledge Test"></div><div class="input-group"><label>Short Description</label><input id="newExamDesc" placeholder="Exam നെക്കുറിച്ചുള്ള ചെറിയ വിവരണം"></div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:20px"><h3 style="margin:0">📝 Questions</h3><button class="small-btn" type="button" onclick="addQuestionField()">➕ Add New Question</button></div><input type="hidden" id="editingExamId" value=""><div id="questionBuilder"></div><div class="builder-toolbar"><div class="muted" id="questionCountInfo">0 Questions</div><button class="submit-exam" style="margin-top:10px;font-size:16px" onclick="publishExam()">🚀 Publish Exam – എല്ലാവർക്കും കാണിക്കുക</button></div></div></div>
@@ -152,26 +77,69 @@ button,a,input,select,textarea{touch-action:manipulation}
   let activeExam = null;
   const ADMIN_EMAIL = "alhasanah.dw@gmail.com";
 
+  
+  let toastTimer=null;
+  window.showToast=function(message,type='success'){
+    const t=document.getElementById('siteToast');
+    if(!t)return;
+    t.textContent=message;
+    t.className='site-toast '+(type==='error'?'error':'success')+' show';
+    clearTimeout(toastTimer);
+    toastTimer=setTimeout(()=>t.classList.remove('show'),3200);
+  };
+
   function escapeHtml(v){ return String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c])); }
   window.openExam = function(exam){ activeExam=exam; openExamModal(); }
-  function openExamModal(){ document.getElementById('examContent').innerHTML=`<h2 class="modal-title" id="activeExamTitle"></h2><div class="input-group"><label>നിങ്ങളുടെ പേര് *</label><input type="text" id="studentName" placeholder="പേര് എഴുതുക"></div><div class="input-group"><label>Phone Number *</label><input type="tel" id="studentPhone" placeholder="Phone Number നൽകുക"></div><div class="input-group"><label>സ്ഥലം / ബാച്ച് (Optional)</label><input type="text" id="studentPlace" placeholder="സ്ഥലം"></div><div id="questionsContainer"></div><button class="submit-exam" onclick="submitExam()">പരീക്ഷ Submit ചെയ്യുക</button>`;document.getElementById('examModal').style.display='block'; document.getElementById('activeExamTitle').innerText='📝 '+activeExam.title; renderQuestions(); }
+  function openExamModal(){
+    document.getElementById('examContent').innerHTML=`
+      <h2 class="modal-title" id="activeExamTitle"></h2>
+      <div id="candidateGate" class="candidate-gate">
+        <h3>👤 പരീക്ഷാർത്ഥിയുടെ വിവരങ്ങൾ</h3>
+        <p>പേര്, മൊബൈൽ നമ്പർ, സ്ഥലം എന്നിവ നൽകി Continue അമർത്തിയാൽ മാത്രമേ പരീക്ഷ ആരംഭിക്കൂ.</p>
+        <div class="input-group"><label>പേര് *</label><input type="text" id="studentName" autocomplete="name" placeholder="നിങ്ങളുടെ പേര് എഴുതുക"></div>
+        <div class="input-group"><label>Mobile Number *</label><input type="tel" id="studentPhone" inputmode="tel" autocomplete="tel" placeholder="മൊബൈൽ നമ്പർ നൽകുക"></div>
+        <div class="input-group"><label>സ്ഥലം *</label><input type="text" id="studentPlace" autocomplete="address-level2" placeholder="സ്ഥലം / Place"></div>
+        <div class="candidate-actions"><button class="btn" style="background:#07513c;color:#fff" onclick="startExamAfterDetails()">Continue to Exam →</button><button class="btn" style="background:#edf4f0;color:#07513c" onclick="closeExam()">Cancel</button></div>
+      </div>
+      <div id="examStage" class="exam-stage">
+        <div id="questionsContainer"></div>
+        <button class="submit-exam" onclick="submitExam()">പരീക്ഷ Submit ചെയ്യുക</button>
+      </div>`;
+    document.getElementById('examModal').style.display='block';
+    document.getElementById('activeExamTitle').innerText='📝 '+activeExam.title;
+    document.getElementById('studentName').focus();
+  }
+  window.startExamAfterDetails=function(){
+    const name=document.getElementById('studentName').value.trim();
+    const phone=document.getElementById('studentPhone').value.trim();
+    const place=document.getElementById('studentPlace').value.trim();
+    if(!name){showToast('ദയവായി പേര് നൽകുക','error');return}
+    if(!/^[0-9+()\-.\s]{7,20}$/.test(phone)){showToast('ശരിയായ Mobile Number നൽകുക','error');return}
+    if(!place){showToast('ദയവായി സ്ഥലം നൽകുക','error');return}
+    const qs=activeExam.questions||[];
+    if(!qs.length){showToast('ഈ Exam-ൽ Questions ലഭ്യമല്ല','error');return}
+    document.getElementById('candidateGate').style.display='none';
+    document.getElementById('examStage').classList.add('active');
+    renderQuestions();
+    window.scrollTo({top:document.getElementById('examModal').offsetTop||0,behavior:'smooth'});
+  }
   window.closeExam = function(){ document.getElementById('examModal').style.display='none'; }
   function renderQuestions(){ const container=document.getElementById('questionsContainer'); container.innerHTML=''; (activeExam.questions||[]).forEach((q,index)=>{ let html=`<div class="question"><h4>${escapeHtml(q.question)}</h4>`; (q.options||[]).forEach((option,i)=> html+=`<label class="option"><input type="radio" name="question${index}" value="${i}">${escapeHtml(option)}</label>`); html+='</div>'; container.innerHTML+=html; }); }
 
   window.submitExam = async function(){
     const name=document.getElementById('studentName').value.trim(), phone=document.getElementById('studentPhone').value.trim(), place=document.getElementById('studentPlace').value.trim();
-    if(!name||!phone)return alert('ദയവായി പേര്, Phone Number നൽകുക');
+    if(!name||!phone||!place)return showToast('ആദ്യം പേര്, Mobile Number, സ്ഥലം എന്നിവ നൽകുക','error');
     if(!/^[0-9+()\-.\s]{7,20}$/.test(phone))return alert('ശരിയായ Phone Number നൽകുക');
-    const qs=activeExam.questions||[]; if(!qs.length)return alert('ഈ Exam-ൽ Questions ലഭ്യമല്ല');
+    const qs=activeExam.questions||[]; if(!qs.length)return showToast('ഈ Exam-ൽ Questions ലഭ്യമല്ല','error');
     const unanswered=[]; qs.forEach((_,i)=>{if(!document.querySelector(`input[name="question${i}"]:checked`))unanswered.push(i+1)});
-    if(unanswered.length)return alert(`എല്ലാ Questions-നും Answer നൽകുക. ബാക്കി: ${unanswered.join(', ')}`);
+    if(unanswered.length)return showToast(`എല്ലാ Questions-നും Answer നൽകുക. ബാക്കി: ${unanswered.join(', ')}`,'error');
     const submitBtn=document.querySelector('#examModal .submit-exam'); if(submitBtn){submitBtn.disabled=true;submitBtn.innerText='Saving Result...'}
     let score=0; const answers=[];
     qs.forEach((q,i)=>{const selectedIndex=Number(document.querySelector(`input[name="question${i}"]:checked`).value);if(selectedIndex===q.answer)score++;answers.push({question:q.question,selectedIndex,selectedAnswer:q.options[selectedIndex],correctIndex:q.answer,correctAnswer:q.options[q.answer]})});
     const result={name,phone,place,examId:activeExam.id,examName:activeExam.title,score,total:qs.length,percentage:Math.round(score/qs.length*100),answers,submittedAt:new Date().toISOString()};
     try{const ref=await addDoc(collection(db,'examResults'),result);await setDoc(doc(db,'leaderboard',ref.id),{name,examName:activeExam.title,score,total:qs.length,percentage:result.percentage,submittedAt:result.submittedAt});
       document.getElementById('examContent').innerHTML=`<div class="result-box"><h2>🎉 പരീക്ഷ പൂർത്തിയായി!</h2><p>അഭിനന്ദനങ്ങൾ ${escapeHtml(name)}</p><div class="score-circle"><strong>${score}/${qs.length}</strong><span>നിങ്ങളുടെ മാർക്ക്</span></div><p>${result.percentage}% Score</p><p>നിങ്ങളുടെ Result വിജയകരമായി Save ചെയ്തു.</p><button class="btn" style="background:#0d5942;color:white" onclick="location.reload()">Close</button></div>`;loadResults();
-    }catch(error){console.error(error);alert('Result save ചെയ്യുന്നതിൽ പ്രശ്നമുണ്ട്. Firestore Rules പരിശോധിക്കുക.');if(submitBtn){submitBtn.disabled=false;submitBtn.innerText='പരീക്ഷ Submit ചെയ്യുക'}}
+    }catch(error){console.error(error);showToast('Result save ചെയ്യാൻ കഴിഞ്ഞില്ല. Firebase Rules പരിശോധിക്കുക.','error');if(submitBtn){submitBtn.disabled=false;submitBtn.innerText='പരീക്ഷ Submit ചെയ്യുക'}}
   }
 
   async function loadPublicExams(){
@@ -187,59 +155,29 @@ button,a,input,select,textarea{touch-action:manipulation}
 
   window.openAdminLogin=function(){document.getElementById('adminLoginModal').style.display='block';setTimeout(()=>document.getElementById('adminEmail').focus(),100)};
   window.closeAdminLogin=function(){document.getElementById('adminLoginModal').style.display='none'};
-  window.adminLogin=async function(){const email=document.getElementById('adminEmail').value.trim();const password=document.getElementById('adminPassword').value;if(!email||!password)return alert('Email, Password നൽകുക');try{const credential=await signInWithEmailAndPassword(auth,email,password);if(credential.user.email!==ADMIN_EMAIL){await signOut(auth);throw Error('Not admin')}closeAdminLogin();showAdmin();}catch(e){console.error(e);alert('Admin Login Failed')}};
+  window.adminLogin=async function(){const email=document.getElementById('adminEmail').value.trim();const password=document.getElementById('adminPassword').value;if(!email||!password)return showToast('Email, Password നൽകുക','error');try{const credential=await signInWithEmailAndPassword(auth,email,password);if(credential.user.email!==ADMIN_EMAIL){await signOut(auth);throw Error('Not admin')}closeAdminLogin();showAdmin();}catch(e){console.error(e);showToast('Admin Login Failed','error')}};
   function showAdmin(scroll=true){document.getElementById('admin').style.display='block';document.getElementById('adminPanel').style.display='block';if(scroll)document.getElementById('admin').scrollIntoView({behavior:'smooth'});loadAdminData();}
   onAuthStateChanged(auth,user=>{if(user&&user.email===ADMIN_EMAIL)showAdmin(false);else{document.getElementById('admin').style.display='none';document.getElementById('adminPanel').style.display='none';}});
-  window.adminLogout=async()=>{await signOut(auth);alert('Logged out successfully');window.scrollTo({top:0,behavior:'smooth'})};
+  window.adminLogout=async()=>{await signOut(auth);showToast('Logged out successfully','success');window.scrollTo({top:0,behavior:'smooth'})};
 
   window.openExamBuilder=function(){resetExamBuilder();document.getElementById('examBuilderModal').style.display='block'};
   window.closeExamBuilder=function(){document.getElementById('examBuilderModal').style.display='none'};
   window.resetExamBuilder=function(){document.getElementById('editingExamId').value='';document.getElementById('newExamTitle').value='';document.getElementById('newExamDesc').value='';document.getElementById('questionBuilder').innerHTML='';addQuestionField();updateQuestionCount()};
   window.addQuestionField=function(data={}){const box=document.getElementById('questionBuilder'),id='qb'+Date.now()+Math.random().toString(36).slice(2);box.insertAdjacentHTML('beforeend',`<div class="question-builder" id="${id}"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><b><span class="question-number"></span>Question</b><button class="small-btn danger" type="button" onclick="removeQuestionField('${id}')">Remove</button></div><input class="qb-question" placeholder="Question ഇവിടെ നൽകുക" value="${escapeHtml(data.question||'')}"><div class="option-builder"></div><button class="small-btn" type="button" onclick="addOptionField('${id}')">➕ Add Option</button><div style="margin-top:10px"><label style="font-size:12px;font-weight:700">Correct Answer തിരഞ്ഞെടുക്കുക:</label><select class="qb-answer"></select></div></div>`);(data.options&&data.options.length?data.options:['','']).forEach(v=>addOptionField(id,v));updateAnswerSelect(id,data.answer??0);updateQuestionCount()};
-  window.removeQuestionField=function(id){if(document.querySelectorAll('.question-builder').length<=1)return alert('കുറഞ്ഞത് ഒരു Question വേണം');document.getElementById(id)?.remove();updateQuestionCount()};
+  window.removeQuestionField=function(id){if(document.querySelectorAll('.question-builder').length<=1)return showToast('കുറഞ്ഞത് ഒരു Question വേണം','error');document.getElementById(id)?.remove();updateQuestionCount()};
   window.updateQuestionCount=function(){const all=[...document.querySelectorAll('.question-builder')];all.forEach((q,i)=>q.querySelector('.question-number').textContent=i+1);const info=document.getElementById('questionCountInfo');if(info)info.textContent=`${all.length} Question${all.length===1?'':'s'} Added`};
-  window.addOptionField=function(questionId,value=''){const q=document.getElementById(questionId);if(!q)return;const options=q.querySelector('.option-builder'),n=options.querySelectorAll('.qb-option-row').length+1,row=document.createElement('div');row.className='qb-option-row';row.style.display='flex';row.style.gap='8px';row.style.alignItems='center';row.innerHTML=`<input class="qb-option" placeholder="Option ${n}" value="${escapeHtml(value)}"><button class="small-btn danger" type="button">×</button>`;row.querySelector('button').onclick=()=>{if(options.querySelectorAll('.qb-option-row').length<=2)return alert('കുറഞ്ഞത് 2 Options വേണം');const old=q.querySelector('.qb-answer').value;row.remove();updateAnswerSelect(questionId,old);[...options.querySelectorAll('.qb-option')].forEach((x,i)=>x.placeholder=`Option ${i+1}`)};row.querySelector('input').oninput=()=>updateAnswerSelect(questionId,q.querySelector('.qb-answer').value);options.appendChild(row);updateAnswerSelect(questionId)};
+  window.addOptionField=function(questionId,value=''){const q=document.getElementById(questionId);if(!q)return;const options=q.querySelector('.option-builder'),n=options.querySelectorAll('.qb-option-row').length+1,row=document.createElement('div');row.className='qb-option-row';row.style.display='flex';row.style.gap='8px';row.style.alignItems='center';row.innerHTML=`<input class="qb-option" placeholder="Option ${n}" value="${escapeHtml(value)}"><button class="small-btn danger" type="button">×</button>`;row.querySelector('button').onclick=()=>{if(options.querySelectorAll('.qb-option-row').length<=2)return showToast('കുറഞ്ഞത് 2 Options വേണം','error');const old=q.querySelector('.qb-answer').value;row.remove();updateAnswerSelect(questionId,old);[...options.querySelectorAll('.qb-option')].forEach((x,i)=>x.placeholder=`Option ${i+1}`)};row.querySelector('input').oninput=()=>updateAnswerSelect(questionId,q.querySelector('.qb-answer').value);options.appendChild(row);updateAnswerSelect(questionId)};
   window.updateAnswerSelect=function(questionId,selected){const q=document.getElementById(questionId);if(!q)return;const sel=q.querySelector('.qb-answer'),old=selected!==undefined?Number(selected):Number(sel.value||0),vals=[...q.querySelectorAll('.qb-option')].map((x,i)=>({text:x.value.trim()||`Option ${i+1}`,i}));sel.innerHTML=vals.map(x=>`<option value="${x.i}">${x.text}</option>`).join('');sel.value=Math.min(Math.max(0,old),Math.max(0,vals.length-1))};
-  window.publishExam=async function(){const title=document.getElementById('newExamTitle').value.trim(),description=document.getElementById('newExamDesc').value.trim(),editingId=document.getElementById('editingExamId').value;if(!title)return alert('Exam Title നൽകുക');const questionsData=[];for(const b of document.querySelectorAll('.question-builder')){const q=b.querySelector('.qb-question').value.trim(),opts=[...b.querySelectorAll('.qb-option')].map(x=>x.value.trim()),answer=Number(b.querySelector('.qb-answer').value);if(!q)return alert('ഓരോ Question-ഉം നൽകുക');if(opts.length<2||opts.some(x=>!x))return alert('ഓരോ Question-നും കുറഞ്ഞത് 2 Options പൂർണ്ണമായി നൽകുക');questionsData.push({question:q,options:opts,answer:Math.min(answer,opts.length-1)})}const payload={title,description,questions:questionsData,published:true,status:'published',updatedAt:new Date().toISOString()};try{if(editingId)await updateDoc(doc(db,'exams',editingId),payload);else await addDoc(collection(db,'exams'),{...payload,createdAt:new Date().toISOString(),publishedAt:new Date().toISOString()});closeExamBuilder();await loadAdminData();await loadPublicExams();alert(editingId?'✅ Exam Updated Successfully!':'🎉 Exam Published Successfully! ഇനി എല്ലാവർക്കും കാണാം.')}catch(e){console.error(e);alert('Publish failed. Firestore Rules പരിശോധിക്കുക.')}};
-  window.editExam=async function(id){try{const snap=await getDocs(collection(db,'exams')),d=snap.docs.find(x=>x.id===id);if(!d)return;const x=d.data();document.getElementById('editingExamId').value=id;document.getElementById('newExamTitle').value=x.title||'';document.getElementById('newExamDesc').value=x.description||'';document.getElementById('questionBuilder').innerHTML='';(x.questions||[]).forEach(q=>addQuestionField(q));if(!(x.questions||[]).length)addQuestionField();updateQuestionCount();document.getElementById('examBuilderModal').style.display='block'}catch(e){console.error(e);alert('Exam load ചെയ്യാൻ കഴിഞ്ഞില്ല. '+(e.code||e.message||''))}};
-  window.addMaterial=async function(){const title=document.getElementById('materialTitle').value.trim(),link=document.getElementById('materialLink').value.trim();if(!title||!link)return alert('Title, Link നൽകുക');try{new URL(link);await addDoc(collection(db,'studyMaterials'),{title,link,createdAt:new Date().toISOString()});document.getElementById('materialTitle').value='';document.getElementById('materialLink').value='';loadAdminContent();loadPublicMaterials();alert('Study Material Saved')}catch(e){alert('Valid Link നൽകുക / Firestore Rules പരിശോധിക്കുക.')}};
-  window.addAnnouncement=async function(){const text=document.getElementById('announcementText').value.trim();if(!text)return alert('Announcement എഴുതുക');try{await addDoc(collection(db,'announcements'),{text,createdAt:new Date().toISOString()});document.getElementById('announcementText').value='';loadAdminContent();loadPublicAnnouncements();alert('Announcement Published')}catch(e){alert('Publish failed. Firestore Rules പരിശോധിക്കുക.')}};
+  window.publishExam=async function(){const title=document.getElementById('newExamTitle').value.trim(),description=document.getElementById('newExamDesc').value.trim(),editingId=document.getElementById('editingExamId').value;if(!title)return showToast('Exam Title നൽകുക','error');const questionsData=[];for(const b of document.querySelectorAll('.question-builder')){const q=b.querySelector('.qb-question').value.trim(),opts=[...b.querySelectorAll('.qb-option')].map(x=>x.value.trim()),answer=Number(b.querySelector('.qb-answer').value);if(!q)return showToast('ഓരോ Question-ഉം നൽകുക','error');if(opts.length<2||opts.some(x=>!x))return showToast('ഓരോ Question-നും കുറഞ്ഞത് 2 Options പൂർണ്ണമായി നൽകുക','error');questionsData.push({question:q,options:opts,answer:Math.min(answer,opts.length-1)})}const payload={title,description,questions:questionsData,published:true,status:'published',updatedAt:new Date().toISOString()};try{if(editingId)await updateDoc(doc(db,'exams',editingId),payload);else await addDoc(collection(db,'exams'),{...payload,createdAt:new Date().toISOString(),publishedAt:new Date().toISOString()});closeExamBuilder();await loadAdminData();await loadPublicExams();showToast(editingId?'Exam Updated Successfully!':'Exam Published Successfully!','success')}catch(e){console.error(e);showToast('Publish ചെയ്യാൻ കഴിഞ്ഞില്ല. Firebase Rules പരിശോധിക്കുക.','error')}};
+  window.editExam=async function(id){try{const snap=await getDocs(collection(db,'exams')),d=snap.docs.find(x=>x.id===id);if(!d)return;const x=d.data();document.getElementById('editingExamId').value=id;document.getElementById('newExamTitle').value=x.title||'';document.getElementById('newExamDesc').value=x.description||'';document.getElementById('questionBuilder').innerHTML='';(x.questions||[]).forEach(q=>addQuestionField(q));if(!(x.questions||[]).length)addQuestionField();updateQuestionCount();document.getElementById('examBuilderModal').style.display='block'}catch(e){console.error(e);showToast('Exam load ചെയ്യാൻ കഴിഞ്ഞില്ല.','error')}};
+  window.addMaterial=async function(){const title=document.getElementById('materialTitle').value.trim(),link=document.getElementById('materialLink').value.trim();if(!title||!link)return showToast('Title, Link നൽകുക','error');try{new URL(link);await addDoc(collection(db,'studyMaterials'),{title,link,createdAt:new Date().toISOString()});document.getElementById('materialTitle').value='';document.getElementById('materialLink').value='';loadAdminContent();loadPublicMaterials();alert('Study Material Saved')}catch(e){showToast('Valid Link നൽകുക / Firebase Rules പരിശോധിക്കുക.','error')}};
+  window.addAnnouncement=async function(){const text=document.getElementById('announcementText').value.trim();if(!text)return showToast('Announcement എഴുതുക','error');try{await addDoc(collection(db,'announcements'),{text,createdAt:new Date().toISOString()});document.getElementById('announcementText').value='';loadAdminContent();loadPublicAnnouncements();alert('Announcement Published')}catch(e){showToast('Publish ചെയ്യാൻ കഴിഞ്ഞില്ല. Firebase Rules പരിശോധിക്കുക.','error')}};
   async function loadAdminContent(){const box=document.getElementById('adminContentList');box.innerHTML='';const examSnap=await getDocs(collection(db,'exams'));box.innerHTML+=`<h4>📝 Exams (${examSnap.size})</h4>`;examSnap.forEach(d=>{const x=d.data();box.innerHTML+=`<div class="rank-row"><span><b>${escapeHtml(x.title||'Untitled')}</b><br><small>${(x.questions||[]).length} Questions</small></span><div class="admin-actions"><button class="small-btn" onclick="editExam('${d.id}')">Edit</button><button class="small-btn danger" onclick="deleteContent('exams','${d.id}')">Delete</button></div></div>`});if(!examSnap.size)box.innerHTML+='<p class="muted">ഇതുവരെ Exam publish ചെയ്തിട്ടില്ല.</p>';for(const [col,label] of [['studyMaterials','📚 Study Materials'],['announcements','📢 Announcements']]){const snap=await getDocs(collection(db,col));box.innerHTML+=`<h4>${label} (${snap.size})</h4>`;snap.forEach(d=>{const x=d.data();box.innerHTML+=`<div class="rank-row"><span>${escapeHtml(x.title||x.text||'Untitled')}</span><button class="small-btn danger" onclick="deleteContent('${col}','${d.id}')">Delete</button></div>`})}};
-  window.deleteContent=async function(col,id){if(!confirm('Delete this item?'))return;try{await deleteDoc(doc(db,col,id));await loadAdminContent();loadPublicExams();loadPublicMaterials();loadPublicAnnouncements();alert('Deleted Successfully')}catch(e){console.error(e);alert('Delete failed. '+(e.code||e.message||''))}};
+  window.deleteContent=async function(col,id){if(!confirm('Delete this item?'))return;try{await deleteDoc(doc(db,col,id));await loadAdminContent();loadPublicExams();loadPublicMaterials();loadPublicAnnouncements();showToast('Deleted Successfully','success')}catch(e){console.error(e);showToast('Delete ചെയ്യാൻ കഴിഞ്ഞില്ല. Firebase Rules പരിശോധിക്കുക.','error')}};
 
   async function loadAdminData(){await Promise.all([loadResults(),loadAdminContent()]);}
   async function loadResults(){try{const snapshot=await getDocs(collection(db,'examResults')),results=snapshot.docs.map(d=>({id:d.id,...d.data()}));results.sort((a,b)=>(b.percentage??0)-(a.percentage??0)||String(b.submittedAt||'').localeCompare(String(a.submittedAt||'')));document.getElementById('totalStudents').innerText=results.length;const examSnap=await getDocs(collection(db,'exams'));document.getElementById('totalExams').innerText=examSnap.size;document.getElementById('highestScore').innerText=results.length?Math.max(...results.map(x=>x.score||0)):0;window._results=results;window.filterAdminResults()}catch(e){console.error(e)}try{const pub=await getDocs(collection(db,'leaderboard')),rows=pub.docs.map(d=>d.data()).sort((a,b)=>(b.percentage??0)-(a.percentage??0)||String(b.submittedAt||'').localeCompare(String(a.submittedAt||''))).slice(0,10),box=document.getElementById('publicRankingList');box.innerHTML='';rows.forEach((r,i)=>{const medal=i===0?'🥇':i===1?'🥈':i===2?'🥉':'#'+(i+1);box.innerHTML+=`<div class="rank-row"><div class="rank-left"><div class="rank-number">${medal}</div><div><div class="rank-name">${escapeHtml(r.name)}</div><small>${escapeHtml(r.examName||'')}</small></div></div><div class="rank-score">${r.score}/${r.total}</div></div>`});if(!rows.length)box.innerHTML='<p style="text-align:center">ഇതുവരെ Result ലഭ്യമല്ല.</p>'}catch(e){console.log(e)}}
-  window.filterAdminResults=function(){
-  const q=(document.getElementById('resultSearch')?.value||'').trim().toLowerCase();
-  const all=window._results||[];
-  const results=all.filter(r=>[r.name,r.phone,r.examName,r.place].join(' ').toLowerCase().includes(q));
-  const table=document.getElementById('adminResultsTable');
-  const cards=document.getElementById('adminResultsCards');
-  const badge=document.getElementById('resultCountBadge');
-  if(badge) badge.textContent=`${results.length} Result${results.length===1?'':'s'}`;
-  if(table){
-    table.innerHTML=results.map(r=>`<tr>
-      <td><b>${escapeHtml(r.name)}</b></td>
-      <td>${escapeHtml(r.phone||'')}</td>
-      <td>${escapeHtml(r.examName||'')}</td>
-      <td><b>${r.score}/${r.total}</b><br><small>${r.percentage||0}%</small></td>
-      <td>${r.submittedAt?new Date(r.submittedAt).toLocaleString():''}</td>
-      <td><button class="small-btn" onclick="viewResult('${r.id}')">View</button> <button class="small-btn danger" onclick="deleteResult('${r.id}')">Delete</button></td>
-    </tr>`).join('')||'<tr><td colspan="6" style="text-align:center">Result ലഭ്യമല്ല.</td></tr>';
-  }
-  if(cards){
-    cards.innerHTML=results.map(r=>`<div class="result-person">
-      <div class="rp-head"><div><div class="rp-name">${escapeHtml(r.name)}</div><div class="rp-meta">${escapeHtml(r.phone||'')} ${r.place?'• '+escapeHtml(r.place):''}</div></div><div class="rp-score">${r.score}/${r.total}</div></div>
-      <div class="rp-grid">
-        <div class="rp-item"><b>Exam</b><span>${escapeHtml(r.examName||'')}</span></div>
-        <div class="rp-item"><b>Percentage</b><span>${r.percentage||0}%</span></div>
-        <div class="rp-item"><b>Date</b><span>${r.submittedAt?new Date(r.submittedAt).toLocaleDateString():''}</span></div>
-        <div class="rp-item"><b>Time</b><span>${r.submittedAt?new Date(r.submittedAt).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}):''}</span></div>
-      </div>
-      <div class="rp-actions"><button class="small-btn" onclick="viewResult('${r.id}')">View Result</button><button class="small-btn danger" onclick="deleteResult('${r.id}')">Delete</button></div>
-    </div>`).join('')||'<p style="text-align:center;color:#68756f">Result ലഭ്യമല്ല.</p>';
-  }
-};
+  window.filterAdminResults=function(){const q=(document.getElementById('resultSearch')?.value||'').toLowerCase(),results=(window._results||[]).filter(r=>[r.name,r.phone,r.examName].join(' ').toLowerCase().includes(q)),table=document.getElementById('adminResultsTable');table.innerHTML=results.map(r=>`<tr><td>${escapeHtml(r.name)}</td><td>${escapeHtml(r.phone||'')}</td><td>${escapeHtml(r.examName||'')}</td><td>${r.score}/${r.total}<br><small>${r.percentage||0}%</small></td><td>${r.submittedAt?new Date(r.submittedAt).toLocaleString():''}</td><td><button class="small-btn" onclick="viewResult('${r.id}')">View</button> <button class="small-btn danger" onclick="deleteResult('${r.id}')">Delete</button></td></tr>`).join('')||'<tr><td colspan="6">Result ലഭ്യമല്ല.</td></tr>'};
   window.viewResult=function(id){const r=(window._results||[]).find(x=>x.id===id);if(!r)return;let html=`<h2>📊 ${escapeHtml(r.name)} - Result Details</h2><p><b>Phone:</b> ${escapeHtml(r.phone||'')}<br><b>Exam:</b> ${escapeHtml(r.examName||'')}<br><b>Score:</b> ${r.score}/${r.total} (${r.percentage||0}%)</p><hr>`;(r.answers||[]).forEach((a,i)=>html+=`<div class="question"><b>${i+1}. ${escapeHtml(a.question)}</b><p>Your Answer: ${escapeHtml(a.selectedAnswer)}</p><p style="color:#087054">Correct Answer: ${escapeHtml(a.correctAnswer)}</p></div>`);document.getElementById('resultDetailContent').innerHTML=html;document.getElementById('resultDetailModal').style.display='block';};
   window.deleteResult=async function(id){if(confirm('ഈ Result delete ചെയ്യണോ?')){try{await deleteDoc(doc(db,'examResults',id));await deleteDoc(doc(db,'leaderboard',id));loadResults();alert('Result Deleted')}catch(e){alert('Delete failed')}}};
 

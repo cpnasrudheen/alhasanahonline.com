@@ -1,18 +1,14 @@
-AL HASANA ONLINE - FINAL UI/UX + ADMIN RESULTS BUILD
-
-Upload/replace index.html in the same GitHub folder that already contains:
-  hero.jpg
-  logo.png
-
-This build:
-- keeps the existing Firebase exam flow
-- keeps Edit/Delete functions
-- adds a proper Exam എഴുതിയവർ (exam takers/results) admin area
-- adds search, View Result and Delete
-- adds a mobile card layout for results
-- improves the admin dashboard and exam builder on phones
-- makes the navigation, hero, cards, forms and modals responsive
+FINAL BUILD
+- Keeps existing UI/UX and Firebase structure.
+- Uses the user's existing hero.jpg and logo.png.
+- Removes browser alert-style notification popups and uses in-page toast messages.
+- Before an exam starts, candidate MUST enter:
+  1. Name
+  2. Mobile Number
+  3. Place
+  and press Continue to Exam.
+- Only then are questions shown.
+- Exam results continue to save with name, phone and place.
 
 Important:
-Do not delete hero.jpg or logo.png.
-After GitHub Pages deployment, hard-refresh the site (Ctrl+F5) once.
+Firestore Rules still control whether admin Edit/Delete/Result Delete operations are permitted.

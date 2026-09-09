@@ -28,6 +28,36 @@ footer{background:#032b22;color:#c7d3cd;padding:24px 5%;display:flex;justify-con
  .candidate-gate{padding:16px}
  .candidate-actions{flex-direction:column}
 }
+
+/* ===== FINAL UI POLISH ===== */
+.primary-action,.submit-exam,.save-btn,.publish-btn,.admin-btn,.small-btn,.btn{
+  border:0!important;border-radius:11px!important;
+  transition:transform .18s ease,box-shadow .18s ease,filter .18s ease!important;
+}
+.primary-action,.submit-exam,.save-btn,.publish-btn{
+  background:linear-gradient(135deg,#087a5b,#0b5d47)!important;
+  color:#fff!important;box-shadow:0 8px 20px rgba(7,81,60,.16)!important;
+}
+.primary-action:hover,.submit-exam:hover,.save-btn:hover,.publish-btn:hover{
+  transform:translateY(-1px);filter:brightness(1.05);box-shadow:0 11px 24px rgba(7,81,60,.22)!important;
+}
+.admin-btn{
+  background:linear-gradient(135deg,#f0c75e,#dba53b)!important;color:#173b30!important;
+  box-shadow:0 8px 20px rgba(219,165,59,.18)!important;
+}
+.small-btn{background:linear-gradient(135deg,#087a5b,#07513c)!important;color:#fff!important}
+.small-btn.danger{background:linear-gradient(135deg,#a74a4a,#8b3030)!important}
+.quick,.card,.exam-card,.ranking,.notice,.content-card{
+  box-shadow:0 10px 28px rgba(7,55,43,.055);
+}
+.admin-only-badge{display:inline-flex;align-items:center;gap:6px;background:#eef7f2;color:#07513c;border:1px solid #d7e9df;padding:6px 10px;border-radius:999px;font:700 11px Poppins,sans-serif}
+.admin-only-section{position:relative}
+.hidden-to-public{display:none!important}
+.thankyou-screen{text-align:center;padding:38px 18px}
+.thankyou-screen .thanks-icon{font-size:48px;margin-bottom:10px}
+.thankyou-screen h2{color:#07513c;margin:8px 0}
+.thankyou-screen p{color:#5f6d66;line-height:1.8;margin:8px auto;max-width:520px}
+.thankyou-screen .islamic-line{color:#b58425;font-weight:700;margin-top:18px}
 </style></head><body><div id="siteToast" class="site-toast"></div>
 <header class="top-header"><div class="brand"><img src="logo.png"><div><h1>Al Hasana <span>Online</span></h1><small>വിജ്ഞാന വേദി</small></div></div><nav><a class="active" href="#home">⌂ Home</a><a href="#about">♟ About</a><a href="#contents">▣ Study</a><a href="#exams">▤ Exams</a><a href="#results">▥ Results</a><a href="#results">♜ Leaderboard</a><a href="#about">✉ Contact</a><a class="admin-nav" href="javascript:void(0)" onclick="openAdminLogin()">🔐 Admin Login</a></nav></header>
 <section class="hero" id="home"><div class="hero-inner"><div class="hero-copy"><div class="eyebrow">A JOURNEY TOWARDS KNOWLEDGE AND RIGHTEOUSNESS</div><h2>Al Hasana <span>Online</span></h2><div class="mal">വിജ്ഞാന വേദി</div><p class="hero-desc">An online platform for Islamic education, learning, knowledge sharing, and self-assessment.</p><div class="hero-tags">Learn • Practice • Grow • Become Better</div><div class="quote"><div class="arabic">رَبِّ زِدْنِي عِلْمًا</div><p>“My Lord, increase me in knowledge”<br>(Quran 20:114)</p></div><div class="hero-actions"><a class="action primary" href="#contents">📖 Start Learning →</a><a class="action secondary" href="#exams">▤ Take an Exam →</a></div></div></div></section>
@@ -46,7 +76,7 @@ footer{background:#032b22;color:#c7d3cd;padding:24px 5%;display:flex;justify-con
 <div class="card" style="text-align:left"><h3>📚 Add Study Material</h3><input id="materialTitle" placeholder="Title" style="margin:8px 0"><input id="materialLink" placeholder="PDF / Video Link" style="margin:8px 0"><button class="submit-exam" onclick="addMaterial()">Save Material</button></div>
 <div class="card" style="text-align:left"><h3>📢 Announcement</h3><input id="announcementText" placeholder="Write announcement" style="margin:8px 0"><button class="submit-exam" onclick="addAnnouncement()">Publish</button></div></div>
 <div class="ranking" style="margin-bottom:25px"><h3>📋 Published Exams & Content</h3><p class="muted">ഇവിടെ നിന്ന് Exam Edit/Delete ചെയ്യാനും മറ്റു content നിയന്ത്രിക്കാനും കഴിയും.</p><div id="adminContentList">Loading...</div></div>
-<div class="ranking"><h3>👥 Exam എഴുതിയവർ</h3><div class="searchbar"><input id="resultSearch" placeholder="പേര് / Phone / Exam ഉപയോഗിച്ച് Search..." oninput="filterAdminResults()"></div><div style="overflow:auto"><table class="admin-table"><thead><tr><th>Name</th><th>Phone</th><th>Exam</th><th>Score</th><th>Date</th><th>Action</th></tr></thead><tbody id="adminResultsTable"></tbody></table></div></div>
+<div class="ranking"><div class="admin-section-head"><h3>👥 Exam എഴുതിയവർ</h3><span class="admin-only-badge">🔐 Admin Only</span></div><div class="searchbar"><input id="resultSearch" placeholder="പേര് / Phone / Exam ഉപയോഗിച്ച് Search..." oninput="filterAdminResults()"></div><div style="overflow:auto"><table class="admin-table"><thead><tr><th>Name</th><th>Phone</th><th>Exam</th><th>Score</th><th>Date</th><th>Action</th></tr></thead><tbody id="adminResultsTable"></tbody></table></div></div>
 </div></div></section><footer><div>© 2026 Al Hasana Online. All rights reserved.</div><div>Learn • Practice • Grow • Become Better</div></footer>
 
 <div class="modal" id="examBuilderModal"><div class="modal-box" style="max-width:900px"><span class="close" onclick="closeExamBuilder()">×</span><div class="section-title" style="margin:5px 0 20px"><small>ADMIN AREA</small><h2 style="font-size:32px">➕ Create & Publish Exam</h2><p style="font-size:13px;color:#68756f">Questions ചേർത്ത് അവസാനം Publish Exam അമർത്തിയാൽ എല്ലാവർക്കും Exam page-ൽ കാണാം.</p></div><div class="input-group"><label>Exam Title *</label><input id="newExamTitle" placeholder="ഉദാ: Islamic General Knowledge Test"></div><div class="input-group"><label>Short Description</label><input id="newExamDesc" placeholder="Exam നെക്കുറിച്ചുള്ള ചെറിയ വിവരണം"></div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:20px"><h3 style="margin:0">📝 Questions</h3><button class="small-btn" type="button" onclick="addQuestionField()">➕ Add New Question</button></div><input type="hidden" id="editingExamId" value=""><div id="questionBuilder"></div><div class="builder-toolbar"><div class="muted" id="questionCountInfo">0 Questions</div><button class="submit-exam" style="margin-top:10px;font-size:16px" onclick="publishExam()">🚀 Publish Exam – എല്ലാവർക്കും കാണിക്കുക</button></div></div></div>
@@ -87,6 +117,28 @@ footer{background:#032b22;color:#c7d3cd;padding:24px 5%;display:flex;justify-con
     clearTimeout(toastTimer);
     toastTimer=setTimeout(()=>t.classList.remove('show'),3200);
   };
+
+  
+  function setAdminOnlyVisibility(isAdmin){
+    document.querySelectorAll('.admin-only-section').forEach(el=>{
+      el.classList.toggle('hidden-to-public', !isAdmin);
+    });
+  }
+  window.setAdminOnlyVisibility=setAdminOnlyVisibility;
+
+  function showExamThankYou(examName){
+    const box=document.getElementById('examContent');
+    if(!box)return;
+    box.innerHTML=`<div class="thankyou-screen">
+      <div class="thanks-icon">🤲</div>
+      <h2>جزاك الله خيرًا</h2>
+      <h2>പരീക്ഷയിൽ പങ്കെടുത്തതിന് നന്ദി</h2>
+      <p><b>${escapeHtml(examName||'ഈ പരീക്ഷ')}</b> വിജയകരമായി പൂർത്തിയാക്കിയതിന് നന്ദി.</p>
+      <p>അല്ലാഹു നിങ്ങൾക്ക് അറിവിലും നന്മയിലും ബറകത്ത് നൽകട്ടെ.</p>
+      <div class="islamic-line">بارك الله فيكم</div>
+      <button class="submit-exam" style="margin-top:20px" onclick="closeExam()">Close</button>
+    </div>`;
+  }
 
   function escapeHtml(v){ return String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c])); }
   window.openExam = function(exam){ activeExam=exam; openExamModal(); }
@@ -155,7 +207,7 @@ footer{background:#032b22;color:#c7d3cd;padding:24px 5%;display:flex;justify-con
 
   window.openAdminLogin=function(){document.getElementById('adminLoginModal').style.display='block';setTimeout(()=>document.getElementById('adminEmail').focus(),100)};
   window.closeAdminLogin=function(){document.getElementById('adminLoginModal').style.display='none'};
-  window.adminLogin=async function(){const email=document.getElementById('adminEmail').value.trim();const password=document.getElementById('adminPassword').value;if(!email||!password)return showToast('Email, Password നൽകുക','error');try{const credential=await signInWithEmailAndPassword(auth,email,password);if(credential.user.email!==ADMIN_EMAIL){await signOut(auth);throw Error('Not admin')}closeAdminLogin();showAdmin();}catch(e){console.error(e);showToast('Admin Login Failed','error')}};
+  window.adminLogin=async function(){const email=document.getElementById('adminEmail').value.trim();const password=document.getElementById('adminPassword').value;if(!email||!password)return showToast('Email, Password നൽകുക','error');try{const credential=await signInWithEmailAndPassword(auth,email,password);if(credential.user.email!==ADMIN_EMAIL){await signOut(auth);throw Error('Not admin')}closeAdminLogin();setAdminOnlyVisibility(true);showAdmin();}catch(e){console.error(e);showToast('Admin Login Failed','error')}};
   function showAdmin(scroll=true){document.getElementById('admin').style.display='block';document.getElementById('adminPanel').style.display='block';if(scroll)document.getElementById('admin').scrollIntoView({behavior:'smooth'});loadAdminData();}
   onAuthStateChanged(auth,user=>{if(user&&user.email===ADMIN_EMAIL)showAdmin(false);else{document.getElementById('admin').style.display='none';document.getElementById('adminPanel').style.display='none';}});
   window.adminLogout=async()=>{await signOut(auth);showToast('Logged out successfully','success');window.scrollTo({top:0,behavior:'smooth'})};
@@ -182,4 +234,6 @@ footer{background:#032b22;color:#c7d3cd;padding:24px 5%;display:flex;justify-con
   window.deleteResult=async function(id){if(confirm('ഈ Result delete ചെയ്യണോ?')){try{await deleteDoc(doc(db,'examResults',id));await deleteDoc(doc(db,'leaderboard',id));loadResults();alert('Result Deleted')}catch(e){alert('Delete failed')}}};
 
   loadPublicExams(); loadPublicMaterials(); loadPublicAnnouncements(); loadResults();
+
+  try{setAdminOnlyVisibility(false)}catch(e){}
 </script></body></html>

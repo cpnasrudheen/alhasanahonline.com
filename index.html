@@ -40,7 +40,7 @@ nav a:hover{background:rgba(255,255,255,.09);color:#fff}
  background:
  linear-gradient(90deg,rgba(2,39,30,.96) 0%,rgba(3,55,42,.84) 42%,rgba(3,44,35,.38) 70%,rgba(3,38,30,.12)),
  radial-gradient(circle at 80% 35%,rgba(241,195,92,.45),transparent 18%),
- linear-gradient(125deg,#092f27,#126246 55%,#d7b05b)}
+ url("hero.jpg") center/cover no-repeat,linear-gradient(125deg,#092f27,#126246 55%,#d7b05b)}
 .hero:before{content:"";position:absolute;right:-90px;bottom:-160px;width:620px;height:620px;border:1px solid rgba(255,255,255,.15);
  border-radius:48% 48% 0 0;transform:rotate(12deg);box-shadow:0 0 0 32px rgba(255,255,255,.025),0 0 0 64px rgba(255,255,255,.018)}
 .hero:after{content:"☪";position:absolute;right:9%;top:50%;transform:translateY(-50%);font-size:260px;color:rgba(255,255,255,.07);font-family:serif}
@@ -107,8 +107,8 @@ footer{background:linear-gradient(110deg,#032b22,#07513c);color:#dce8e2;padding:
 @media(max-width:480px){nav a{padding:7px 9px;font-size:11px}.hero h2{font-size:45px}.hero:after{font-size:170px;right:0}.card{padding:20px}}
 
 
-.add-next-question{display:block;margin:12px 0 4px auto!important;border-radius:10px!important}
-.builder-question+.builder-question{margin-top:18px}
+.site-logo{width:54px;height:54px;object-fit:contain;border-radius:50%;background:#fff;display:block}
+@media(max-width:480px){.site-logo{width:44px;height:44px}}
 </style>
 </head>
 <body>
@@ -145,7 +145,7 @@ footer{background:linear-gradient(110deg,#032b22,#07513c);color:#dce8e2;padding:
 
 <div class="modal" id="adminLoginModal"><div class="modal-box" style="max-width:500px"><span class="close" onclick="closeModal('adminLoginModal')">×</span><h2>🔐 Admin Login</h2><label>Email</label><input id="adminEmail" type="email" placeholder="Admin Email"><label>Password</label><input id="adminPassword" type="password" placeholder="Password"><button class="btn" onclick="adminLogin()">Admin Login</button></div></div>
 
-<div class="modal" id="examBuilderModal"><div class="modal-box"><span class="close" onclick="closeExamBuilder()">×</span><h2>➕ Create & Publish Exam</h2><label>Exam Title *</label><input id="builderExamTitle" placeholder="Exam name"><label>Short Description</label><textarea id="builderExamDescription" placeholder="Exam description"></textarea><div style="display:flex;justify-content:space-between;align-items:center"><h3>📝 Questions</h3><span class="muted">Questions ഒന്നിന് ശേഷം അടുത്തത് താഴെ ചേർക്കാം</span></div><div id="builderQuestions"></div><button class="btn small add-next-question" onclick="addQuestionField()">+ Add New Question</button><div style="display:flex;justify-content:space-between;align-items:center;margin-top:18px"><span class="muted" id="questionCount">0 Questions Added</span><button class="btn gold" onclick="publishExam()">🚀 Publish Exam - എല്ലാവർക്കും കാണിക്കുക</button></div></div></div>
+<div class="modal" id="examBuilderModal"><div class="modal-box"><span class="close" onclick="closeExamBuilder()">×</span><h2>➕ Create & Publish Exam</h2><label>Exam Title *</label><input id="builderExamTitle" placeholder="Exam name"><label>Short Description</label><textarea id="builderExamDescription" placeholder="Exam description"></textarea><div style="display:flex;justify-content:space-between;align-items:center"><h3>📝 Questions</h3><button class="btn small" onclick="addQuestionField()">+ Add New Question</button></div><div id="builderQuestions"></div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:18px"><span class="muted" id="questionCount">0 Questions Added</span><button class="btn gold" onclick="publishExam()">🚀 Publish Exam - എല്ലാവർക്കും കാണിക്കുക</button></div></div></div>
 
 <div class="modal" id="examModal"><div class="modal-box"><span class="close" onclick="closeExam()">×</span><div id="examContent"></div></div></div>
 <div class="modal" id="resultDetailModal"><div class="modal-box"><span class="close" onclick="closeModal('resultDetailModal')">×</span><div id="resultDetailContent"></div></div></div>
@@ -181,7 +181,7 @@ window.addOption=btn=>{const q=btn.closest(".builder-question"),opts=q.querySele
 window.refreshCorrect=q=>{const s=q.querySelector(".correctSelect"),old=s.value;s.innerHTML="";q.querySelectorAll(".bo").forEach((_,i)=>s.innerHTML+=`<option value="${i}">Option ${i+1}</option>`);if(old<s.options.length)s.value=old;};
 window.renumberQuestions=()=>{document.querySelectorAll("#builderQuestions .builder-question").forEach((q,i)=>q.querySelector(".builder-head b").innerText="Question "+(i+1));document.getElementById("questionCount").innerText=document.querySelectorAll("#builderQuestions .builder-question").length+" Questions Added";};
 
-window.publishExam=async()=>{const title=document.getElementById("builderExamTitle").value.trim(),description=document.getElementById("builderExamDescription").value.trim();if(!title)return alert("Exam Title നൽകുക");const questions=[];for(const q of document.querySelectorAll("#builderQuestions .builder-question")){const question=q.querySelector(".bq").value.trim(),options=[...q.querySelectorAll(".bo")].map(x=>x.value.trim()).filter(Boolean),answer=Number(q.querySelector(".correctSelect").value);if(!question||options.length<2)return alert("ഓരോ Question-ലും Question, കുറഞ്ഞത് 2 Options നൽകുക.");questions.push({question,options,answer});}if(!questions.length)return alert("കുറഞ്ഞത് ഒരു Question ചേർക്കുക.");const data={title,description,questions,published:true,updatedAt:new Date().toISOString()};try{if(editingExamId){await updateDoc(doc(db,"exams",editingExamId),data);alert("Exam Updated")}else{await addDoc(collection(db,"exams"),data);alert("Exam Published Successfully!")}closeExamBuilder();loadPublicExams();loadAdminContent();}catch(e){console.error(e);alert("Publish failed. Firestore Rules പരിശോധിക്കുക.");}};
+window.publishExam=async()=>{const title=document.getElementById("builderExamTitle").value.trim(),description=document.getElementById("builderExamDescription").value.trim();if(!title)return alert("Exam Title നൽകുക");const questions=[];for(const q of document.querySelectorAll("#builderQuestions .builder-question")){const question=q.querySelector(".bq").value.trim(),options=[...q.querySelectorAll(".bo")].map(x=>x.value.trim()).filter(Boolean),answer=Number(q.querySelector(".correctSelect").value);if(!question||options.length<2)return alert("ഓരോ Question-ലും Question, കുറഞ്ഞത് 2 Options നൽകുക.");questions.push({question,options,answer});}if(!questions.length)return alert("കുറഞ്ഞത് ഒരു Question ചേർക്കുക.");const data={title,description,questions,published:true,updatedAt:new Date().toISOString(),createdAt:new Date().toISOString()};try{if(editingExamId){await updateDoc(doc(db,"exams",editingExamId),data);alert("Exam Updated")}else{await addDoc(collection(db,"exams"),data);alert("Exam Published Successfully!")}closeExamBuilder();loadPublicExams();loadAdminContent();}catch(e){console.error(e);alert("Publish failed. Firestore Rules പരിശോധിക്കുക.");}};
 
 async function loadPublicExams(){const box=document.getElementById("publicExamList");try{const snap=await getDocs(collection(db,"exams"));let html="",count=0;snap.forEach(d=>{const x=d.data();if(x.published===false)return;count++;html+=`<div class="card exam-card"><span class="tag">${(x.questions||[]).length} Questions</span><h3>${esc(x.title)}</h3><p>${esc(x.description||"Online examination")}</p><button class="btn" onclick="startExam('${d.id}')">പരീക്ഷ ആരംഭിക്കുക</button></div>`});box.innerHTML=html||"<p class='muted'>ഇപ്പോൾ പരീക്ഷകൾ ലഭ്യമല്ല.</p>";}catch(e){console.error(e);box.innerHTML="<p>Exams load ചെയ്യാൻ കഴിഞ്ഞില്ല.</p>";}}
 window.startExam=async id=>{try{const s=await getDoc(doc(db,"exams",id));if(!s.exists())return;activeExam={id,...s.data()};document.getElementById("examContent").innerHTML=`<h2>📝 ${esc(activeExam.title)}</h2><div class="input-group"><label>നിങ്ങളുടെ പേര് *</label><input id="studentName" placeholder="പേര് എഴുതുക"></div><div class="input-group"><label>Phone Number *</label><input id="studentPhone" placeholder="Phone Number നൽകുക"></div><div class="input-group"><label>സ്ഥലം / ബാച്ച് (Optional)</label><input id="studentPlace" placeholder="സ്ഥലം"></div><div id="questionsContainer"></div><button class="btn" id="submitExamBtn" onclick="submitExam()">പരീക്ഷ Submit ചെയ്യുക</button>`;const c=document.getElementById("questionsContainer");(activeExam.questions||[]).forEach((q,i)=>{let h=`<div class="question"><h4>${i+1}. ${esc(q.question)}</h4>`;(q.options||[]).forEach((o,j)=>h+=`<label class="option"><input type="radio" name="question${i}" value="${j}"> ${esc(o)}</label>`);h+="</div>";c.innerHTML+=h;});document.getElementById("examModal").style.display="block";}catch(e){alert("Exam തുറക്കാൻ കഴിഞ്ഞില്ല.");}};
@@ -196,52 +196,9 @@ async function loadPublicAnnouncements(){const box=document.getElementById("publ
 
 async function loadAdminData(){await Promise.all([loadResults(),loadAdminContent()]);}
 async function loadAdminContent(){const box=document.getElementById("adminContentList");try{const s=await getDocs(collection(db,"exams"));let h=`<h4>📝 Exams (${s.size})</h4>`;s.forEach(d=>{const x=d.data();h+=`<div class="notice"><b>${esc(x.title)}</b><br><small>${(x.questions||[]).length} Questions</small><div style="margin-top:8px"><button class="btn small" onclick="editExam('${d.id}')">Edit</button> <button class="btn small red" onclick="deleteContent('exams','${d.id}')">Delete</button></div></div>`});for(const [col,label] of [["studyMaterials","📚 Study Materials"],["announcements","📢 Announcements"]]){const z=await getDocs(collection(db,col));h+=`<h4>${label} (${z.size})</h4>`;z.forEach(d=>{const x=d.data();h+=`<div class="notice">${esc(x.title||x.text)} <button style="float:right" class="btn small red" onclick="deleteContent('${col}','${d.id}')">Delete</button></div>`});}box.innerHTML=h;}catch(e){console.error(e);box.innerHTML="<p>Content load failed.</p>";}}
-window.deleteContent=async function(col,id){
-  if(!id || !col) return alert("Invalid content");
-  if(!confirm("Delete ചെയ്യണോ?")) return;
-  try{
-    await deleteDoc(doc(db,col,id));
-    await loadAdminContent();
-    await loadPublicExams();
-    await loadPublicMaterials();
-    await loadPublicAnnouncements();
-    alert("Deleted successfully");
-  }catch(e){
-    console.error("Delete error:",e);
-    alert("Delete failed. Firebase Rules / Admin login പരിശോധിക്കുക.\n\n"+(e?.message||e));
-  }
-};
-window.editExam=async function(id){
-  try{
-    if(!id) return alert("Exam ID missing");
-    const snap=await getDoc(doc(db,"exams",id));
-    if(!snap.exists()) return alert("Exam not found");
-    const x=snap.data();
-    editingExamId=id;
-    document.getElementById("builderExamTitle").value=x.title||"";
-    document.getElementById("builderExamDescription").value=x.description||"";
-    const box=document.getElementById("builderQuestions");
-    box.innerHTML="";
-    const qs=Array.isArray(x.questions)?x.questions:[];
-    qs.forEach(q=>{
-      addQuestionField();
-      const el=box.lastElementChild;
-      el.querySelector(".bq").value=q.question||"";
-      const opts=el.querySelectorAll(".bo");
-      const values=Array.isArray(q.options)?q.options:[];
-      values.forEach((o,i)=>{ if(opts[i]) opts[i].value=o||""; });
-      refreshCorrect(el);
-      const sel=el.querySelector(".correctSelect");
-      if(sel) sel.value=String(q.answer??0);
-    });
-    if(!qs.length) addQuestionField();
-    renumberQuestions();
-    document.getElementById("examBuilderModal").style.display="block";
-  }catch(e){
-    console.error("Edit error:",e);
-    alert("Exam load failed.\n\n"+(e?.message||e));
-  }
-};
+window.deleteContent=async(col,id=>{});
+window.deleteContent=async function(col,id){if(!confirm("Delete ചെയ്യണോ?"))return;try{await deleteDoc(doc(db,col,id));await loadAdminContent();loadPublicExams();loadPublicMaterials();loadPublicAnnouncements();}catch(e){alert("Delete failed");}};
+window.editExam=async id=>{try{const s=await getDoc(doc(db,"exams",id));if(!s.exists())return;const x=s.data();editingExamId=id;document.getElementById("builderExamTitle").value=x.title||"";document.getElementById("builderExamDescription").value=x.description||"";const box=document.getElementById("builderQuestions");box.innerHTML="";(x.questions||[]).forEach(q=>{addQuestionField();const el=box.lastElementChild;el.querySelector(".bq").value=q.question;const opts=el.querySelectorAll(".bo");q.options.forEach((o,i)=>{if(opts[i])opts[i].value=o;});el.querySelector(".correctSelect").value=q.answer;});renumberQuestions();document.getElementById("examBuilderModal").style.display="block";}catch(e){alert("Exam load failed");}};
 
 async function loadResults(){try{const s=await getDocs(collection(db,"examResults")),r=s.docs.map(d=>({id:d.id,...d.data()}));r.sort((a,b)=>(b.percentage||0)-(a.percentage||0));window._results=r;document.getElementById("totalStudents").innerText=r.length;const ex=await getDocs(collection(db,"exams"));document.getElementById("totalExams").innerText=ex.size;document.getElementById("highestScore").innerText=r.length?Math.max(...r.map(x=>x.score||0)):0;filterAdminResults();}catch(e){console.error(e);}}
 window.filterAdminResults=()=>{const q=(document.getElementById("resultSearch")?.value||"").toLowerCase(),rows=(window._results||[]).filter(r=>[r.name,r.phone,r.examName].join(" ").toLowerCase().includes(q));document.getElementById("adminResultsTable").innerHTML=rows.map(r=>`<tr><td>${esc(r.name)}</td><td>${esc(r.phone)}</td><td>${esc(r.examName)}</td><td>${r.score}/${r.total}<br><small>${r.percentage}%</small></td><td>${r.submittedAt?new Date(r.submittedAt).toLocaleString():""}</td><td><button class="btn small" onclick="viewResult('${r.id}')">View</button> <button class="btn small red" onclick="deleteResult('${r.id}')">Delete</button></td></tr>`).join("")||"<tr><td colspan='6'>Result ലഭ്യമല്ല.</td></tr>";};

@@ -178,7 +178,7 @@ window.addOption=btn=>{const q=btn.closest(".builder-question"),opts=q.querySele
 window.refreshCorrect=q=>{const s=q.querySelector(".correctSelect"),old=s.value;s.innerHTML="";q.querySelectorAll(".bo").forEach((_,i)=>s.innerHTML+=`<option value="${i}">Option ${i+1}</option>`);if(old<s.options.length)s.value=old;};
 window.renumberQuestions=()=>{document.querySelectorAll("#builderQuestions .builder-question").forEach((q,i)=>q.querySelector(".builder-head b").innerText="Question "+(i+1));document.getElementById("questionCount").innerText=document.querySelectorAll("#builderQuestions .builder-question").length+" Questions Added";};
 
-window.publishExam=async()=>{const title=document.getElementById("builderExamTitle").value.trim(),description=document.getElementById("builderExamDescription").value.trim();if(!title)return alert("Exam Title നൽകുക");const questions=[];for(const q of document.querySelectorAll("#builderQuestions .builder-question")){const question=q.querySelector(".bq").value.trim(),options=[...q.querySelectorAll(".bo")].map(x=>x.value.trim()).filter(Boolean),answer=Number(q.querySelector(".correctSelect").value);if(!question||options.length<2)return alert("ഓരോ Question-ലും Question, കുറഞ്ഞത് 2 Options നൽകുക.");questions.push({question,options,answer});}if(!questions.length)return alert("കുറഞ്ഞത് ഒരു Question ചേർക്കുക.");const data={title,description,questions,published:true,updatedAt:new Date().toISOString(),createdAt:new Date().toISOString()};try{if(editingExamId){await updateDoc(doc(db,"exams",editingExamId),data);alert("Exam Updated")}else{await addDoc(collection(db,"exams"),data);alert("Exam Published Successfully!")}closeExamBuilder();loadPublicExams();loadAdminContent();}catch(e){console.error(e);alert("Publish failed. Firestore Rules പരിശോധിക്കുക.");}};
+window.publishExam=async()=>{const title=document.getElementById("builderExamTitle").value.trim(),description=document.getElementById("builderExamDescription").value.trim();if(!title)return alert("Exam Title നൽകുക");const questions=[];for(const q of document.querySelectorAll("#builderQuestions .builder-question")){const question=q.querySelector(".bq").value.trim(),options=[...q.querySelectorAll(".bo")].map(x=>x.value.trim()).filter(Boolean),answer=Number(q.querySelector(".correctSelect").value);if(!question||options.length<2)return alert("ഓരോ Question-ലും Question, കുറഞ്ഞത് 2 Options നൽകുക.");questions.push({question,options,answer});}if(!questions.length)return alert("കുറഞ്ഞത് ഒരു Question ചേർക്കുക.");const data={title,description,questions,published:true,updatedAt:new Date().toISOString()};try{if(editingExamId){await updateDoc(doc(db,"exams",editingExamId),data);alert("Exam Updated")}else{await addDoc(collection(db,"exams"),data);alert("Exam Published Successfully!")}closeExamBuilder();loadPublicExams();loadAdminContent();}catch(e){console.error(e);alert("Publish failed. Firestore Rules പരിശോധിക്കുക.");}};
 
 async function loadPublicExams(){const box=document.getElementById("publicExamList");try{const snap=await getDocs(collection(db,"exams"));let html="",count=0;snap.forEach(d=>{const x=d.data();if(x.published===false)return;count++;html+=`<div class="card exam-card"><span class="tag">${(x.questions||[]).length} Questions</span><h3>${esc(x.title)}</h3><p>${esc(x.description||"Online examination")}</p><button class="btn" onclick="startExam('${d.id}')">പരീക്ഷ ആരംഭിക്കുക</button></div>`});box.innerHTML=html||"<p class='muted'>ഇപ്പോൾ പരീക്ഷകൾ ലഭ്യമല്ല.</p>";}catch(e){console.error(e);box.innerHTML="<p>Exams load ചെയ്യാൻ കഴിഞ്ഞില്ല.</p>";}}
 window.startExam=async id=>{try{const s=await getDoc(doc(db,"exams",id));if(!s.exists())return;activeExam={id,...s.data()};document.getElementById("examContent").innerHTML=`<h2>📝 ${esc(activeExam.title)}</h2><div class="input-group"><label>നിങ്ങളുടെ പേര് *</label><input id="studentName" placeholder="പേര് എഴുതുക"></div><div class="input-group"><label>Phone Number *</label><input id="studentPhone" placeholder="Phone Number നൽകുക"></div><div class="input-group"><label>സ്ഥലം / ബാച്ച് (Optional)</label><input id="studentPlace" placeholder="സ്ഥലം"></div><div id="questionsContainer"></div><button class="btn" id="submitExamBtn" onclick="submitExam()">പരീക്ഷ Submit ചെയ്യുക</button>`;const c=document.getElementById("questionsContainer");(activeExam.questions||[]).forEach((q,i)=>{let h=`<div class="question"><h4>${i+1}. ${esc(q.question)}</h4>`;(q.options||[]).forEach((o,j)=>h+=`<label class="option"><input type="radio" name="question${i}" value="${j}"> ${esc(o)}</label>`);h+="</div>";c.innerHTML+=h;});document.getElementById("examModal").style.display="block";}catch(e){alert("Exam തുറക്കാൻ കഴിഞ്ഞില്ല.");}};
@@ -193,9 +193,52 @@ async function loadPublicAnnouncements(){const box=document.getElementById("publ
 
 async function loadAdminData(){await Promise.all([loadResults(),loadAdminContent()]);}
 async function loadAdminContent(){const box=document.getElementById("adminContentList");try{const s=await getDocs(collection(db,"exams"));let h=`<h4>📝 Exams (${s.size})</h4>`;s.forEach(d=>{const x=d.data();h+=`<div class="notice"><b>${esc(x.title)}</b><br><small>${(x.questions||[]).length} Questions</small><div style="margin-top:8px"><button class="btn small" onclick="editExam('${d.id}')">Edit</button> <button class="btn small red" onclick="deleteContent('exams','${d.id}')">Delete</button></div></div>`});for(const [col,label] of [["studyMaterials","📚 Study Materials"],["announcements","📢 Announcements"]]){const z=await getDocs(collection(db,col));h+=`<h4>${label} (${z.size})</h4>`;z.forEach(d=>{const x=d.data();h+=`<div class="notice">${esc(x.title||x.text)} <button style="float:right" class="btn small red" onclick="deleteContent('${col}','${d.id}')">Delete</button></div>`});}box.innerHTML=h;}catch(e){console.error(e);box.innerHTML="<p>Content load failed.</p>";}}
-window.deleteContent=async(col,id=>{});
-window.deleteContent=async function(col,id){if(!confirm("Delete ചെയ്യണോ?"))return;try{await deleteDoc(doc(db,col,id));await loadAdminContent();loadPublicExams();loadPublicMaterials();loadPublicAnnouncements();}catch(e){alert("Delete failed");}};
-window.editExam=async id=>{try{const s=await getDoc(doc(db,"exams",id));if(!s.exists())return;const x=s.data();editingExamId=id;document.getElementById("builderExamTitle").value=x.title||"";document.getElementById("builderExamDescription").value=x.description||"";const box=document.getElementById("builderQuestions");box.innerHTML="";(x.questions||[]).forEach(q=>{addQuestionField();const el=box.lastElementChild;el.querySelector(".bq").value=q.question;const opts=el.querySelectorAll(".bo");q.options.forEach((o,i)=>{if(opts[i])opts[i].value=o;});el.querySelector(".correctSelect").value=q.answer;});renumberQuestions();document.getElementById("examBuilderModal").style.display="block";}catch(e){alert("Exam load failed");}};
+window.deleteContent=async function(col,id){
+  if(!id || !col) return alert("Invalid content");
+  if(!confirm("Delete ചെയ്യണോ?")) return;
+  try{
+    await deleteDoc(doc(db,col,id));
+    await loadAdminContent();
+    await loadPublicExams();
+    await loadPublicMaterials();
+    await loadPublicAnnouncements();
+    alert("Deleted successfully");
+  }catch(e){
+    console.error("Delete error:",e);
+    alert("Delete failed. Firebase Rules / Admin login പരിശോധിക്കുക.\n\n"+(e?.message||e));
+  }
+};
+window.editExam=async function(id){
+  try{
+    if(!id) return alert("Exam ID missing");
+    const snap=await getDoc(doc(db,"exams",id));
+    if(!snap.exists()) return alert("Exam not found");
+    const x=snap.data();
+    editingExamId=id;
+    document.getElementById("builderExamTitle").value=x.title||"";
+    document.getElementById("builderExamDescription").value=x.description||"";
+    const box=document.getElementById("builderQuestions");
+    box.innerHTML="";
+    const qs=Array.isArray(x.questions)?x.questions:[];
+    qs.forEach(q=>{
+      addQuestionField();
+      const el=box.lastElementChild;
+      el.querySelector(".bq").value=q.question||"";
+      const opts=el.querySelectorAll(".bo");
+      const values=Array.isArray(q.options)?q.options:[];
+      values.forEach((o,i)=>{ if(opts[i]) opts[i].value=o||""; });
+      refreshCorrect(el);
+      const sel=el.querySelector(".correctSelect");
+      if(sel) sel.value=String(q.answer??0);
+    });
+    if(!qs.length) addQuestionField();
+    renumberQuestions();
+    document.getElementById("examBuilderModal").style.display="block";
+  }catch(e){
+    console.error("Edit error:",e);
+    alert("Exam load failed.\n\n"+(e?.message||e));
+  }
+};
 
 async function loadResults(){try{const s=await getDocs(collection(db,"examResults")),r=s.docs.map(d=>({id:d.id,...d.data()}));r.sort((a,b)=>(b.percentage||0)-(a.percentage||0));window._results=r;document.getElementById("totalStudents").innerText=r.length;const ex=await getDocs(collection(db,"exams"));document.getElementById("totalExams").innerText=ex.size;document.getElementById("highestScore").innerText=r.length?Math.max(...r.map(x=>x.score||0)):0;filterAdminResults();}catch(e){console.error(e);}}
 window.filterAdminResults=()=>{const q=(document.getElementById("resultSearch")?.value||"").toLowerCase(),rows=(window._results||[]).filter(r=>[r.name,r.phone,r.examName].join(" ").toLowerCase().includes(q));document.getElementById("adminResultsTable").innerHTML=rows.map(r=>`<tr><td>${esc(r.name)}</td><td>${esc(r.phone)}</td><td>${esc(r.examName)}</td><td>${r.score}/${r.total}<br><small>${r.percentage}%</small></td><td>${r.submittedAt?new Date(r.submittedAt).toLocaleString():""}</td><td><button class="btn small" onclick="viewResult('${r.id}')">View</button> <button class="btn small red" onclick="deleteResult('${r.id}')">Delete</button></td></tr>`).join("")||"<tr><td colspan='6'>Result ലഭ്യമല്ല.</td></tr>";};

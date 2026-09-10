@@ -1,363 +1,455 @@
-<!doctype html><html lang="ml"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Al Hasana Online | വിജ്ഞാന വേദി</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"><style>
-:root{--g:#032b22;--g2:#07513c;--gold:#e5bb57;--ink:#18352e}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:'Noto Sans Malayalam',Poppins,sans-serif;background:#f6f6f2;color:var(--ink);line-height:1.7}a{text-decoration:none;color:inherit}
-.top-header{height:86px;background:linear-gradient(90deg,#032b22,#06392d);color:#fff;border-bottom:1px solid #b9923b;display:flex;align-items:center;padding:0 4%;gap:20px}.brand{display:flex;align-items:center;gap:12px;min-width:330px}.brand img{width:72px;height:72px;object-fit:contain}.brand h1{font:700 28px 'Playfair Display',serif;margin:0}.brand h1 span{color:var(--gold)}.brand small{color:#d5ddd8;font-weight:600}nav{display:flex;gap:5px;align-items:center;justify-content:center;flex:1}nav a{padding:11px 14px;border-radius:12px;font:13px Poppins;color:#e8eeeb}nav a:hover,nav .active{background:#e8c566;color:#17352b}.admin-nav{background:#e8c566;color:#17352b!important;font-weight:700}
-.hero{min-height:490px;position:relative;color:#fff;overflow:hidden;background:#02251c}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,35,27,.98),rgba(3,45,34,.9) 42%,rgba(2,35,27,.2) 75%),url('hero.jpg') center right/cover no-repeat}.hero-inner{position:relative;max-width:1400px;margin:auto;min-height:490px;display:flex;align-items:center;padding:45px 5%}.hero-copy{max-width:670px}.eyebrow{letter-spacing:5px;font:12px Poppins;color:#d9dedb}.hero h2{font:700 clamp(50px,6vw,78px)/1.05 'Playfair Display',serif;margin:8px 0}.hero h2 span{color:var(--gold)}.mal{font-size:28px;font-weight:700}.hero-desc{color:#dfe7e3;max-width:600px}.hero-tags{font-family:Poppins;color:#d8e0dc}.quote{margin-top:15px;border-top:1px solid rgba(229,187,87,.6);padding-top:12px;width:300px;text-align:center}.arabic{font-size:25px}.quote p{font:12px Poppins;color:#cbd5d0}.hero-actions{display:flex;gap:16px;margin-top:22px}.action{padding:14px 25px;border-radius:30px;font:700 14px Poppins}.primary{background:linear-gradient(135deg,#f2d170,#d9a943);color:#17352b}.secondary{border:1px solid var(--gold);color:#fff}
-.quick-wrap{max-width:1420px;margin:auto;padding:18px 4%;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;background:#f1f1ed}.quick{background:#fff;border:1px solid #e4e4de;border-radius:16px;padding:20px;display:flex;gap:15px;min-height:145px;box-shadow:0 12px 28px rgba(5,40,30,.07);transition:.25s}.quick:hover,.card:hover,.exam-card:hover{transform:translateY(-7px)}.qicon,.card-icon{width:70px;height:70px;border-radius:15px;display:grid;place-items:center;font-size:30px;background:linear-gradient(135deg,#07513c,#06352a);color:#fff;flex:none}.quick:nth-child(even) .qicon{background:linear-gradient(135deg,#9d6b14,#c89936)}.quick h3,.card h3{font:700 22px 'Playfair Display',serif;margin:0 0 5px}.quick p,.card p{margin:0;font-size:13px;color:#68756f}
-section{padding:70px 5%}.container{max-width:1250px;margin:auto}.section-title{text-align:center;margin-bottom:35px}.section-title small{color:#b88322;letter-spacing:3px;font:700 12px Poppins}.section-title h2{font:700 36px 'Playfair Display',serif;margin:5px 0;color:#173b30}.welcome-box{background:#fff;border:1px solid #e9e7df;border-radius:22px;padding:40px;text-align:center;box-shadow:0 14px 35px rgba(5,40,30,.06);max-width:1000px;margin:auto}.welcome-box p{color:#50635c}.highlight{color:#076145;font-weight:800}
-#contents,#admin{background:#f1f2ee}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{background:#fff;border:1px solid #e5e5de;border-radius:18px;padding:32px;text-align:center;box-shadow:0 12px 30px rgba(5,40,30,.05);transition:.25s}.card-icon{margin:0 auto 17px;background:#e8f0eb;color:#07513c}
-#exams{background:linear-gradient(135deg,#032b22,#07513c);position:relative}.exam-intro{color:#dce7e1;text-align:center;max-width:750px;margin:0 auto 35px}.exam-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:950px;margin:auto}.exam-card{background:#fff;border-radius:20px;padding:32px;text-align:center;border-top:4px solid var(--gold);box-shadow:0 15px 40px rgba(0,0,0,.2);transition:.25s}.exam-icon{font-size:45px}.exam-card h3{font:700 22px 'Playfair Display',serif}.exam-card p{font-size:14px;color:#68756f}.btn,.start-btn{border:0;cursor:pointer;border-radius:12px;padding:13px 20px;font:700 14px inherit}.start-btn,.submit-exam{background:#07513c;color:#fff;width:100%}
-.admin-login{max-width:450px;background:#fff;margin:auto;padding:35px;border-radius:20px;box-shadow:0 14px 35px rgba(5,40,30,.07)}.input-group{margin:16px 0}.input-group label{display:block;font-weight:700;font-size:14px;margin-bottom:7px}input{width:100%;padding:14px;border:1px solid #dce3df;border-radius:10px;font:inherit}.admin-panel{display:none}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:25px}.stat{background:#fff;padding:28px;text-align:center;border-radius:18px}.stat p{color:#68756f}.stat h3{font:700 38px Poppins;color:#07513c}.ranking{background:#fff;border-radius:20px;padding:30px}.rank-row{display:flex;justify-content:space-between;align-items:center;padding:15px;border-bottom:1px solid #edf0ee}.rank-left{display:flex;align-items:center;gap:15px}.rank-number{min-width:40px;font-size:21px}.rank-name{font-weight:800}.rank-score{font-weight:800;color:#087054}
-.modal{display:none;position:fixed;inset:0;z-index:5000;background:rgba(0,0,0,.78);backdrop-filter:blur(6px);padding:20px;overflow:auto}.modal-box{max-width:800px;background:#fff;border-radius:22px;padding:35px;margin:30px auto}.close{float:right;font-size:30px;cursor:pointer}.modal-title{clear:both;color:#07513c}.question{padding:20px;border:1px solid #e4e9e6;border-radius:14px;margin:15px 0}.option{display:block;padding:11px;border:1px solid #e6e9e7;border-radius:9px;margin:8px 0}.option input{width:auto;margin-right:8px}.result-box{text-align:center}.score-circle{width:150px;height:150px;border-radius:50%;margin:22px auto;border:7px solid #087054;background:#edf6f1;display:flex;flex-direction:column;align-items:center;justify-content:center}.score-circle strong{font:700 38px Poppins;color:#07513c}
-footer{background:#032b22;color:#c7d3cd;padding:24px 5%;display:flex;justify-content:space-between;flex-wrap:wrap;font:12px Poppins}
-@media(max-width:1000px){.quick-wrap{grid-template-columns:repeat(2,1fr)}.brand{min-width:auto}nav{overflow:auto;justify-content:flex-start}}@media(max-width:760px){.top-header{height:auto;padding:12px;flex-wrap:wrap}.brand{width:100%}.brand img{width:55px;height:55px}nav{width:100%;flex-wrap:nowrap}.admin-nav{display:none}.hero-inner{min-height:590px}.hero:before{background:linear-gradient(90deg,rgba(2,35,27,.97),rgba(3,45,34,.82)),url('hero.jpg') center/cover}.quick-wrap,.cards,.exam-grid,.stats{grid-template-columns:1fr}.section-title h2{font-size:30px}.hero h2{font-size:52px}.welcome-box{padding:25px 18px}}
-.admin-table{width:100%;border-collapse:collapse;font-family:Poppins,sans-serif}.admin-table th,.admin-table td{padding:12px 8px;border-bottom:1px solid #e7ece8;text-align:left;font-size:13px}.admin-table th{background:#f3f6f4}.small-btn{border:0;border-radius:8px;padding:7px 10px;cursor:pointer;background:#07513c;color:#fff;font:12px Poppins}.danger{background:#8b3030}.question-builder{border:1px dashed #b9c9c1;padding:12px;border-radius:12px;margin:10px 0;background:#fbfcfb}.question-builder input{margin:5px 0;padding:10px}.notice-list{max-width:900px;margin:0 auto}.notice{background:#fff8df;border-left:4px solid #e5bb57;padding:13px 16px;border-radius:10px;margin:10px 0}.material-link{display:block;background:#fff;border-radius:12px;padding:16px;margin:10px 0;border:1px solid #e5e5de;font-weight:700}.result-details{font-size:14px;text-align:left}.result-details .question{background:#fafcfb}.admin-actions{display:flex;gap:8px;flex-wrap:wrap}.tag{display:inline-block;background:#e9f3ee;color:#07513c;padding:4px 9px;border-radius:99px;font:700 11px Poppins}.builder-toolbar{position:sticky;bottom:0;background:#fff;padding:15px 0;border-top:1px solid #eee;margin-top:15px}.muted{color:#68756f;font-size:13px}.exam-meta{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:12px 0}.searchbar{display:flex;gap:10px;margin:12px 0}.searchbar input{flex:1}.question-number{background:#07513c;color:#fff;border-radius:50%;width:28px;height:28px;display:inline-grid;place-items:center;margin-right:8px;font:700 12px Poppins}
-/* ===== NO ALERT POPUPS ===== */
-.site-toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,18px);z-index:99999;min-width:280px;max-width:calc(100vw - 28px);padding:13px 16px;border-radius:13px;background:#073d2f;color:#fff;box-shadow:0 14px 35px rgba(0,0,0,.22);font:600 13px Poppins,sans-serif;text-align:center;opacity:0;pointer-events:none;transition:.25s}
-.site-toast.show{opacity:1;transform:translate(-50%,0)}
-.site-toast.error{background:#8b3030}
-.site-toast.success{background:#07513c}
-.candidate-gate{background:linear-gradient(180deg,#f7fbf8,#fff);border:1px solid #e2ebe5;border-radius:18px;padding:20px;margin-bottom:16px}
-.candidate-gate h3{margin:0 0 6px;color:#07513c}
-.candidate-gate p{margin:0 0 16px;color:#68756f;font-size:13px}
-.candidate-actions{display:flex;gap:10px}
-.candidate-actions .btn{flex:1}
-.exam-stage{display:none}
-.exam-stage.active{display:block}
-@media(max-width:600px){
- .site-toast{bottom:14px;min-width:0;width:calc(100vw - 28px)}
- .candidate-gate{padding:16px}
- .candidate-actions{flex-direction:column}
+<!doctype html>
+<html lang="ml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Al Hasana Online | വിജ്ഞാന വേദി</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+ --g:#063c2d;--g2:#0b6248;--g3:#0d7a59;--gold:#d9ad48;--gold2:#f3d889;
+ --bg:#f5f3ec;--paper:#fffdf8;--ink:#17352d;--muted:#718078;--red:#8f3933;
+ --line:rgba(10,67,49,.12);--shadow:0 18px 55px rgba(10,48,37,.10)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:
+ radial-gradient(circle at 8% 8%,rgba(217,173,72,.11),transparent 25%),
+ radial-gradient(circle at 95% 22%,rgba(11,98,72,.08),transparent 25%),
+ var(--bg);color:var(--ink);font-family:'Noto Sans Malayalam',Poppins,sans-serif}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.035;
+ background-image:linear-gradient(45deg,#063c2d 1px,transparent 1px),linear-gradient(-45deg,#063c2d 1px,transparent 1px);
+ background-size:34px 34px;z-index:-1}
+header{background:rgba(4,42,32,.93);backdrop-filter:blur(18px);color:#fff;padding:13px 5%;
+ display:flex;align-items:center;justify-content:space-between;gap:24px;position:sticky;top:0;z-index:20;
+ border-bottom:1px solid rgba(217,173,72,.55);box-shadow:0 8px 30px rgba(0,0,0,.13)}
+.brand{display:flex;flex-direction:column;position:relative;padding-left:18px}
+.brand:before{content:"✦";position:absolute;left:0;top:5px;color:var(--gold)}
+.brand h1{margin:0;font:700 27px 'Playfair Display',serif;letter-spacing:.3px}
+.brand h1 span{color:var(--gold2)}
+.brand small{color:#d6e4dc;opacity:.8;font-size:10px;letter-spacing:2px}
+nav{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+nav a,button{font-family:inherit;cursor:pointer}
+nav a{color:#eaf3ee;text-decoration:none;padding:9px 13px;border-radius:30px;font-size:12px;transition:.25s}
+nav a:hover{background:rgba(255,255,255,.09);color:#fff}
+.admin-link{background:linear-gradient(135deg,var(--gold),#f0cb6c)!important;color:#16352c!important;font-weight:800;
+ box-shadow:0 6px 18px rgba(217,173,72,.22)}
+
+.hero{min-height:570px;position:relative;overflow:hidden;color:#fff;display:flex;align-items:center;padding:80px 8%;
+ background:
+ linear-gradient(90deg,rgba(2,39,30,.96) 0%,rgba(3,55,42,.84) 42%,rgba(3,44,35,.38) 70%,rgba(3,38,30,.12)),
+ radial-gradient(circle at 80% 35%,rgba(241,195,92,.45),transparent 18%),
+ linear-gradient(125deg,#092f27,#126246 55%,#d7b05b)}
+.hero:before{content:"";position:absolute;right:-90px;bottom:-160px;width:620px;height:620px;border:1px solid rgba(255,255,255,.15);
+ border-radius:48% 48% 0 0;transform:rotate(12deg);box-shadow:0 0 0 32px rgba(255,255,255,.025),0 0 0 64px rgba(255,255,255,.018)}
+.hero:after{content:"☪";position:absolute;right:9%;top:50%;transform:translateY(-50%);font-size:260px;color:rgba(255,255,255,.07);font-family:serif}
+.hero>div{position:relative;z-index:1;max-width:750px}
+.hero .eyebrow{display:inline-flex;align-items:center;gap:10px;letter-spacing:4px;color:#f0d68d;font-size:11px;font-weight:800}
+.hero .eyebrow:before{content:"";width:38px;height:1px;background:#e7c76f}
+.hero h2{font:700 clamp(50px,7vw,82px)/1.03 'Playfair Display',serif;margin:15px 0 5px;text-shadow:0 8px 30px rgba(0,0,0,.18)}
+.hero h2 span{color:#f1cf75}.hero h3{font-size:18px;color:#dce9e2;font-weight:500;letter-spacing:1px}
+.hero p{max-width:650px;color:#e2ece7;font-size:16px;line-height:1.9;margin:18px 0 28px}
+.container{max-width:1250px;margin:auto;padding:75px 22px}
+.section-title{text-align:center;margin-bottom:38px}
+.section-title small{display:inline-block;color:#a77a1d;font-weight:800;letter-spacing:3px;font-size:10px}
+.section-title h2{font:700 40px 'Playfair Display',serif;margin:9px 0 0;color:#173a30}
+.section-title h2:after{content:"";display:block;width:48px;height:3px;background:linear-gradient(90deg,var(--gold),transparent);margin:14px auto 0;border-radius:5px}
+#study,#announcements{background:rgba(255,255,255,.34);border-top:1px solid rgba(6,60,45,.05);border-bottom:1px solid rgba(6,60,45,.05)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:rgba(255,255,255,.86);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:22px;padding:25px;box-shadow:var(--shadow);transition:.25s}
+.card:hover{transform:translateY(-3px);box-shadow:0 23px 60px rgba(10,48,37,.13)}
+.card h3{margin:0 0 14px;font:700 22px 'Playfair Display',serif;color:#183d32}
+.btn{border:0;border-radius:10px;padding:12px 20px;background:linear-gradient(135deg,var(--g2),var(--g3));color:#fff;font-weight:700;
+ box-shadow:0 7px 18px rgba(7,98,72,.18);transition:.2s}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.07)}
+.btn.gold{background:linear-gradient(135deg,#d4a63f,#f0d17c);color:#17352b}
+.btn.red{background:linear-gradient(135deg,#813a35,#a84d45)}.btn.small{padding:8px 12px;font-size:12px;border-radius:8px}
+.exam-card{display:flex;flex-direction:column;gap:11px;position:relative;overflow:hidden}
+.exam-card:before{content:"✦";position:absolute;right:17px;top:10px;color:rgba(217,173,72,.18);font-size:54px}
+.exam-card h3{padding-right:35px}.exam-card p{color:#68756f;margin:0;line-height:1.7}
+.tag{background:#e7f3ed;color:#07513c;padding:6px 11px;border-radius:20px;font-size:10px;font-weight:800;letter-spacing:.4px;width:max-content}
+input,textarea,select{width:100%;padding:13px 14px;border:1px solid rgba(6,60,45,.16);border-radius:11px;font:inherit;margin:6px 0 12px;background:rgba(255,255,255,.9);outline:none;transition:.2s;color:var(--ink)}
+input:focus,textarea:focus,select:focus{border-color:#168060;box-shadow:0 0 0 4px rgba(22,128,96,.10)}
+textarea{min-height:100px}.muted{color:#718078;font-size:13px;line-height:1.7}
+.notice{background:linear-gradient(90deg,#fff9e8,#fffdf7);border-left:4px solid var(--gold);padding:16px 18px;border-radius:12px;margin:12px 0;box-shadow:0 8px 24px rgba(117,87,22,.06)}
+.material{display:flex;align-items:center;gap:12px;padding:17px 18px;border:1px solid var(--line);border-radius:14px;margin:11px 0;text-decoration:none;color:#07513c;font-weight:700;background:rgba(255,255,255,.85);transition:.2s}
+.material:before{content:"📖";font-size:21px}.material:hover{transform:translateX(4px);border-color:rgba(217,173,72,.65)}
+.modal{display:none;position:fixed;inset:0;background:rgba(2,23,17,.78);backdrop-filter:blur(8px);z-index:50;padding:30px;overflow:auto}
+.modal-box{max-width:900px;margin:35px auto;background:linear-gradient(145deg,#fffefb,#f5f3ed);border-radius:25px;padding:32px;position:relative;border:1px solid rgba(255,255,255,.7);box-shadow:0 30px 100px rgba(0,0,0,.3)}
+.modal-box:before{content:"";position:absolute;left:0;top:0;right:0;height:5px;background:linear-gradient(90deg,var(--g),var(--gold),var(--g2));border-radius:25px 25px 0 0}
+.close{position:absolute;right:20px;top:12px;font-size:31px;cursor:pointer;color:#496158;transition:.2s}.close:hover{color:var(--red);transform:rotate(90deg)}
+.question{padding:19px;border:1px solid var(--line);border-radius:15px;margin:15px 0;background:#fffefa;box-shadow:0 8px 24px rgba(10,48,37,.04)}
+.question h4{margin:0 0 12px;color:#173b31}.option{display:block;padding:12px 14px;border:1px solid #e1e9e4;border-radius:10px;margin:8px 0;background:#fff;transition:.15s}
+.option:hover{border-color:#78ae99;background:#f7fbf8}.option input{width:auto;margin:0 9px 0 0}
+#adminArea{display:none;background:
+ radial-gradient(circle at 95% 5%,rgba(217,173,72,.12),transparent 20%),
+ linear-gradient(180deg,#edf3ef,#f7f5ef);border-top:1px solid rgba(217,173,72,.55)}
+#adminArea>.container{max-width:1380px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:28px 0}
+.stat{text-align:center;padding:30px 20px;position:relative;overflow:hidden}
+.stat:before{content:"";position:absolute;width:80px;height:80px;border-radius:50%;background:rgba(217,173,72,.08);right:-25px;top:-25px}
+.stat p{font-weight:700;color:#50645d;margin:0 0 9px}.stat b{font-size:42px;color:#07513c;font-family:Poppins,sans-serif}
+.admin-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:22px 0}
+.admin-grid .card{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(--g2),var(--gold)) 1}
+.builder-question{border:1px dashed #9fb9ae;padding:18px;border-radius:16px;margin:16px 0;background:#fffefa}
+.builder-head{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.option-row{display:flex;gap:8px;align-items:center}.option-row input{margin-bottom:6px}.option-row button{margin-bottom:6px}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;overflow:hidden}
+th,td{padding:13px 12px;border-bottom:1px solid #e3eae5;text-align:left}th{background:#e9f1ec;color:#315247;font-size:11px;text-transform:uppercase;letter-spacing:.5px}tr:hover td{background:#fbfdfb}
+.result-box{text-align:center;padding:25px}.score{width:150px;height:150px;border-radius:50%;display:flex;flex-direction:column;justify-content:center;margin:20px auto;background:#edf7f1;border:8px solid #087054;box-shadow:0 0 0 8px rgba(8,112,84,.08)}.score b{font-size:36px}
+footer{background:linear-gradient(110deg,#032b22,#07513c);color:#dce8e2;padding:26px 7%;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;border-top:1px solid rgba(217,173,72,.4);font-size:13px}
+
+/* =========================================================
+   RESPONSIVE WEBSITE — DESKTOP + MOBILE
+   Desktop navigation stays at the TOP.
+   Mobile gets a clean single-column website layout.
+   ========================================================= */
+
+/* Desktop: top navigation bar */
+@media (min-width:761px){
+  header{
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    padding:13px 5%!important;
+  }
+  nav{
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:flex-end!important;
+    gap:5px!important;
+  }
 }
 
-/* ===== FINAL UI POLISH ===== */
-.primary-action,.submit-exam,.save-btn,.publish-btn,.admin-btn,.small-btn,.btn{
-  border:0!important;border-radius:11px!important;
-  transition:transform .18s ease,box-shadow .18s ease,filter .18s ease!important;
-}
-.primary-action,.submit-exam,.save-btn,.publish-btn{
-  background:linear-gradient(135deg,#087a5b,#0b5d47)!important;
-  color:#fff!important;box-shadow:0 8px 20px rgba(7,81,60,.16)!important;
-}
-.primary-action:hover,.submit-exam:hover,.save-btn:hover,.publish-btn:hover{
-  transform:translateY(-1px);filter:brightness(1.05);box-shadow:0 11px 24px rgba(7,81,60,.22)!important;
-}
-.admin-btn{
-  background:linear-gradient(135deg,#f0c75e,#dba53b)!important;color:#173b30!important;
-  box-shadow:0 8px 20px rgba(219,165,59,.18)!important;
-}
-.small-btn{background:linear-gradient(135deg,#087a5b,#07513c)!important;color:#fff!important}
-.small-btn.danger{background:linear-gradient(135deg,#a74a4a,#8b3030)!important}
-.quick,.card,.exam-card,.ranking,.notice,.content-card{
-  box-shadow:0 10px 28px rgba(7,55,43,.055);
-}
-.admin-only-badge{display:inline-flex;align-items:center;gap:6px;background:#eef7f2;color:#07513c;border:1px solid #d7e9df;padding:6px 10px;border-radius:999px;font:700 11px Poppins,sans-serif}
-.admin-only-section{position:relative}
-.hidden-to-public{display:none!important}
-.thankyou-screen{text-align:center;padding:38px 18px}
-.thankyou-screen .thanks-icon{font-size:48px;margin-bottom:10px}
-.thankyou-screen h2{color:#07513c;margin:8px 0}
-.thankyou-screen p{color:#5f6d66;line-height:1.8;margin:8px auto;max-width:520px}
-.thankyou-screen .islamic-line{color:#b58425;font-weight:700;margin-top:18px}
+/* Mobile: app-like website presentation, not an app */
+.mobile-menu-button{display:none}
+.mobile-nav{display:none}
 
-/* ===== MOBILE ADMIN LOGIN VISIBILITY FIX ===== */
-.mobile-admin-login{
-  display:none;
-  width:100%;
-  margin-top:6px;
-}
-.mobile-admin-login .admin-btn{
-  width:100%;
-  display:block;
-  text-align:center;
-  padding:11px 14px;
-}
 @media(max-width:760px){
-  .mobile-admin-login{display:block}
-  /* Keep the existing desktop admin button hidden in the mobile nav if it exists,
-     so there is one clear mobile login button. */
-  nav .admin-btn{display:none!important}
+  body{
+    overflow-x:hidden;
+  }
+
+  header{
+    position:sticky!important;
+    top:0!important;
+    z-index:100!important;
+    min-height:68px;
+    padding:10px 16px!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:10px!important;
+  }
+
+  .brand{
+    min-width:0;
+    padding-left:13px;
+  }
+  .brand h1{
+    font-size:22px!important;
+    white-space:nowrap;
+  }
+  .brand small{
+    font-size:8px!important;
+  }
+
+  /* Hide desktop links on mobile so they never squeeze or overflow. */
+  header nav{
+    display:none!important;
+  }
+
+  .mobile-menu-button{
+    display:flex!important;
+    align-items:center;
+    justify-content:center;
+    flex:0 0 44px;
+    width:44px;
+    height:44px;
+    border:1px solid rgba(217,173,72,.35);
+    border-radius:14px;
+    background:linear-gradient(135deg,#0b7658,#064d3b);
+    color:#fff;
+    font-size:22px;
+    line-height:1;
+    cursor:pointer;
+    box-shadow:0 8px 22px rgba(6,77,59,.22);
+    transition:transform .2s ease,box-shadow .2s ease;
+  }
+  .mobile-menu-button:active{
+    transform:scale(.94);
+  }
+
+  .mobile-nav{
+    display:flex;
+    position:fixed;
+    left:12px;
+    right:12px;
+    top:76px;
+    z-index:99;
+    flex-direction:column;
+    gap:6px;
+    padding:10px;
+    border:1px solid rgba(6,60,45,.10);
+    border-radius:18px;
+    background:rgba(255,253,248,.97);
+    box-shadow:0 20px 55px rgba(10,48,37,.18);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    opacity:0;
+    transform:translateY(-10px) scale(.98);
+    pointer-events:none;
+    transition:opacity .22s ease,transform .22s ease;
+  }
+  .mobile-nav.open{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    pointer-events:auto;
+  }
+  .mobile-nav a,
+  .mobile-nav button{
+    min-height:47px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    width:100%;
+    padding:11px 13px;
+    border:0;
+    border-radius:12px;
+    background:#f4f8f5;
+    color:#17352d;
+    font:600 14px 'Noto Sans Malayalam',Poppins,sans-serif;
+    text-decoration:none;
+    text-align:left;
+    cursor:pointer;
+  }
+  .mobile-nav .mobile-admin{
+    background:linear-gradient(135deg,var(--gold),var(--gold2));
+    color:#17352d;
+    font-weight:800;
+  }
+
+  /* Hero */
+  .hero{
+    min-height:480px!important;
+    padding:62px 22px 55px!important;
+  }
+  .hero h2{
+    font-size:clamp(43px,12vw,58px)!important;
+    line-height:1.05!important;
+  }
+  .hero h3{font-size:16px!important}
+  .hero p{
+    font-size:14px!important;
+    line-height:1.8!important;
+  }
+  .hero:after{
+    font-size:165px!important;
+    right:-12px!important;
+  }
+
+  /* Every content grid becomes one clean card per row. */
+  .grid,
+  .admin-grid,
+  .stats{
+    grid-template-columns:1fr!important;
+    gap:16px!important;
+  }
+
+  .container{
+    width:100%!important;
+    max-width:100%!important;
+    padding:45px 16px!important;
+  }
+
+  .section-title{
+    margin-bottom:25px!important;
+  }
+  .section-title h2{
+    font-size:29px!important;
+  }
+
+  .card{
+    width:100%!important;
+    padding:20px!important;
+    border-radius:18px!important;
+  }
+
+  .admin-grid .card{
+    min-height:0!important;
+  }
+
+  .stat{
+    padding:22px 18px!important;
+  }
+  .stat b{
+    font-size:36px!important;
+  }
+
+  /* Results/content tables stay inside the viewport. */
+  .table-wrap,
+  .table-responsive,
+  .results-table{
+    max-width:100%;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  table{
+    min-width:620px;
+  }
+
+  .modal{
+    padding:8px!important;
+  }
+  .modal-box{
+    width:100%!important;
+    margin:10px auto!important;
+    padding:24px 16px!important;
+    border-radius:20px!important;
+  }
+
+  footer{
+    padding:24px 18px!important;
+    flex-direction:column;
+  }
 }
 
-/* MOBILE CLEAN UI - desktop untouched */
-@media (max-width:760px){
-html,body{width:100%;max-width:100%;overflow-x:hidden!important}
-body{-webkit-text-size-adjust:100%}
-#admin,.admin-dashboard,.admin-container,.dashboard-container{width:100%!important;max-width:100%!important;box-sizing:border-box!important;padding-left:12px!important;padding-right:12px!important}
-#admin .cards,#admin .stats,#admin .admin-grid,#admin .dashboard-grid,#admin .content-grid,#admin .exam-grid,.admin-dashboard,.dashboard-grid,.admin-grid,.cards,.stats,.content-grid,.exam-grid{grid-template-columns:1fr!important;width:100%!important;max-width:100%!important}
-#admin .card,#admin .admin-card,.admin-dashboard .card,.dashboard-grid>.card,.admin-grid>.card{width:100%!important;min-width:0!important;max-width:100%!important;box-sizing:border-box!important;margin:0 0 12px!important;padding:18px!important;min-height:0!important}
-#admin .card h3,#admin .admin-card h3{font-size:21px!important;line-height:1.2!important;margin-bottom:9px!important}
-#admin .card p,#admin .admin-card p{font-size:13px!important;line-height:1.65!important}
-#admin input,#admin select,#admin textarea{width:100%!important;max-width:100%!important;box-sizing:border-box!important;min-height:46px!important;margin-bottom:9px!important;font-size:16px!important}
-#admin button{max-width:100%!important;box-sizing:border-box!important;min-height:42px!important}
-#adminContentList,.published-content{width:100%!important;box-sizing:border-box!important;overflow:hidden!important}
-#adminContentList .rank-row,#adminContentList .content-row,.published-content .rank-row{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:9px!important;width:100%!important;box-sizing:border-box!important;padding:14px!important}
-#adminContentList .admin-actions{display:flex!important;width:100%!important;gap:8px!important}
-#adminContentList .admin-actions button{flex:1!important;min-width:0!important}
-.admin-table-wrap{display:none!important}
-.result-card-list{display:block!important;width:100%!important}
-.result-person{width:100%!important;box-sizing:border-box!important;margin:0 0 10px!important;padding:14px!important}
-.result-person .rp-grid{grid-template-columns:1fr 1fr!important;gap:7px!important}
-.question-builder,.question-card,.qb-question{width:100%!important;box-sizing:border-box!important;min-width:0!important}
-.qb-option-row{display:flex!important;width:100%!important;gap:7px!important}
-.qb-option-row .qb-option{flex:1!important;min-width:0!important}
-.modal{padding:8px!important}
-.modal-box{width:calc(100vw - 16px)!important;max-width:calc(100vw - 16px)!important;box-sizing:border-box!important;margin:8px auto!important}
-img,video,iframe,table{max-width:100%!important}
-.mobile-admin-login{display:block!important;width:100%!important;box-sizing:border-box!important;padding:6px 12px 10px!important}
-.mobile-admin-login .admin-btn{width:100%!important;min-height:44px!important}
+@media(max-width:420px){
+  .brand h1{font-size:20px!important}
+  .hero{min-height:455px!important}
+  .btn{width:100%;text-align:center}
 }
+.hero h2{font-size:45px}.hero:after{font-size:170px;right:0}.card{padding:20px}}
 
-/* ===== FINAL MOBILE NAVIGATION ===== */
-.mobile-menu-toggle{
-  display:none;
-  width:46px;height:42px;border:0;border-radius:11px;
-  background:rgba(255,255,255,.10);cursor:pointer;
-  align-items:center;justify-content:center;flex-direction:column;gap:5px;
-}
-.mobile-menu-toggle span{display:block;width:22px;height:2px;border-radius:2px;background:#fff;transition:.2s}
-.mobile-menu-panel{display:none}
-@media(max-width:760px){
-  .mobile-menu-toggle{display:flex;margin-left:auto;flex:none}
-  /* hide the desktop nav links on mobile */
-  header nav, .navbar nav, .site-nav nav, .nav-links{display:none!important}
-  .mobile-menu-panel{
-    position:absolute;left:12px;right:12px;top:calc(100% + 8px);
-    z-index:10000;background:#fff;border:1px solid #e5ece8;border-radius:16px;
-    box-shadow:0 18px 40px rgba(7,55,43,.18);padding:8px;display:none;
-  }
-  .mobile-menu-panel.open{display:block}
-  .mobile-menu-panel a,.mobile-menu-panel button{
-    display:flex;width:100%;align-items:center;justify-content:flex-start;
-    min-height:48px;padding:11px 14px;border:0;background:transparent;
-    border-radius:11px;color:#173b30;text-decoration:none;
-    font:600 16px/1.2 Poppins,sans-serif;text-align:left;box-sizing:border-box;
-  }
-  .mobile-menu-panel a:hover,.mobile-menu-panel button:hover{background:#f0f7f3}
-  .mobile-menu-panel .mobile-admin-link{
-    margin-top:4px;background:linear-gradient(135deg,#f0c75e,#dba53b);
-    color:#173b30;justify-content:center;font-weight:700;
-  }
-  header,.navbar,.site-header{
-    position:relative;z-index:10001;
-  }
-  /* slightly larger mobile navigation/header text */
-  header a,.navbar a,.site-header a{font-size:15px}
-}
-</style></head><body><div id="siteToast" class="site-toast"></div>
-<header class="top-header"><div class="brand"><img src="logo.png"><div><h1>Al Hasana <span>Online</span></h1><small>വിജ്ഞാന വേദി</small></div></div><nav><a class="active" href="#home">Home</a><a href="#about">About</a><a href="#contents">Study</a><a href="#exams">Exams</a><a href="#results">Results</a><a href="#results">♜ Leaderboard</a><a href="#about">Contact</a><a class="admin-nav" href="javascript:void(0)" onclick="openAdminLogin()">Admin Login</a></nav>
-<button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileMenu()">
-  <span></span><span></span><span></span>
-</button>
-<div class="mobile-menu-panel" id="mobileMenuPanel">
-  <a href="#home" onclick="closeMobileMenu()">Home</a>
-  <a href="#about" onclick="closeMobileMenu()">About</a>
-  <a href="#study" onclick="closeMobileMenu()">Study</a>
-  <a href="#exams" onclick="closeMobileMenu()">Exams</a>
-  <a href="#results" onclick="closeMobileMenu()">Results</a>
-  <a href="#leaderboard" onclick="closeMobileMenu()">Leaderboard</a>
-  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
-  <button class="mobile-admin-link" onclick="closeMobileMenu();openAdminLogin()">Admin Login</button>
-</div>
-
-<div class="mobile-admin-login">
-  <button class="admin-btn" onclick="openAdminLogin()">Admin Login</button>
-</div>
+</style>
+</head>
+<body>
+<header>
+ <div class="brand"><h1>Al Hasana <span>Online</span></h1><small>വിജ്ഞാന വേദി</small></div>
+ <nav><a href="#home">Home</a><a href="#study">Study</a><a href="#exams">Exams</a><a href="#announcements">Announcements</a><a href="javascript:void(0)" class="admin-link" onclick="openAdminLogin()">🔐 Admin Login</a></nav>
+ <button id="mobileMenuButton" class="mobile-menu-button" type="button" aria-label="Open menu" onclick="toggleMobileNav()">☰</button>
 </header>
-<section class="hero" id="home"><div class="hero-inner"><div class="hero-copy"><div class="eyebrow">A JOURNEY TOWARDS KNOWLEDGE AND RIGHTEOUSNESS</div><h2>Al Hasana <span>Online</span></h2><div class="mal">വിജ്ഞാന വേദി</div><p class="hero-desc">An online platform for Islamic education, learning, knowledge sharing, and self-assessment.</p><div class="hero-tags">Learn • Practice • Grow • Become Better</div><div class="quote"><div class="arabic">رَبِّ زِدْنِي عِلْمًا</div><p>“My Lord, increase me in knowledge”<br>(Quran 20:114)</p></div><div class="hero-actions"><a class="action primary" href="#contents">📖 Start Learning →</a><a class="action secondary" href="#exams">▤ Take an Exam →</a></div></div></div></section>
-<div class="quick-wrap"><a class="quick" href="#contents"><div class="qicon">▣</div><div><h3>Study</h3><p>Explore Islamic topics, articles and resources.</p></div></a><a class="quick" href="#exams"><div class="qicon">▤</div><div><h3>Exams</h3><p>Test your knowledge with online exams.</p></div></a><a class="quick" href="#admin"><div class="qicon">▥</div><div><h3>Results</h3><p>Check your performance and progress.</p></div></a><a class="quick" href="#admin"><div class="qicon">♜</div><div><h3>Leaderboard</h3><p>See top learners and get inspired.</p></div></a></div>
-<section id="about"><div class="container"><div class="section-title"><small>AL HASANA ONLINE</small><h2>വിജ്ഞാന വേദി</h2></div><div class="welcome-box"><p>എല്ലാവരേയും ഈ <span class="highlight">വിജ്ഞാന വേദിയിലേക്ക്</span> സ്വാഗതം ചെയ്യുന്നു.</p><p>സുഊദി അറേബ്യയിലെ മറാത്ത് ദഅവാ സെന്റർ ഇറക്കുന്ന ഹദീസ് പോസ്റ്ററുകളും അറിവ് ചോദ്യങ്ങളും മറ്റു വൈജ്ഞാനിക കാര്യങ്ങളും ഈ വേദിയിലൂടെ നിങ്ങൾക്ക് ലഭിക്കും إن شاء الله</p><p>നിങ്ങൾക്ക് അയച്ചു തരുന്ന അറിവുകൾ പഠിക്കുകയും രേഖപ്പെടുത്തി വെക്കുകയും മറ്റുള്ളവർക്ക് എത്തിച്ചുകൊടുക്കുകയും ചെയ്യാൻ ശ്രമിക്കുക.</p><p class="highlight">അല്ലാഹു അനുഗ്രഹിക്കട്ടെ 🤲</p></div></div></section>
-<section id="contents"><div class="container"><div class="section-title"><small>LEARN • SHARE • GROW</small><h2>വിജ്ഞാന വിഭാഗങ്ങൾ</h2></div><div class="cards"><div class="card"><div class="card-icon">📜</div><h3>ഹദീസ് പോസ്റ്ററുകൾ</h3><p>ജീവിതത്തിൽ പ്രാവർത്തികമാക്കാവുന്ന മഹത്തായ ഹദീസുകളും സന്ദേശങ്ങളും.</p></div><div class="card"><div class="card-icon">❓</div><h3>അറിവ് ചോദ്യങ്ങൾ</h3><p>ഇസ്ലാമിക അറിവുകൾ പരിശോധിക്കാനും പഠിക്കാനും സഹായിക്കുന്ന ചോദ്യങ്ങൾ.</p></div><div class="card"><div class="card-icon">📖</div><h3>വൈജ്ഞാനിക കാര്യങ്ങൾ</h3><p>അറിവ് വർദ്ധിപ്പിക്കുന്ന വിവിധ പഠന വിഷയങ്ങളും വിവരങ്ങളും.</p></div></div></div></section>
-<section id="exams"><div class="container"><div class="section-title"><small style="color:#e6bd61">ONLINE EXAMINATION</small><h2 style="color:white">📝 ഓൺലൈൻ പരീക്ഷകൾ</h2></div><p class="exam-intro">നിങ്ങൾ പഠിച്ച കാര്യങ്ങൾ പരീക്ഷയിലൂടെ പരിശോധിക്കാം. പരീക്ഷ പൂർത്തിയാക്കിയാൽ നിങ്ങളുടെ മാർക്ക് ഉടൻ ലഭിക്കുന്നതാണ്.</p><div class="exam-grid" id="publicExamList"><div class="exam-card" style="grid-column:1/-1"><div class="exam-icon">⏳</div><h3>പരീക്ഷകൾ Loading...</h3><p>Admin publish ചെയ്യുന്ന പരീക്ഷകൾ ഇവിടെ കാണുന്നതാണ്.</p></div></div></div></section>
-<section id="results"><div class="container"><div class="section-title"><small>RESULTS</small><h2>🏆 Top Rankings</h2></div><div class="ranking"><div id="publicRankingList"><p style="text-align:center">Leaderboard loading...</p></div></div></div></section>
-<section id="publicAnnouncements"><div class="container"><div class="section-title"><small>UPDATES</small><h2>📢 അറിയിപ്പുകൾ</h2></div><div class="notice-list" id="announcementList"></div></div></section>
-<section id="publicMaterials"><div class="container"><div class="section-title"><small>LEARNING</small><h2>Study Materials</h2></div><div id="publicMaterialList" class="notice-list"></div></div></section>
-<section id="admin" style="display:none"><div class="container"><div class="section-title"><small>PRIVATE AREA</small><h2>🔐 Admin Dashboard</h2></div><div class="admin-panel" id="adminPanel">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px"><div><b style="font-size:22px">👨‍💼 Admin Control Panel</b><br><small>Al Hasana Online Management</small></div><button class="btn" style="background:#7a2d2d;color:white" onclick="adminLogout()">Logout</button></div>
-<div class="stats"><div class="stat"><p>ആകെ പരീക്ഷാർത്ഥികൾ</p><h3 id="totalStudents">0</h3></div><div class="stat"><p>ഏറ്റവും ഉയർന്ന മാർക്ക്</p><h3 id="highestScore">0</h3></div><div class="stat"><p>ആകെ പരീക്ഷകൾ</p><h3 id="totalExams">0</h3></div></div>
-<div class="cards" style="grid-template-columns:repeat(3,1fr);margin-bottom:25px">
-<div class="card" style="text-align:left"><h3>➕ Add Exam</h3><p style="color:#68756f;font-size:13px;margin:10px 0 18px">Create a complete exam with questions, options and correct answers.</p><button class="submit-exam" onclick="openExamBuilder()">➕ Create New Exam</button></div>
-<div class="card" style="text-align:left"><h3>📚 Add Study Material</h3><input id="materialTitle" placeholder="Title" style="margin:8px 0"><input id="materialLink" placeholder="PDF / Video Link" style="margin:8px 0"><button class="submit-exam" onclick="addMaterial()">Save Material</button></div>
-<div class="card" style="text-align:left"><h3>📢 Announcement</h3><input id="announcementText" placeholder="Write announcement" style="margin:8px 0"><button class="submit-exam" onclick="addAnnouncement()">Publish</button></div></div>
-<div class="ranking" style="margin-bottom:25px"><h3>📋 Published Exams & Content</h3><p class="muted">ഇവിടെ നിന്ന് Exam Edit/Delete ചെയ്യാനും മറ്റു content നിയന്ത്രിക്കാനും കഴിയും.</p><div id="adminContentList">Loading...</div></div>
-<div class="ranking"><div class="admin-section-head"><h3>👥 Exam എഴുതിയവർ</h3><span class="admin-only-badge">🔐 Admin Only</span></div><div class="searchbar"><input id="resultSearch" placeholder="പേര് / Phone / Exam ഉപയോഗിച്ച് Search..." oninput="filterAdminResults()"></div><div style="overflow:auto"><table class="admin-table"><thead><tr><th>Name</th><th>Phone</th><th>Exam</th><th>Score</th><th>Date</th><th>Action</th></tr></thead><tbody id="adminResultsTable"></tbody></table></div></div>
-</div></div></section><footer><div>© 2026 Al Hasana Online. All rights reserved.</div><div>Learn • Practice • Grow • Become Better</div></footer>
 
-<div class="modal" id="examBuilderModal"><div class="modal-box" style="max-width:900px"><span class="close" onclick="closeExamBuilder()">×</span><div class="section-title" style="margin:5px 0 20px"><small>ADMIN AREA</small><h2 style="font-size:32px">➕ Create & Publish Exam</h2><p style="font-size:13px;color:#68756f">Questions ചേർത്ത് അവസാനം Publish Exam അമർത്തിയാൽ എല്ലാവർക്കും Exam page-ൽ കാണാം.</p></div><div class="input-group"><label>Exam Title *</label><input id="newExamTitle" placeholder="ഉദാ: Islamic General Knowledge Test"></div><div class="input-group"><label>Short Description</label><input id="newExamDesc" placeholder="Exam നെക്കുറിച്ചുള്ള ചെറിയ വിവരണം"></div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:20px"><h3 style="margin:0">📝 Questions</h3><button class="small-btn" type="button" onclick="addQuestionField()">➕ Add New Question</button></div><input type="hidden" id="editingExamId" value=""><div id="questionBuilder"></div><div class="builder-toolbar"><div class="muted" id="questionCountInfo">0 Questions</div><button class="submit-exam" style="margin-top:10px;font-size:16px" onclick="publishExam()">🚀 Publish Exam – എല്ലാവർക്കും കാണിക്കുക</button></div></div></div>
-<div class="modal" id="examModal"><div class="modal-box"><span class="close" onclick="closeExam()">×</span><div id="examContent"><h2 class="modal-title" id="activeExamTitle">📝 പഠന ക്വിസ്</h2><div class="input-group"><label>നിങ്ങളുടെ പേര് *</label><input type="text" id="studentName" placeholder="പേര് എഴുതുക"></div><div class="input-group"><label>Phone Number *</label><input type="tel" id="studentPhone" placeholder="Phone Number നൽകുക"></div><div class="input-group"><label>സ്ഥലം / ബാച്ച് (Optional)</label><input type="text" id="studentPlace" placeholder="സ്ഥലം"></div><div id="questionsContainer"></div><button class="submit-exam" onclick="submitExam()">പരീക്ഷ Submit ചെയ്യുക</button></div></div></div>
-<div class="modal" id="resultDetailModal"><div class="modal-box"><span class="close" onclick="document.getElementById('resultDetailModal').style.display='none'">×</span><div id="resultDetailContent"></div></div></div>
-<div class="modal" id="adminLoginModal"><div class="modal-box" style="max-width:460px;margin-top:10vh"><span class="close" onclick="closeAdminLogin()">×</span><div class="section-title" style="margin:5px 0 20px"><small>PRIVATE AREA</small><h2 style="font-size:32px">Admin Login</h2></div><div class="input-group"><label>Admin Email</label><input type="email" id="adminEmail" placeholder="Email നൽകുക"></div><div class="input-group"><label>Password</label><input type="password" id="adminPassword" placeholder="Password നൽകുക"></div><button class="submit-exam" onclick="adminLogin()">Admin Login</button></div></div>
-<!-- ================= FIREBASE & QUIZ LOGIC ================= -->
+<section class="hero" id="home"><div><div class="eyebrow">A JOURNEY TOWARDS KNOWLEDGE</div><h2>Al Hasana <span>Online</span></h2><h3>വിജ്ഞാന വേദി</h3><p>Islamic education, study materials, online examinations and knowledge sharing in one platform.</p><a class="btn gold" href="#exams">📝 പരീക്ഷകൾ കാണുക</a></div></section>
+
+<section id="study"><div class="container"><div class="section-title"><small>LEARNING</small><h2>📚 Study Materials</h2></div><div id="publicMaterials"><p class="muted">Loading study materials...</p></div></div></section>
+
+<section id="exams"><div class="container"><div class="section-title"><small>ONLINE EXAMINATION</small><h2>📝 Available Exams</h2></div><div class="grid" id="publicExamList"><p class="muted">Loading exams...</p></div></div></section>
+
+<section id="announcements"><div class="container"><div class="section-title"><small>UPDATES</small><h2>📢 Announcements</h2></div><div id="publicAnnouncements"></div></div></section>
+
+<section id="adminArea"><div class="container">
+ <div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><div><div class="section-title" style="text-align:left;margin:0"><small>PRIVATE AREA</small><h2>🔐 Admin Control Panel</h2></div><p class="muted" id="adminUserText"></p></div><button class="btn red" onclick="adminLogout()">Logout</button></div>
+ <div class="stats">
+  <div class="card stat"><p>ആകെ പരീക്ഷാർത്ഥികൾ</p><b id="totalStudents">0</b></div>
+  <div class="card stat"><p>ആകെ പരീക്ഷകൾ</p><b id="totalExams">0</b></div>
+  <div class="card stat"><p>ഏറ്റവും ഉയർന്ന മാർക്ക്</p><b id="highestScore">0</b></div>
+ </div>
+ <div class="admin-grid">
+  <div class="card"><h3>➕ Create & Publish Exam</h3><p class="muted">Question, options, correct answer എന്നിവ ചേർത്ത് എല്ലാവർക്കും കാണുന്ന Exam publish ചെയ്യാം.</p><button class="btn" onclick="openExamBuilder()">Create New Exam</button></div>
+  <div class="card"><h3>📚 Add Study Material</h3><input id="materialTitle" placeholder="Title"><input id="materialLink" placeholder="PDF / Video Link"><button class="btn" onclick="addMaterial()">Save Material</button></div>
+  <div class="card"><h3>📢 Announcement</h3><textarea id="announcementText" placeholder="Write announcement"></textarea><button class="btn" onclick="addAnnouncement()">Publish</button></div>
+ </div>
+ <div class="card"><h3>📋 Published Content</h3><div id="adminContentList">Loading...</div></div>
+ <div class="card" style="margin-top:18px"><h3>👥 Exam എഴുതിയവർ & Results</h3><input id="resultSearch" placeholder="പേര് / Phone / Exam ഉപയോഗിച്ച് Search..." oninput="filterAdminResults()"><div style="overflow:auto"><table><thead><tr><th>Name</th><th>Phone</th><th>Exam</th><th>Score</th><th>Date</th><th>Action</th></tr></thead><tbody id="adminResultsTable"></tbody></table></div></div>
+</div></section>
+
+<footer><div>© 2026 Al Hasana Online</div><div>Learn • Practice • Grow</div></footer>
+
+<div class="modal" id="adminLoginModal"><div class="modal-box" style="max-width:500px"><span class="close" onclick="closeModal('adminLoginModal')">×</span><h2>🔐 Admin Login</h2><label>Email</label><input id="adminEmail" type="email" placeholder="Admin Email"><label>Password</label><input id="adminPassword" type="password" placeholder="Password"><button class="btn" onclick="adminLogin()">Admin Login</button></div></div>
+
+<div class="modal" id="examBuilderModal"><div class="modal-box"><span class="close" onclick="closeExamBuilder()">×</span><h2>➕ Create & Publish Exam</h2><label>Exam Title *</label><input id="builderExamTitle" placeholder="Exam name"><label>Short Description</label><textarea id="builderExamDescription" placeholder="Exam description"></textarea><div style="display:flex;justify-content:space-between;align-items:center"><h3>📝 Questions</h3><button class="btn small" onclick="addQuestionField()">+ Add New Question</button></div><div id="builderQuestions"></div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:18px"><span class="muted" id="questionCount">0 Questions Added</span><button class="btn gold" onclick="publishExam()">🚀 Publish Exam - എല്ലാവർക്കും കാണിക്കുക</button></div></div></div>
+
+<div class="modal" id="examModal"><div class="modal-box"><span class="close" onclick="closeExam()">×</span><div id="examContent"></div></div></div>
+<div class="modal" id="resultDetailModal"><div class="modal-box"><span class="close" onclick="closeModal('resultDetailModal')">×</span><div id="resultDetailContent"></div></div></div>
+
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
-  import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, serverTimestamp, updateDoc, setDoc } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
-  import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+import {initializeApp} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+import {getFirestore,collection,addDoc,getDocs,doc,getDoc,setDoc,updateDoc,deleteDoc} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+import {getAuth,signInWithEmailAndPassword,signOut,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyDFbef70zL4xISreb2FubzLlF2GkHJwarM",
-    authDomain: "al-hasana-online.firebaseapp.com",
-    projectId: "al-hasana-online",
-    storageBucket: "al-hasana-online.firebasestorage.app",
-    messagingSenderId: "610914231755",
-    appId: "1:610914231755:web:476e058a0e56bd42ca824e"
-  };
+const firebaseConfig={
+ apiKey:"AIzaSyDFbef70zL4xISreb2FubzLlF2GkHJwarM",
+ authDomain:"al-hasana-online.firebaseapp.com",
+ projectId:"al-hasana-online",
+ storageBucket:"al-hasana-online.firebasestorage.app",
+ messagingSenderId:"610914231755",
+ appId:"1:610914231755:web:476e058a0e56bd42ca824e"
+};
+const app=initializeApp(firebaseConfig),db=getFirestore(app),auth=getAuth(app);
+let activeExam=null,editingExamId=null;
+const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-  const auth = getAuth(app);
+window.closeModal=id=>document.getElementById(id).style.display="none";
+window.openAdminLogin=()=>document.getElementById("adminLoginModal").style.display="block";
+window.adminLogin=async()=>{const email=document.getElementById("adminEmail").value.trim(),password=document.getElementById("adminPassword").value;if(!email||!password)return alert("Email, Password നൽകുക");try{await signInWithEmailAndPassword(auth,email,password);closeModal("adminLoginModal");document.getElementById("adminPassword").value="";}catch(e){console.error(e);alert("Admin Login Failed: Email/Password പരിശോധിക്കുക.");}};
+window.adminLogout=async()=>{await signOut(auth);document.getElementById("adminArea").style.display="none";alert("Logged out");};
 
-  // എല്ലാ പരീക്ഷകളും Admin Dashboard-ൽ നിന്ന് Firestore-ലേക്ക് Publish ചെയ്യുന്നതാണ്.
+onAuthStateChanged(auth,user=>{if(user){document.getElementById("adminArea").style.display="block";document.getElementById("adminUserText").innerText=user.email;loadAdminData();setTimeout(()=>document.getElementById("adminArea").scrollIntoView({behavior:"smooth"}),100)}else document.getElementById("adminArea").style.display="none";});
 
-  let activeExam = null;
-  const ADMIN_EMAIL = "alhasanah.dw@gmail.com";
+window.openExamBuilder=()=>{editingExamId=null;document.getElementById("builderExamTitle").value="";document.getElementById("builderExamDescription").value="";document.getElementById("builderQuestions").innerHTML="";addQuestionField();document.getElementById("examBuilderModal").style.display="block";};
+window.closeExamBuilder=()=>closeModal("examBuilderModal");
+window.addQuestionField=()=>{const box=document.getElementById("builderQuestions"),n=box.children.length+1;const div=document.createElement("div");div.className="builder-question";div.innerHTML=`<div class="builder-head"><b>Question ${n}</b><button class="btn small red" onclick="this.closest('.builder-question').remove();renumberQuestions()">Remove</button></div><textarea class="bq" placeholder="Question എഴുതുക"></textarea><div class="options"></div><button class="btn small" onclick="addOption(this)">+ Add Option</button><div><label class="muted">Correct Answer</label><select class="correctSelect"></select></div>`;box.appendChild(div);for(let i=0;i<4;i++)addOption(div.querySelector("button"));renumberQuestions();};
+window.addOption=btn=>{const q=btn.closest(".builder-question"),opts=q.querySelector(".options"),row=document.createElement("div");row.className="option-row";row.innerHTML=`<input class="bo" placeholder="Option ${opts.children.length+1}"><button class="btn small red" onclick="this.parentElement.remove();refreshCorrect(this.closest('.builder-question'))">×</button>`;opts.appendChild(row);refreshCorrect(q);};
+window.refreshCorrect=q=>{const s=q.querySelector(".correctSelect"),old=s.value;s.innerHTML="";q.querySelectorAll(".bo").forEach((_,i)=>s.innerHTML+=`<option value="${i}">Option ${i+1}</option>`);if(old<s.options.length)s.value=old;};
+window.renumberQuestions=()=>{document.querySelectorAll("#builderQuestions .builder-question").forEach((q,i)=>q.querySelector(".builder-head b").innerText="Question "+(i+1));document.getElementById("questionCount").innerText=document.querySelectorAll("#builderQuestions .builder-question").length+" Questions Added";};
 
-  
-  let toastTimer=null;
-  window.showToast=function(message,type='success'){
-    const t=document.getElementById('siteToast');
-    if(!t)return;
-    t.textContent=message;
-    t.className='site-toast '+(type==='error'?'error':'success')+' show';
-    clearTimeout(toastTimer);
-    toastTimer=setTimeout(()=>t.classList.remove('show'),3200);
-  };
+window.publishExam=async()=>{const title=document.getElementById("builderExamTitle").value.trim(),description=document.getElementById("builderExamDescription").value.trim();if(!title)return alert("Exam Title നൽകുക");const questions=[];for(const q of document.querySelectorAll("#builderQuestions .builder-question")){const question=q.querySelector(".bq").value.trim(),options=[...q.querySelectorAll(".bo")].map(x=>x.value.trim()).filter(Boolean),answer=Number(q.querySelector(".correctSelect").value);if(!question||options.length<2)return alert("ഓരോ Question-ലും Question, കുറഞ്ഞത് 2 Options നൽകുക.");questions.push({question,options,answer});}if(!questions.length)return alert("കുറഞ്ഞത് ഒരു Question ചേർക്കുക.");const data={title,description,questions,published:true,updatedAt:new Date().toISOString(),createdAt:new Date().toISOString()};try{if(editingExamId){await updateDoc(doc(db,"exams",editingExamId),data);alert("Exam Updated")}else{await addDoc(collection(db,"exams"),data);alert("Exam Published Successfully!")}closeExamBuilder();loadPublicExams();loadAdminContent();}catch(e){console.error(e);alert("Publish failed. Firestore Rules പരിശോധിക്കുക.");}};
 
-  
-  function setAdminOnlyVisibility(isAdmin){
-    document.querySelectorAll('.admin-only-section').forEach(el=>{
-      el.classList.toggle('hidden-to-public', !isAdmin);
-    });
-  }
-  window.setAdminOnlyVisibility=setAdminOnlyVisibility;
+async function loadPublicExams(){const box=document.getElementById("publicExamList");try{const snap=await getDocs(collection(db,"exams"));let html="",count=0;snap.forEach(d=>{const x=d.data();if(x.published===false)return;count++;html+=`<div class="card exam-card"><span class="tag">${(x.questions||[]).length} Questions</span><h3>${esc(x.title)}</h3><p>${esc(x.description||"Online examination")}</p><button class="btn" onclick="startExam('${d.id}')">പരീക്ഷ ആരംഭിക്കുക</button></div>`});box.innerHTML=html||"<p class='muted'>ഇപ്പോൾ പരീക്ഷകൾ ലഭ്യമല്ല.</p>";}catch(e){console.error(e);box.innerHTML="<p>Exams load ചെയ്യാൻ കഴിഞ്ഞില്ല.</p>";}}
+window.startExam=async id=>{try{const s=await getDoc(doc(db,"exams",id));if(!s.exists())return;activeExam={id,...s.data()};document.getElementById("examContent").innerHTML=`<h2>📝 ${esc(activeExam.title)}</h2><div class="input-group"><label>നിങ്ങളുടെ പേര് *</label><input id="studentName" placeholder="പേര് എഴുതുക"></div><div class="input-group"><label>Phone Number *</label><input id="studentPhone" placeholder="Phone Number നൽകുക"></div><div class="input-group"><label>സ്ഥലം / ബാച്ച് (Optional)</label><input id="studentPlace" placeholder="സ്ഥലം"></div><div id="questionsContainer"></div><button class="btn" id="submitExamBtn" onclick="submitExam()">പരീക്ഷ Submit ചെയ്യുക</button>`;const c=document.getElementById("questionsContainer");(activeExam.questions||[]).forEach((q,i)=>{let h=`<div class="question"><h4>${i+1}. ${esc(q.question)}</h4>`;(q.options||[]).forEach((o,j)=>h+=`<label class="option"><input type="radio" name="question${i}" value="${j}"> ${esc(o)}</label>`);h+="</div>";c.innerHTML+=h;});document.getElementById("examModal").style.display="block";}catch(e){alert("Exam തുറക്കാൻ കഴിഞ്ഞില്ല.");}};
+window.closeExam=()=>closeModal("examModal");
+window.submitExam=async()=>{const name=document.getElementById("studentName").value.trim(),phone=document.getElementById("studentPhone").value.trim(),place=document.getElementById("studentPlace").value.trim(),qs=activeExam.questions||[];if(!name||!phone)return alert("പേരും Phone Number-ഉം നൽകുക.");let score=0,answers=[];for(let i=0;i<qs.length;i++){const selected=document.querySelector(`input[name="question${i}"]:checked`),idx=selected?Number(selected.value):-1;if(idx===qs[i].answer)score++;answers.push({question:qs[i].question,selectedIndex:idx,selectedAnswer:idx>=0?qs[i].options[idx]:"Not answered",correctIndex:qs[i].answer,correctAnswer:qs[i].options[qs[i].answer]});}const result={name,phone,place,examId:activeExam.id,examName:activeExam.title,score,total:qs.length,percentage:qs.length?Math.round(score/qs.length*100):0,answers,submittedAt:new Date().toISOString()};const b=document.getElementById("submitExamBtn");b.disabled=true;b.innerText="Saving Result...";try{await addDoc(collection(db,"examResults"),result);document.getElementById("examContent").innerHTML=`<div class="result-box"><h2>🎉 പരീക്ഷ പൂർത്തിയായി!</h2><p>അഭിനന്ദനങ്ങൾ ${esc(name)}</p><div class="score"><b>${score}/${qs.length}</b><span>നിങ്ങളുടെ മാർക്ക്</span></div><p>${result.percentage}% Score</p><p>നിങ്ങളുടെ Result വിജയകരമായി Save ചെയ്തു.</p><button class="btn" onclick="location.reload()">Close</button></div>`;}catch(e){console.error(e);alert("Result save ചെയ്യുന്നതിൽ പ്രശ്നമുണ്ട്. Firestore Rules പരിശോധിക്കുക.");b.disabled=false;b.innerText="പരീക്ഷ Submit ചെയ്യുക";}};
 
-  function showExamThankYou(examName){
-    const box=document.getElementById('examContent');
-    if(!box)return;
-    box.innerHTML=`<div class="thankyou-screen">
-      <div class="thanks-icon">🤲</div>
-      <h2>جزاك الله خيرًا</h2>
-      <h2>പരീക്ഷയിൽ പങ്കെടുത്തതിന് നന്ദി</h2>
-      <p><b>${escapeHtml(examName||'ഈ പരീക്ഷ')}</b> വിജയകരമായി പൂർത്തിയാക്കിയതിന് നന്ദി.</p>
-      <p>അല്ലാഹു നിങ്ങൾക്ക് അറിവിലും നന്മയിലും ബറകത്ത് നൽകട്ടെ.</p>
-      <div class="islamic-line">بارك الله فيكم</div>
-      <button class="submit-exam" style="margin-top:20px" onclick="closeExam()">Close</button>
-    </div>`;
-  }
+window.addMaterial=async()=>{const title=document.getElementById("materialTitle").value.trim(),link=document.getElementById("materialLink").value.trim();if(!title||!link)return alert("Title, Link നൽകുക");try{await addDoc(collection(db,"studyMaterials"),{title,link,createdAt:new Date().toISOString()});document.getElementById("materialTitle").value="";document.getElementById("materialLink").value="";await loadPublicMaterials();await loadAdminContent();alert("Study Material Saved");}catch(e){console.error(e);alert("Save failed. Firestore Rules പരിശോധിക്കുക.");}};
+async function loadPublicMaterials(){const box=document.getElementById("publicMaterials");try{const s=await getDocs(collection(db,"studyMaterials"));box.innerHTML="";s.forEach(d=>{const x=d.data();box.innerHTML+=`<a class="material" target="_blank" href="${esc(x.link)}">📄 ${esc(x.title)} ↗</a>`});if(!s.size)box.innerHTML="<p class='muted'>Study materials ഉടൻ ലഭ്യമാകും.</p>";}catch(e){box.innerHTML="<p>Materials load ചെയ്യാൻ കഴിഞ്ഞില്ല.</p>";}}
 
-  function escapeHtml(v){ return String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c])); }
-  window.openExam = function(exam){ activeExam=exam; openExamModal(); }
-  function openExamModal(){
-    document.getElementById('examContent').innerHTML=`
-      <h2 class="modal-title" id="activeExamTitle"></h2>
-      <div id="candidateGate" class="candidate-gate">
-        <h3>👤 പരീക്ഷാർത്ഥിയുടെ വിവരങ്ങൾ</h3>
-        <p>പേര്, മൊബൈൽ നമ്പർ, സ്ഥലം എന്നിവ നൽകി Continue അമർത്തിയാൽ മാത്രമേ പരീക്ഷ ആരംഭിക്കൂ.</p>
-        <div class="input-group"><label>പേര് *</label><input type="text" id="studentName" autocomplete="name" placeholder="നിങ്ങളുടെ പേര് എഴുതുക"></div>
-        <div class="input-group"><label>Mobile Number *</label><input type="tel" id="studentPhone" inputmode="tel" autocomplete="tel" placeholder="മൊബൈൽ നമ്പർ നൽകുക"></div>
-        <div class="input-group"><label>സ്ഥലം *</label><input type="text" id="studentPlace" autocomplete="address-level2" placeholder="സ്ഥലം / Place"></div>
-        <div class="candidate-actions"><button class="btn" style="background:#07513c;color:#fff" onclick="startExamAfterDetails()">Continue to Exam →</button><button class="btn" style="background:#edf4f0;color:#07513c" onclick="closeExam()">Cancel</button></div>
-      </div>
-      <div id="examStage" class="exam-stage">
-        <div id="questionsContainer"></div>
-        <button class="submit-exam" onclick="submitExam()">പരീക്ഷ Submit ചെയ്യുക</button>
-      </div>`;
-    document.getElementById('examModal').style.display='block';
-    document.getElementById('activeExamTitle').innerText='📝 '+activeExam.title;
-    document.getElementById('studentName').focus();
-  }
-  window.startExamAfterDetails=function(){
-    const name=document.getElementById('studentName').value.trim();
-    const phone=document.getElementById('studentPhone').value.trim();
-    const place=document.getElementById('studentPlace').value.trim();
-    if(!name){showToast('ദയവായി പേര് നൽകുക','error');return}
-    if(!/^[0-9+()\-.\s]{7,20}$/.test(phone)){showToast('ശരിയായ Mobile Number നൽകുക','error');return}
-    if(!place){showToast('ദയവായി സ്ഥലം നൽകുക','error');return}
-    const qs=activeExam.questions||[];
-    if(!qs.length){showToast('ഈ Exam-ൽ Questions ലഭ്യമല്ല','error');return}
-    document.getElementById('candidateGate').style.display='none';
-    document.getElementById('examStage').classList.add('active');
-    renderQuestions();
-    window.scrollTo({top:document.getElementById('examModal').offsetTop||0,behavior:'smooth'});
-  }
-  window.closeExam = function(){ document.getElementById('examModal').style.display='none'; }
-  function renderQuestions(){ const container=document.getElementById('questionsContainer'); container.innerHTML=''; (activeExam.questions||[]).forEach((q,index)=>{ let html=`<div class="question"><h4>${escapeHtml(q.question)}</h4>`; (q.options||[]).forEach((option,i)=> html+=`<label class="option"><input type="radio" name="question${index}" value="${i}">${escapeHtml(option)}</label>`); html+='</div>'; container.innerHTML+=html; }); }
+window.addAnnouncement=async()=>{const text=document.getElementById("announcementText").value.trim();if(!text)return alert("Announcement എഴുതുക");try{await addDoc(collection(db,"announcements"),{text,createdAt:new Date().toISOString()});document.getElementById("announcementText").value="";await loadPublicAnnouncements();await loadAdminContent();alert("Announcement Published");}catch(e){console.error(e);alert("Publish failed. Firestore Rules പരിശോധിക്കുക.");}};
+async function loadPublicAnnouncements(){const box=document.getElementById("publicAnnouncements");try{const s=await getDocs(collection(db,"announcements"));box.innerHTML="";s.forEach(d=>{const x=d.data();box.innerHTML+=`<div class="notice">📢 ${esc(x.text)}</div>`});if(!s.size)box.innerHTML="<p class='muted'>Announcements ഇല്ല.</p>";}catch(e){box.innerHTML="<p>Announcements load ചെയ്യാൻ കഴിഞ്ഞില്ല.</p>";}}
 
-  window.submitExam = async function(){
-    const name=document.getElementById('studentName').value.trim(), phone=document.getElementById('studentPhone').value.trim(), place=document.getElementById('studentPlace').value.trim();
-    if(!name||!phone||!place)return showToast('ആദ്യം പേര്, Mobile Number, സ്ഥലം എന്നിവ നൽകുക','error');
-    if(!/^[0-9+()\-.\s]{7,20}$/.test(phone))return alert('ശരിയായ Phone Number നൽകുക');
-    const qs=activeExam.questions||[]; if(!qs.length)return showToast('ഈ Exam-ൽ Questions ലഭ്യമല്ല','error');
-    const unanswered=[]; qs.forEach((_,i)=>{if(!document.querySelector(`input[name="question${i}"]:checked`))unanswered.push(i+1)});
-    if(unanswered.length)return showToast(`എല്ലാ Questions-നും Answer നൽകുക. ബാക്കി: ${unanswered.join(', ')}`,'error');
-    const submitBtn=document.querySelector('#examModal .submit-exam'); if(submitBtn){submitBtn.disabled=true;submitBtn.innerText='Saving Result...'}
-    let score=0; const answers=[];
-    qs.forEach((q,i)=>{const selectedIndex=Number(document.querySelector(`input[name="question${i}"]:checked`).value);if(selectedIndex===q.answer)score++;answers.push({question:q.question,selectedIndex,selectedAnswer:q.options[selectedIndex],correctIndex:q.answer,correctAnswer:q.options[q.answer]})});
-    const result={name,phone,place,examId:activeExam.id,examName:activeExam.title,score,total:qs.length,percentage:Math.round(score/qs.length*100),answers,submittedAt:new Date().toISOString()};
-    try{const ref=await addDoc(collection(db,'examResults'),result);await setDoc(doc(db,'leaderboard',ref.id),{name,examName:activeExam.title,score,total:qs.length,percentage:result.percentage,submittedAt:result.submittedAt});
-      document.getElementById('examContent').innerHTML=`<div class="result-box"><h2>🎉 പരീക്ഷ പൂർത്തിയായി!</h2><p>അഭിനന്ദനങ്ങൾ ${escapeHtml(name)}</p><div class="score-circle"><strong>${score}/${qs.length}</strong><span>നിങ്ങളുടെ മാർക്ക്</span></div><p>${result.percentage}% Score</p><p>നിങ്ങളുടെ Result വിജയകരമായി Save ചെയ്തു.</p><button class="btn" style="background:#0d5942;color:white" onclick="location.reload()">Close</button></div>`;loadResults();
-    }catch(error){console.error(error);showToast('Result save ചെയ്യാൻ കഴിഞ്ഞില്ല. Firebase Rules പരിശോധിക്കുക.','error');if(submitBtn){submitBtn.disabled=false;submitBtn.innerText='പരീക്ഷ Submit ചെയ്യുക'}}
-  }
+async function loadAdminData(){await Promise.all([loadResults(),loadAdminContent()]);}
+async function loadAdminContent(){const box=document.getElementById("adminContentList");try{const s=await getDocs(collection(db,"exams"));let h=`<h4>📝 Exams (${s.size})</h4>`;s.forEach(d=>{const x=d.data();h+=`<div class="notice"><b>${esc(x.title)}</b><br><small>${(x.questions||[]).length} Questions</small><div style="margin-top:8px"><button class="btn small" onclick="editExam('${d.id}')">Edit</button> <button class="btn small red" onclick="deleteContent('exams','${d.id}')">Delete</button></div></div>`});for(const [col,label] of [["studyMaterials","📚 Study Materials"],["announcements","📢 Announcements"]]){const z=await getDocs(collection(db,col));h+=`<h4>${label} (${z.size})</h4>`;z.forEach(d=>{const x=d.data();h+=`<div class="notice">${esc(x.title||x.text)} <button style="float:right" class="btn small red" onclick="deleteContent('${col}','${d.id}')">Delete</button></div>`});}box.innerHTML=h;}catch(e){console.error(e);box.innerHTML="<p>Content load failed.</p>";}}
+window.deleteContent=async(col,id=>{});
+window.deleteContent=async function(col,id){if(!confirm("Delete ചെയ്യണോ?"))return;try{await deleteDoc(doc(db,col,id));await loadAdminContent();loadPublicExams();loadPublicMaterials();loadPublicAnnouncements();}catch(e){alert("Delete failed");}};
+window.editExam=async id=>{try{const s=await getDoc(doc(db,"exams",id));if(!s.exists())return;const x=s.data();editingExamId=id;document.getElementById("builderExamTitle").value=x.title||"";document.getElementById("builderExamDescription").value=x.description||"";const box=document.getElementById("builderQuestions");box.innerHTML="";(x.questions||[]).forEach(q=>{addQuestionField();const el=box.lastElementChild;el.querySelector(".bq").value=q.question;const opts=el.querySelectorAll(".bo");q.options.forEach((o,i)=>{if(opts[i])opts[i].value=o;});el.querySelector(".correctSelect").value=q.answer;});renumberQuestions();document.getElementById("examBuilderModal").style.display="block";}catch(e){alert("Exam load failed");}};
 
-  async function loadPublicExams(){
-    const box=document.getElementById('publicExamList');
-    try{const snap=await getDocs(collection(db,'exams'));let html='',count=0;
-      snap.forEach(d=>{const x=d.data();if(x.published===false||x.status==='draft')return;count++;const qCount=(x.questions||[]).length;html+=`<div class="exam-card"><div class="exam-icon">📝</div><h3>${escapeHtml(x.title)}</h3><p>${escapeHtml(x.description||'Online examination')}</p><div class="exam-meta"><span class="tag">${qCount} Questions</span><span class="tag">Published</span></div><button class="btn start-btn" data-id="${d.id}">പരീക്ഷ ആരംഭിക്കുക</button></div>`});
-      if(!count)html='<div class="exam-card" style="grid-column:1/-1"><div class="exam-icon">📭</div><h3>ഇപ്പോൾ പരീക്ഷകൾ ലഭ്യമല്ല</h3><p>പുതിയ പരീക്ഷകൾ ഉടൻ പ്രസിദ്ധീകരിക്കുന്നതാണ്.</p></div>';
-      box.innerHTML=html;box.querySelectorAll('[data-id]').forEach(btn=>btn.onclick=()=>{const d=snap.docs.find(z=>z.id===btn.dataset.id);if(!d)return;const x=d.data();openExam({id:d.id,title:x.title,description:x.description,questions:x.questions||[]})});
-    }catch(e){console.error(e);box.innerHTML='<div class="exam-card" style="grid-column:1/-1"><h3>പരീക്ഷകൾ Load ചെയ്യാൻ കഴിഞ്ഞില്ല</h3></div>'}
-  }
-  async function loadPublicMaterials(){try{const snap=await getDocs(collection(db,'studyMaterials')); const box=document.getElementById('publicMaterialList'); box.innerHTML=''; snap.forEach(d=>{const x=d.data(); box.innerHTML+=`<a class="material-link" href="${escapeHtml(x.link||'#')}" target="_blank">📄 ${escapeHtml(x.title)}</a>`}); if(!snap.size)box.innerHTML='<p style="text-align:center">ഇതുവരെ Study Materials ലഭ്യമല്ല.</p>';}catch(e){console.log(e)}}
-  async function loadPublicAnnouncements(){try{const snap=await getDocs(collection(db,'announcements')); const box=document.getElementById('announcementList'); box.innerHTML=''; snap.forEach(d=>{const x=d.data(); box.innerHTML+=`<div class="notice">📢 ${escapeHtml(x.text)}</div>`}); if(!snap.size)box.innerHTML='<p style="text-align:center">പുതിയ അറിയിപ്പുകൾ ഇല്ല.</p>';}catch(e){console.log(e)}}
+async function loadResults(){try{const s=await getDocs(collection(db,"examResults")),r=s.docs.map(d=>({id:d.id,...d.data()}));r.sort((a,b)=>(b.percentage||0)-(a.percentage||0));window._results=r;document.getElementById("totalStudents").innerText=r.length;const ex=await getDocs(collection(db,"exams"));document.getElementById("totalExams").innerText=ex.size;document.getElementById("highestScore").innerText=r.length?Math.max(...r.map(x=>x.score||0)):0;filterAdminResults();}catch(e){console.error(e);}}
+window.filterAdminResults=()=>{const q=(document.getElementById("resultSearch")?.value||"").toLowerCase(),rows=(window._results||[]).filter(r=>[r.name,r.phone,r.examName].join(" ").toLowerCase().includes(q));document.getElementById("adminResultsTable").innerHTML=rows.map(r=>`<tr><td>${esc(r.name)}</td><td>${esc(r.phone)}</td><td>${esc(r.examName)}</td><td>${r.score}/${r.total}<br><small>${r.percentage}%</small></td><td>${r.submittedAt?new Date(r.submittedAt).toLocaleString():""}</td><td><button class="btn small" onclick="viewResult('${r.id}')">View</button> <button class="btn small red" onclick="deleteResult('${r.id}')">Delete</button></td></tr>`).join("")||"<tr><td colspan='6'>Result ലഭ്യമല്ല.</td></tr>";};
+window.viewResult=id=>{const r=(window._results||[]).find(x=>x.id===id);if(!r)return;let h=`<h2>📊 ${esc(r.name)} - Result Details</h2><p><b>Phone:</b> ${esc(r.phone)}<br><b>Exam:</b> ${esc(r.examName)}<br><b>Score:</b> ${r.score}/${r.total} (${r.percentage}%)</p>`;(r.answers||[]).forEach((a,i)=>h+=`<div class="question"><b>${i+1}. ${esc(a.question)}</b><p>Your Answer: ${esc(a.selectedAnswer)}</p><p><b>Correct Answer:</b> ${esc(a.correctAnswer)}</p></div>`);document.getElementById("resultDetailContent").innerHTML=h;document.getElementById("resultDetailModal").style.display="block";};
+window.deleteResult=async id=>{if(!confirm("ഈ Result delete ചെയ്യണോ?"))return;try{await deleteDoc(doc(db,"examResults",id));loadResults();}catch(e){alert("Delete failed");}};
 
-  window.openAdminLogin=function(){document.getElementById('adminLoginModal').style.display='block';setTimeout(()=>document.getElementById('adminEmail').focus(),100)};
-  window.closeAdminLogin=function(){document.getElementById('adminLoginModal').style.display='none'};
-  window.adminLogin=async function(){const email=document.getElementById('adminEmail').value.trim();const password=document.getElementById('adminPassword').value;if(!email||!password)return showToast('Email, Password നൽകുക','error');try{const credential=await signInWithEmailAndPassword(auth,email,password);if(credential.user.email!==ADMIN_EMAIL){await signOut(auth);throw Error('Not admin')}closeAdminLogin();setAdminOnlyVisibility(true);showAdmin();}catch(e){console.error(e);showToast('Admin Login Failed','error')}};
-  function showAdmin(scroll=true){document.getElementById('admin').style.display='block';document.getElementById('adminPanel').style.display='block';if(scroll)document.getElementById('admin').scrollIntoView({behavior:'smooth'});loadAdminData();}
-  onAuthStateChanged(auth,user=>{if(user&&user.email===ADMIN_EMAIL)showAdmin(false);else{document.getElementById('admin').style.display='none';document.getElementById('adminPanel').style.display='none';}});
-  window.adminLogout=async()=>{await signOut(auth);showToast('Logged out successfully','success');window.scrollTo({top:0,behavior:'smooth'})};
-
-  window.openExamBuilder=function(){resetExamBuilder();document.getElementById('examBuilderModal').style.display='block'};
-  window.closeExamBuilder=function(){document.getElementById('examBuilderModal').style.display='none'};
-  window.resetExamBuilder=function(){document.getElementById('editingExamId').value='';document.getElementById('newExamTitle').value='';document.getElementById('newExamDesc').value='';document.getElementById('questionBuilder').innerHTML='';addQuestionField();updateQuestionCount()};
-  window.addQuestionField=function(data={}){const box=document.getElementById('questionBuilder'),id='qb'+Date.now()+Math.random().toString(36).slice(2);box.insertAdjacentHTML('beforeend',`<div class="question-builder" id="${id}"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><b><span class="question-number"></span>Question</b><button class="small-btn danger" type="button" onclick="removeQuestionField('${id}')">Remove</button></div><input class="qb-question" placeholder="Question ഇവിടെ നൽകുക" value="${escapeHtml(data.question||'')}"><div class="option-builder"></div><button class="small-btn" type="button" onclick="addOptionField('${id}')">➕ Add Option</button><div style="margin-top:10px"><label style="font-size:12px;font-weight:700">Correct Answer തിരഞ്ഞെടുക്കുക:</label><select class="qb-answer"></select></div></div>`);(data.options&&data.options.length?data.options:['','']).forEach(v=>addOptionField(id,v));updateAnswerSelect(id,data.answer??0);updateQuestionCount()};
-  window.removeQuestionField=function(id){if(document.querySelectorAll('.question-builder').length<=1)return showToast('കുറഞ്ഞത് ഒരു Question വേണം','error');document.getElementById(id)?.remove();updateQuestionCount()};
-  window.updateQuestionCount=function(){const all=[...document.querySelectorAll('.question-builder')];all.forEach((q,i)=>q.querySelector('.question-number').textContent=i+1);const info=document.getElementById('questionCountInfo');if(info)info.textContent=`${all.length} Question${all.length===1?'':'s'} Added`};
-  window.addOptionField=function(questionId,value=''){const q=document.getElementById(questionId);if(!q)return;const options=q.querySelector('.option-builder'),n=options.querySelectorAll('.qb-option-row').length+1,row=document.createElement('div');row.className='qb-option-row';row.style.display='flex';row.style.gap='8px';row.style.alignItems='center';row.innerHTML=`<input class="qb-option" placeholder="Option ${n}" value="${escapeHtml(value)}"><button class="small-btn danger" type="button">×</button>`;row.querySelector('button').onclick=()=>{if(options.querySelectorAll('.qb-option-row').length<=2)return showToast('കുറഞ്ഞത് 2 Options വേണം','error');const old=q.querySelector('.qb-answer').value;row.remove();updateAnswerSelect(questionId,old);[...options.querySelectorAll('.qb-option')].forEach((x,i)=>x.placeholder=`Option ${i+1}`)};row.querySelector('input').oninput=()=>updateAnswerSelect(questionId,q.querySelector('.qb-answer').value);options.appendChild(row);updateAnswerSelect(questionId)};
-  window.updateAnswerSelect=function(questionId,selected){const q=document.getElementById(questionId);if(!q)return;const sel=q.querySelector('.qb-answer'),old=selected!==undefined?Number(selected):Number(sel.value||0),vals=[...q.querySelectorAll('.qb-option')].map((x,i)=>({text:x.value.trim()||`Option ${i+1}`,i}));sel.innerHTML=vals.map(x=>`<option value="${x.i}">${x.text}</option>`).join('');sel.value=Math.min(Math.max(0,old),Math.max(0,vals.length-1))};
-  window.publishExam=async function(){const title=document.getElementById('newExamTitle').value.trim(),description=document.getElementById('newExamDesc').value.trim(),editingId=document.getElementById('editingExamId').value;if(!title)return showToast('Exam Title നൽകുക','error');const questionsData=[];for(const b of document.querySelectorAll('.question-builder')){const q=b.querySelector('.qb-question').value.trim(),opts=[...b.querySelectorAll('.qb-option')].map(x=>x.value.trim()),answer=Number(b.querySelector('.qb-answer').value);if(!q)return showToast('ഓരോ Question-ഉം നൽകുക','error');if(opts.length<2||opts.some(x=>!x))return showToast('ഓരോ Question-നും കുറഞ്ഞത് 2 Options പൂർണ്ണമായി നൽകുക','error');questionsData.push({question:q,options:opts,answer:Math.min(answer,opts.length-1)})}const payload={title,description,questions:questionsData,published:true,status:'published',updatedAt:new Date().toISOString()};try{if(editingId)await updateDoc(doc(db,'exams',editingId),payload);else await addDoc(collection(db,'exams'),{...payload,createdAt:new Date().toISOString(),publishedAt:new Date().toISOString()});closeExamBuilder();await loadAdminData();await loadPublicExams();showToast(editingId?'Exam Updated Successfully!':'Exam Published Successfully!','success')}catch(e){console.error(e);showToast('Publish ചെയ്യാൻ കഴിഞ്ഞില്ല. Firebase Rules പരിശോധിക്കുക.','error')}};
-  window.editExam=async function(id){try{const snap=await getDocs(collection(db,'exams')),d=snap.docs.find(x=>x.id===id);if(!d)return;const x=d.data();document.getElementById('editingExamId').value=id;document.getElementById('newExamTitle').value=x.title||'';document.getElementById('newExamDesc').value=x.description||'';document.getElementById('questionBuilder').innerHTML='';(x.questions||[]).forEach(q=>addQuestionField(q));if(!(x.questions||[]).length)addQuestionField();updateQuestionCount();document.getElementById('examBuilderModal').style.display='block'}catch(e){console.error(e);showToast('Exam load ചെയ്യാൻ കഴിഞ്ഞില്ല.','error')}};
-  window.addMaterial=async function(){const title=document.getElementById('materialTitle').value.trim(),link=document.getElementById('materialLink').value.trim();if(!title||!link)return showToast('Title, Link നൽകുക','error');try{new URL(link);await addDoc(collection(db,'studyMaterials'),{title,link,createdAt:new Date().toISOString()});document.getElementById('materialTitle').value='';document.getElementById('materialLink').value='';loadAdminContent();loadPublicMaterials();alert('Study Material Saved')}catch(e){showToast('Valid Link നൽകുക / Firebase Rules പരിശോധിക്കുക.','error')}};
-  window.addAnnouncement=async function(){const text=document.getElementById('announcementText').value.trim();if(!text)return showToast('Announcement എഴുതുക','error');try{await addDoc(collection(db,'announcements'),{text,createdAt:new Date().toISOString()});document.getElementById('announcementText').value='';loadAdminContent();loadPublicAnnouncements();alert('Announcement Published')}catch(e){showToast('Publish ചെയ്യാൻ കഴിഞ്ഞില്ല. Firebase Rules പരിശോധിക്കുക.','error')}};
-  async function loadAdminContent(){const box=document.getElementById('adminContentList');box.innerHTML='';const examSnap=await getDocs(collection(db,'exams'));box.innerHTML+=`<h4>Exams (${examSnap.size})</h4>`;examSnap.forEach(d=>{const x=d.data();box.innerHTML+=`<div class="rank-row"><span><b>${escapeHtml(x.title||'Untitled')}</b><br><small>${(x.questions||[]).length} Questions</small></span><div class="admin-actions"><button class="small-btn" onclick="editExam('${d.id}')">Edit</button><button class="small-btn danger" onclick="deleteContent('exams','${d.id}')">Delete</button></div></div>`});if(!examSnap.size)box.innerHTML+='<p class="muted">ഇതുവരെ Exam publish ചെയ്തിട്ടില്ല.</p>';for(const [col,label] of [['studyMaterials','Study Materials'],['announcements','📢 Announcements']]){const snap=await getDocs(collection(db,col));box.innerHTML+=`<h4>${label} (${snap.size})</h4>`;snap.forEach(d=>{const x=d.data();box.innerHTML+=`<div class="rank-row"><span>${escapeHtml(x.title||x.text||'Untitled')}</span><button class="small-btn danger" onclick="deleteContent('${col}','${d.id}')">Delete</button></div>`})}};
-  window.deleteContent=async function(col,id){if(!confirm('Delete this item?'))return;try{await deleteDoc(doc(db,col,id));await loadAdminContent();loadPublicExams();loadPublicMaterials();loadPublicAnnouncements();showToast('Deleted Successfully','success')}catch(e){console.error(e);showToast('Delete ചെയ്യാൻ കഴിഞ്ഞില്ല. Firebase Rules പരിശോധിക്കുക.','error')}};
-
-  async function loadAdminData(){await Promise.all([loadResults(),loadAdminContent()]);}
-  async function loadResults(){try{const snapshot=await getDocs(collection(db,'examResults')),results=snapshot.docs.map(d=>({id:d.id,...d.data()}));results.sort((a,b)=>(b.percentage??0)-(a.percentage??0)||String(b.submittedAt||'').localeCompare(String(a.submittedAt||'')));document.getElementById('totalStudents').innerText=results.length;const examSnap=await getDocs(collection(db,'exams'));document.getElementById('totalExams').innerText=examSnap.size;document.getElementById('highestScore').innerText=results.length?Math.max(...results.map(x=>x.score||0)):0;window._results=results;window.filterAdminResults()}catch(e){console.error(e)}try{const pub=await getDocs(collection(db,'leaderboard')),rows=pub.docs.map(d=>d.data()).sort((a,b)=>(b.percentage??0)-(a.percentage??0)||String(b.submittedAt||'').localeCompare(String(a.submittedAt||''))).slice(0,10),box=document.getElementById('publicRankingList');box.innerHTML='';rows.forEach((r,i)=>{const medal=i===0?'🥇':i===1?'🥈':i===2?'🥉':'#'+(i+1);box.innerHTML+=`<div class="rank-row"><div class="rank-left"><div class="rank-number">${medal}</div><div><div class="rank-name">${escapeHtml(r.name)}</div><small>${escapeHtml(r.examName||'')}</small></div></div><div class="rank-score">${r.score}/${r.total}</div></div>`});if(!rows.length)box.innerHTML='<p style="text-align:center">ഇതുവരെ Result ലഭ്യമല്ല.</p>'}catch(e){console.log(e)}}
-  window.filterAdminResults=function(){const q=(document.getElementById('resultSearch')?.value||'').toLowerCase(),results=(window._results||[]).filter(r=>[r.name,r.phone,r.examName].join(' ').toLowerCase().includes(q)),table=document.getElementById('adminResultsTable');table.innerHTML=results.map(r=>`<tr><td>${escapeHtml(r.name)}</td><td>${escapeHtml(r.phone||'')}</td><td>${escapeHtml(r.examName||'')}</td><td>${r.score}/${r.total}<br><small>${r.percentage||0}%</small></td><td>${r.submittedAt?new Date(r.submittedAt).toLocaleString():''}</td><td><button class="small-btn" onclick="viewResult('${r.id}')">View</button> <button class="small-btn danger" onclick="deleteResult('${r.id}')">Delete</button></td></tr>`).join('')||'<tr><td colspan="6">Result ലഭ്യമല്ല.</td></tr>'};
-  window.viewResult=function(id){const r=(window._results||[]).find(x=>x.id===id);if(!r)return;let html=`<h2>📊 ${escapeHtml(r.name)} - Result Details</h2><p><b>Phone:</b> ${escapeHtml(r.phone||'')}<br><b>Exam:</b> ${escapeHtml(r.examName||'')}<br><b>Score:</b> ${r.score}/${r.total} (${r.percentage||0}%)</p><hr>`;(r.answers||[]).forEach((a,i)=>html+=`<div class="question"><b>${i+1}. ${escapeHtml(a.question)}</b><p>Your Answer: ${escapeHtml(a.selectedAnswer)}</p><p style="color:#087054">Correct Answer: ${escapeHtml(a.correctAnswer)}</p></div>`);document.getElementById('resultDetailContent').innerHTML=html;document.getElementById('resultDetailModal').style.display='block';};
-  window.deleteResult=async function(id){if(confirm('ഈ Result delete ചെയ്യണോ?')){try{await deleteDoc(doc(db,'examResults',id));await deleteDoc(doc(db,'leaderboard',id));loadResults();alert('Result Deleted')}catch(e){alert('Delete failed')}}};
-
-  loadPublicExams(); loadPublicMaterials(); loadPublicAnnouncements(); loadResults();
-
-  try{setAdminOnlyVisibility(false)}catch(e){}
+loadPublicExams();loadPublicMaterials();loadPublicAnnouncements();
 </script>
+
+<div id="mobileNav" class="mobile-nav" aria-hidden="true">
+  <a href="#home" onclick="closeMobileNav()">🏠 Home</a>
+  <a href="#study" onclick="closeMobileNav()">📚 Study</a>
+  <a href="#exams" onclick="closeMobileNav()">📝 Exams</a>
+  <a href="#announcements" onclick="closeMobileNav()">📢 Announcements</a>
+  <button type="button" class="mobile-admin" onclick="closeMobileNav();openAdminLogin()">🔐 Admin Login</button>
+</div>
 <script>
-function toggleMobileMenu(){
-  const p=document.getElementById('mobileMenuPanel');
-  const b=document.getElementById('mobileMenuToggle');
-  if(!p)return;
-  const open=p.classList.toggle('open');
-  if(b)b.setAttribute('aria-expanded',open?'true':'false');
+function toggleMobileNav(){
+  const n=document.getElementById('mobileNav');
+  if(!n)return;
+  const open=n.classList.toggle('open');
+  n.setAttribute('aria-hidden',open?'false':'true');
 }
-function closeMobileMenu(){
-  const p=document.getElementById('mobileMenuPanel');
-  const b=document.getElementById('mobileMenuToggle');
-  if(p)p.classList.remove('open');
-  if(b)b.setAttribute('aria-expanded','false');
+function closeMobileNav(){
+  const n=document.getElementById('mobileNav');
+  if(!n)return;
+  n.classList.remove('open');
+  n.setAttribute('aria-hidden','true');
 }
 document.addEventListener('click',function(e){
-  const p=document.getElementById('mobileMenuPanel');
-  const b=document.getElementById('mobileMenuToggle');
-  if(p && b && !p.contains(e.target) && !b.contains(e.target)) closeMobileMenu();
+  const n=document.getElementById('mobileNav');
+  const b=document.getElementById('mobileMenuButton');
+  if(n && n.classList.contains('open') && !n.contains(e.target) && b && !b.contains(e.target)){
+    closeMobileNav();
+  }
 });
 </script>
+
 </body></html>

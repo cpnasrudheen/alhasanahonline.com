@@ -77,10 +77,90 @@ footer{background:#032b22;color:#c7d3cd;padding:24px 5%;display:flex;justify-con
      so there is one clear mobile login button. */
   nav .admin-btn{display:none!important}
 }
+
+/* MOBILE CLEAN UI - desktop untouched */
+@media (max-width:760px){
+html,body{width:100%;max-width:100%;overflow-x:hidden!important}
+body{-webkit-text-size-adjust:100%}
+#admin,.admin-dashboard,.admin-container,.dashboard-container{width:100%!important;max-width:100%!important;box-sizing:border-box!important;padding-left:12px!important;padding-right:12px!important}
+#admin .cards,#admin .stats,#admin .admin-grid,#admin .dashboard-grid,#admin .content-grid,#admin .exam-grid,.admin-dashboard,.dashboard-grid,.admin-grid,.cards,.stats,.content-grid,.exam-grid{grid-template-columns:1fr!important;width:100%!important;max-width:100%!important}
+#admin .card,#admin .admin-card,.admin-dashboard .card,.dashboard-grid>.card,.admin-grid>.card{width:100%!important;min-width:0!important;max-width:100%!important;box-sizing:border-box!important;margin:0 0 12px!important;padding:18px!important;min-height:0!important}
+#admin .card h3,#admin .admin-card h3{font-size:21px!important;line-height:1.2!important;margin-bottom:9px!important}
+#admin .card p,#admin .admin-card p{font-size:13px!important;line-height:1.65!important}
+#admin input,#admin select,#admin textarea{width:100%!important;max-width:100%!important;box-sizing:border-box!important;min-height:46px!important;margin-bottom:9px!important;font-size:16px!important}
+#admin button{max-width:100%!important;box-sizing:border-box!important;min-height:42px!important}
+#adminContentList,.published-content{width:100%!important;box-sizing:border-box!important;overflow:hidden!important}
+#adminContentList .rank-row,#adminContentList .content-row,.published-content .rank-row{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:9px!important;width:100%!important;box-sizing:border-box!important;padding:14px!important}
+#adminContentList .admin-actions{display:flex!important;width:100%!important;gap:8px!important}
+#adminContentList .admin-actions button{flex:1!important;min-width:0!important}
+.admin-table-wrap{display:none!important}
+.result-card-list{display:block!important;width:100%!important}
+.result-person{width:100%!important;box-sizing:border-box!important;margin:0 0 10px!important;padding:14px!important}
+.result-person .rp-grid{grid-template-columns:1fr 1fr!important;gap:7px!important}
+.question-builder,.question-card,.qb-question{width:100%!important;box-sizing:border-box!important;min-width:0!important}
+.qb-option-row{display:flex!important;width:100%!important;gap:7px!important}
+.qb-option-row .qb-option{flex:1!important;min-width:0!important}
+.modal{padding:8px!important}
+.modal-box{width:calc(100vw - 16px)!important;max-width:calc(100vw - 16px)!important;box-sizing:border-box!important;margin:8px auto!important}
+img,video,iframe,table{max-width:100%!important}
+.mobile-admin-login{display:block!important;width:100%!important;box-sizing:border-box!important;padding:6px 12px 10px!important}
+.mobile-admin-login .admin-btn{width:100%!important;min-height:44px!important}
+}
+
+/* ===== FINAL MOBILE NAVIGATION ===== */
+.mobile-menu-toggle{
+  display:none;
+  width:46px;height:42px;border:0;border-radius:11px;
+  background:rgba(255,255,255,.10);cursor:pointer;
+  align-items:center;justify-content:center;flex-direction:column;gap:5px;
+}
+.mobile-menu-toggle span{display:block;width:22px;height:2px;border-radius:2px;background:#fff;transition:.2s}
+.mobile-menu-panel{display:none}
+@media(max-width:760px){
+  .mobile-menu-toggle{display:flex;margin-left:auto;flex:none}
+  /* hide the desktop nav links on mobile */
+  header nav, .navbar nav, .site-nav nav, .nav-links{display:none!important}
+  .mobile-menu-panel{
+    position:absolute;left:12px;right:12px;top:calc(100% + 8px);
+    z-index:10000;background:#fff;border:1px solid #e5ece8;border-radius:16px;
+    box-shadow:0 18px 40px rgba(7,55,43,.18);padding:8px;display:none;
+  }
+  .mobile-menu-panel.open{display:block}
+  .mobile-menu-panel a,.mobile-menu-panel button{
+    display:flex;width:100%;align-items:center;justify-content:flex-start;
+    min-height:48px;padding:11px 14px;border:0;background:transparent;
+    border-radius:11px;color:#173b30;text-decoration:none;
+    font:600 16px/1.2 Poppins,sans-serif;text-align:left;box-sizing:border-box;
+  }
+  .mobile-menu-panel a:hover,.mobile-menu-panel button:hover{background:#f0f7f3}
+  .mobile-menu-panel .mobile-admin-link{
+    margin-top:4px;background:linear-gradient(135deg,#f0c75e,#dba53b);
+    color:#173b30;justify-content:center;font-weight:700;
+  }
+  header,.navbar,.site-header{
+    position:relative;z-index:10001;
+  }
+  /* slightly larger mobile navigation/header text */
+  header a,.navbar a,.site-header a{font-size:15px}
+}
 </style></head><body><div id="siteToast" class="site-toast"></div>
-<header class="top-header"><div class="brand"><img src="logo.png"><div><h1>Al Hasana <span>Online</span></h1><small>വിജ്ഞാന വേദി</small></div></div><nav><a class="active" href="#home">⌂ Home</a><a href="#about">♟ About</a><a href="#contents">▣ Study</a><a href="#exams">▤ Exams</a><a href="#results">▥ Results</a><a href="#results">♜ Leaderboard</a><a href="#about">✉ Contact</a><a class="admin-nav" href="javascript:void(0)" onclick="openAdminLogin()">🔐 Admin Login</a></nav>
+<header class="top-header"><div class="brand"><img src="logo.png"><div><h1>Al Hasana <span>Online</span></h1><small>വിജ്ഞാന വേദി</small></div></div><nav><a class="active" href="#home">Home</a><a href="#about">About</a><a href="#contents">Study</a><a href="#exams">Exams</a><a href="#results">Results</a><a href="#results">♜ Leaderboard</a><a href="#about">Contact</a><a class="admin-nav" href="javascript:void(0)" onclick="openAdminLogin()">Admin Login</a></nav>
+<button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileMenu()">
+  <span></span><span></span><span></span>
+</button>
+<div class="mobile-menu-panel" id="mobileMenuPanel">
+  <a href="#home" onclick="closeMobileMenu()">Home</a>
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#study" onclick="closeMobileMenu()">Study</a>
+  <a href="#exams" onclick="closeMobileMenu()">Exams</a>
+  <a href="#results" onclick="closeMobileMenu()">Results</a>
+  <a href="#leaderboard" onclick="closeMobileMenu()">Leaderboard</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+  <button class="mobile-admin-link" onclick="closeMobileMenu();openAdminLogin()">Admin Login</button>
+</div>
+
 <div class="mobile-admin-login">
-  <button class="admin-btn" onclick="openAdminLogin()">🔐 Admin Login</button>
+  <button class="admin-btn" onclick="openAdminLogin()">Admin Login</button>
 </div>
 </header>
 <section class="hero" id="home"><div class="hero-inner"><div class="hero-copy"><div class="eyebrow">A JOURNEY TOWARDS KNOWLEDGE AND RIGHTEOUSNESS</div><h2>Al Hasana <span>Online</span></h2><div class="mal">വിജ്ഞാന വേദി</div><p class="hero-desc">An online platform for Islamic education, learning, knowledge sharing, and self-assessment.</p><div class="hero-tags">Learn • Practice • Grow • Become Better</div><div class="quote"><div class="arabic">رَبِّ زِدْنِي عِلْمًا</div><p>“My Lord, increase me in knowledge”<br>(Quran 20:114)</p></div><div class="hero-actions"><a class="action primary" href="#contents">📖 Start Learning →</a><a class="action secondary" href="#exams">▤ Take an Exam →</a></div></div></div></section>
@@ -90,7 +170,7 @@ footer{background:#032b22;color:#c7d3cd;padding:24px 5%;display:flex;justify-con
 <section id="exams"><div class="container"><div class="section-title"><small style="color:#e6bd61">ONLINE EXAMINATION</small><h2 style="color:white">📝 ഓൺലൈൻ പരീക്ഷകൾ</h2></div><p class="exam-intro">നിങ്ങൾ പഠിച്ച കാര്യങ്ങൾ പരീക്ഷയിലൂടെ പരിശോധിക്കാം. പരീക്ഷ പൂർത്തിയാക്കിയാൽ നിങ്ങളുടെ മാർക്ക് ഉടൻ ലഭിക്കുന്നതാണ്.</p><div class="exam-grid" id="publicExamList"><div class="exam-card" style="grid-column:1/-1"><div class="exam-icon">⏳</div><h3>പരീക്ഷകൾ Loading...</h3><p>Admin publish ചെയ്യുന്ന പരീക്ഷകൾ ഇവിടെ കാണുന്നതാണ്.</p></div></div></div></section>
 <section id="results"><div class="container"><div class="section-title"><small>RESULTS</small><h2>🏆 Top Rankings</h2></div><div class="ranking"><div id="publicRankingList"><p style="text-align:center">Leaderboard loading...</p></div></div></div></section>
 <section id="publicAnnouncements"><div class="container"><div class="section-title"><small>UPDATES</small><h2>📢 അറിയിപ്പുകൾ</h2></div><div class="notice-list" id="announcementList"></div></div></section>
-<section id="publicMaterials"><div class="container"><div class="section-title"><small>LEARNING</small><h2>📚 Study Materials</h2></div><div id="publicMaterialList" class="notice-list"></div></div></section>
+<section id="publicMaterials"><div class="container"><div class="section-title"><small>LEARNING</small><h2>Study Materials</h2></div><div id="publicMaterialList" class="notice-list"></div></div></section>
 <section id="admin" style="display:none"><div class="container"><div class="section-title"><small>PRIVATE AREA</small><h2>🔐 Admin Dashboard</h2></div><div class="admin-panel" id="adminPanel">
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px"><div><b style="font-size:22px">👨‍💼 Admin Control Panel</b><br><small>Al Hasana Online Management</small></div><button class="btn" style="background:#7a2d2d;color:white" onclick="adminLogout()">Logout</button></div>
 <div class="stats"><div class="stat"><p>ആകെ പരീക്ഷാർത്ഥികൾ</p><h3 id="totalStudents">0</h3></div><div class="stat"><p>ഏറ്റവും ഉയർന്ന മാർക്ക്</p><h3 id="highestScore">0</h3></div><div class="stat"><p>ആകെ പരീക്ഷകൾ</p><h3 id="totalExams">0</h3></div></div>
@@ -105,7 +185,7 @@ footer{background:#032b22;color:#c7d3cd;padding:24px 5%;display:flex;justify-con
 <div class="modal" id="examBuilderModal"><div class="modal-box" style="max-width:900px"><span class="close" onclick="closeExamBuilder()">×</span><div class="section-title" style="margin:5px 0 20px"><small>ADMIN AREA</small><h2 style="font-size:32px">➕ Create & Publish Exam</h2><p style="font-size:13px;color:#68756f">Questions ചേർത്ത് അവസാനം Publish Exam അമർത്തിയാൽ എല്ലാവർക്കും Exam page-ൽ കാണാം.</p></div><div class="input-group"><label>Exam Title *</label><input id="newExamTitle" placeholder="ഉദാ: Islamic General Knowledge Test"></div><div class="input-group"><label>Short Description</label><input id="newExamDesc" placeholder="Exam നെക്കുറിച്ചുള്ള ചെറിയ വിവരണം"></div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:20px"><h3 style="margin:0">📝 Questions</h3><button class="small-btn" type="button" onclick="addQuestionField()">➕ Add New Question</button></div><input type="hidden" id="editingExamId" value=""><div id="questionBuilder"></div><div class="builder-toolbar"><div class="muted" id="questionCountInfo">0 Questions</div><button class="submit-exam" style="margin-top:10px;font-size:16px" onclick="publishExam()">🚀 Publish Exam – എല്ലാവർക്കും കാണിക്കുക</button></div></div></div>
 <div class="modal" id="examModal"><div class="modal-box"><span class="close" onclick="closeExam()">×</span><div id="examContent"><h2 class="modal-title" id="activeExamTitle">📝 പഠന ക്വിസ്</h2><div class="input-group"><label>നിങ്ങളുടെ പേര് *</label><input type="text" id="studentName" placeholder="പേര് എഴുതുക"></div><div class="input-group"><label>Phone Number *</label><input type="tel" id="studentPhone" placeholder="Phone Number നൽകുക"></div><div class="input-group"><label>സ്ഥലം / ബാച്ച് (Optional)</label><input type="text" id="studentPlace" placeholder="സ്ഥലം"></div><div id="questionsContainer"></div><button class="submit-exam" onclick="submitExam()">പരീക്ഷ Submit ചെയ്യുക</button></div></div></div>
 <div class="modal" id="resultDetailModal"><div class="modal-box"><span class="close" onclick="document.getElementById('resultDetailModal').style.display='none'">×</span><div id="resultDetailContent"></div></div></div>
-<div class="modal" id="adminLoginModal"><div class="modal-box" style="max-width:460px;margin-top:10vh"><span class="close" onclick="closeAdminLogin()">×</span><div class="section-title" style="margin:5px 0 20px"><small>PRIVATE AREA</small><h2 style="font-size:32px">🔐 Admin Login</h2></div><div class="input-group"><label>Admin Email</label><input type="email" id="adminEmail" placeholder="Email നൽകുക"></div><div class="input-group"><label>Password</label><input type="password" id="adminPassword" placeholder="Password നൽകുക"></div><button class="submit-exam" onclick="adminLogin()">Admin Login</button></div></div>
+<div class="modal" id="adminLoginModal"><div class="modal-box" style="max-width:460px;margin-top:10vh"><span class="close" onclick="closeAdminLogin()">×</span><div class="section-title" style="margin:5px 0 20px"><small>PRIVATE AREA</small><h2 style="font-size:32px">Admin Login</h2></div><div class="input-group"><label>Admin Email</label><input type="email" id="adminEmail" placeholder="Email നൽകുക"></div><div class="input-group"><label>Password</label><input type="password" id="adminPassword" placeholder="Password നൽകുക"></div><button class="submit-exam" onclick="adminLogin()">Admin Login</button></div></div>
 <!-- ================= FIREBASE & QUIZ LOGIC ================= -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
@@ -247,7 +327,7 @@ footer{background:#032b22;color:#c7d3cd;padding:24px 5%;display:flex;justify-con
   window.editExam=async function(id){try{const snap=await getDocs(collection(db,'exams')),d=snap.docs.find(x=>x.id===id);if(!d)return;const x=d.data();document.getElementById('editingExamId').value=id;document.getElementById('newExamTitle').value=x.title||'';document.getElementById('newExamDesc').value=x.description||'';document.getElementById('questionBuilder').innerHTML='';(x.questions||[]).forEach(q=>addQuestionField(q));if(!(x.questions||[]).length)addQuestionField();updateQuestionCount();document.getElementById('examBuilderModal').style.display='block'}catch(e){console.error(e);showToast('Exam load ചെയ്യാൻ കഴിഞ്ഞില്ല.','error')}};
   window.addMaterial=async function(){const title=document.getElementById('materialTitle').value.trim(),link=document.getElementById('materialLink').value.trim();if(!title||!link)return showToast('Title, Link നൽകുക','error');try{new URL(link);await addDoc(collection(db,'studyMaterials'),{title,link,createdAt:new Date().toISOString()});document.getElementById('materialTitle').value='';document.getElementById('materialLink').value='';loadAdminContent();loadPublicMaterials();alert('Study Material Saved')}catch(e){showToast('Valid Link നൽകുക / Firebase Rules പരിശോധിക്കുക.','error')}};
   window.addAnnouncement=async function(){const text=document.getElementById('announcementText').value.trim();if(!text)return showToast('Announcement എഴുതുക','error');try{await addDoc(collection(db,'announcements'),{text,createdAt:new Date().toISOString()});document.getElementById('announcementText').value='';loadAdminContent();loadPublicAnnouncements();alert('Announcement Published')}catch(e){showToast('Publish ചെയ്യാൻ കഴിഞ്ഞില്ല. Firebase Rules പരിശോധിക്കുക.','error')}};
-  async function loadAdminContent(){const box=document.getElementById('adminContentList');box.innerHTML='';const examSnap=await getDocs(collection(db,'exams'));box.innerHTML+=`<h4>📝 Exams (${examSnap.size})</h4>`;examSnap.forEach(d=>{const x=d.data();box.innerHTML+=`<div class="rank-row"><span><b>${escapeHtml(x.title||'Untitled')}</b><br><small>${(x.questions||[]).length} Questions</small></span><div class="admin-actions"><button class="small-btn" onclick="editExam('${d.id}')">Edit</button><button class="small-btn danger" onclick="deleteContent('exams','${d.id}')">Delete</button></div></div>`});if(!examSnap.size)box.innerHTML+='<p class="muted">ഇതുവരെ Exam publish ചെയ്തിട്ടില്ല.</p>';for(const [col,label] of [['studyMaterials','📚 Study Materials'],['announcements','📢 Announcements']]){const snap=await getDocs(collection(db,col));box.innerHTML+=`<h4>${label} (${snap.size})</h4>`;snap.forEach(d=>{const x=d.data();box.innerHTML+=`<div class="rank-row"><span>${escapeHtml(x.title||x.text||'Untitled')}</span><button class="small-btn danger" onclick="deleteContent('${col}','${d.id}')">Delete</button></div>`})}};
+  async function loadAdminContent(){const box=document.getElementById('adminContentList');box.innerHTML='';const examSnap=await getDocs(collection(db,'exams'));box.innerHTML+=`<h4>Exams (${examSnap.size})</h4>`;examSnap.forEach(d=>{const x=d.data();box.innerHTML+=`<div class="rank-row"><span><b>${escapeHtml(x.title||'Untitled')}</b><br><small>${(x.questions||[]).length} Questions</small></span><div class="admin-actions"><button class="small-btn" onclick="editExam('${d.id}')">Edit</button><button class="small-btn danger" onclick="deleteContent('exams','${d.id}')">Delete</button></div></div>`});if(!examSnap.size)box.innerHTML+='<p class="muted">ഇതുവരെ Exam publish ചെയ്തിട്ടില്ല.</p>';for(const [col,label] of [['studyMaterials','Study Materials'],['announcements','📢 Announcements']]){const snap=await getDocs(collection(db,col));box.innerHTML+=`<h4>${label} (${snap.size})</h4>`;snap.forEach(d=>{const x=d.data();box.innerHTML+=`<div class="rank-row"><span>${escapeHtml(x.title||x.text||'Untitled')}</span><button class="small-btn danger" onclick="deleteContent('${col}','${d.id}')">Delete</button></div>`})}};
   window.deleteContent=async function(col,id){if(!confirm('Delete this item?'))return;try{await deleteDoc(doc(db,col,id));await loadAdminContent();loadPublicExams();loadPublicMaterials();loadPublicAnnouncements();showToast('Deleted Successfully','success')}catch(e){console.error(e);showToast('Delete ചെയ്യാൻ കഴിഞ്ഞില്ല. Firebase Rules പരിശോധിക്കുക.','error')}};
 
   async function loadAdminData(){await Promise.all([loadResults(),loadAdminContent()]);}
@@ -259,4 +339,25 @@ footer{background:#032b22;color:#c7d3cd;padding:24px 5%;display:flex;justify-con
   loadPublicExams(); loadPublicMaterials(); loadPublicAnnouncements(); loadResults();
 
   try{setAdminOnlyVisibility(false)}catch(e){}
-</script></body></html>
+</script>
+<script>
+function toggleMobileMenu(){
+  const p=document.getElementById('mobileMenuPanel');
+  const b=document.getElementById('mobileMenuToggle');
+  if(!p)return;
+  const open=p.classList.toggle('open');
+  if(b)b.setAttribute('aria-expanded',open?'true':'false');
+}
+function closeMobileMenu(){
+  const p=document.getElementById('mobileMenuPanel');
+  const b=document.getElementById('mobileMenuToggle');
+  if(p)p.classList.remove('open');
+  if(b)b.setAttribute('aria-expanded','false');
+}
+document.addEventListener('click',function(e){
+  const p=document.getElementById('mobileMenuPanel');
+  const b=document.getElementById('mobileMenuToggle');
+  if(p && b && !p.contains(e.target) && !b.contains(e.target)) closeMobileMenu();
+});
+</script>
+</body></html>

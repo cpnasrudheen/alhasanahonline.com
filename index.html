@@ -100,6 +100,11 @@ th,td{padding:13px 12px;border-bottom:1px solid #e3eae5;text-align:left}th{backg
 .result-box{text-align:center;padding:25px}.score{width:150px;height:150px;border-radius:50%;display:flex;flex-direction:column;justify-content:center;margin:20px auto;background:#edf7f1;border:8px solid #087054;box-shadow:0 0 0 8px rgba(8,112,84,.08)}.score b{font-size:36px}
 footer{background:linear-gradient(110deg,#032b22,#07513c);color:#dce8e2;padding:26px 7%;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;border-top:1px solid rgba(217,173,72,.4);font-size:13px}
 
+
+.brand-logo{width:54px;height:54px;object-fit:cover;border-radius:50%;background:#fff;border:2px solid rgba(240,203,108,.85);box-shadow:0 5px 16px rgba(0,0,0,.16);flex:0 0 54px}
+.hero{background-image:linear-gradient(90deg,rgba(4,42,32,.72) 0%,rgba(4,42,32,.45) 45%,rgba(4,42,32,.10) 100%),url("hero.jpg")!important;background-size:cover!important;background-position:center!important}
+@media(max-width:760px){.brand-logo{width:44px;height:44px;flex-basis:44px}.brand{gap:9px!important}.hero{background-position:center!important}}
+
 /* =========================================================
    RESPONSIVE WEBSITE — DESKTOP + MOBILE
    Desktop navigation stays at the TOP.
@@ -327,7 +332,7 @@ footer{background:linear-gradient(110deg,#032b22,#07513c);color:#dce8e2;padding:
 </head>
 <body>
 <header>
- <div class="brand"><h1>Al Hasana <span>Online</span></h1><small>വിജ്ഞാന വേദി</small></div>
+ <div class="brand"><img class="brand-logo" src="logo.png" alt="Al Hasana logo"><div><h1>Al Hasana <span>Online</span></h1><small>വിജ്ഞാന വേദി</small></div></div>
  <nav><a href="#home">Home</a><a href="#study">Study</a><a href="#exams">Exams</a><a href="#announcements">Announcements</a><a href="javascript:void(0)" class="admin-link" onclick="openAdminLogin()">🔐 Admin Login</a></nav>
  <button id="mobileMenuButton" class="mobile-menu-button" type="button" aria-label="Open menu" onclick="toggleMobileNav()">☰</button>
 </header>
@@ -353,7 +358,7 @@ footer{background:linear-gradient(110deg,#032b22,#07513c);color:#dce8e2;padding:
   <div class="card"><h3>📢 Announcement</h3><textarea id="announcementText" placeholder="Write announcement"></textarea><button class="btn" onclick="addAnnouncement()">Publish</button></div>
  </div>
  <div class="card"><h3>📋 Published Content</h3><div id="adminContentList">Loading...</div></div>
- <div class="card" style="margin-top:18px"><h3>👥 Exam എഴുതിയവർ & Results</h3><input id="resultSearch" placeholder="പേര് / Phone / Exam ഉപയോഗിച്ച് Search..." oninput="filterAdminResults()"><div style="overflow:auto"><table><thead><tr><th>Name</th><th>Phone</th><th>Exam</th><th>Score</th><th>Date</th><th>Action</th></tr></thead><tbody id="adminResultsTable"></tbody></table></div></div>
+ <div class="card" style="margin-top:18px"><h3>👥 Exam എഴുതിയവർ & Results</h3><input id="resultSearch" placeholder="പേര് / Phone / Exam ഉപയോഗിച്ച് Search..." oninput="filterAdminResults()"><div style="overflow:auto"><table><thead><tr><th>Name</th><th>Phone</th><th>Place</th><th>Exam</th><th>Score</th><th>Date</th><th>Action</th></tr></thead><tbody id="adminResultsTable"></tbody></table></div></div>
 </div></section>
 
 <footer><div>© 2026 Al Hasana Online</div><div>Learn • Practice • Grow</div></footer>
@@ -401,7 +406,14 @@ window.publishExam=async()=>{const title=document.getElementById("builderExamTit
 async function loadPublicExams(){const box=document.getElementById("publicExamList");try{const snap=await getDocs(collection(db,"exams"));let html="",count=0;snap.forEach(d=>{const x=d.data();if(x.published===false)return;count++;html+=`<div class="card exam-card"><span class="tag">${(x.questions||[]).length} Questions</span><h3>${esc(x.title)}</h3><p>${esc(x.description||"Online examination")}</p><button class="btn" onclick="startExam('${d.id}')">പരീക്ഷ ആരംഭിക്കുക</button></div>`});box.innerHTML=html||"<p class='muted'>ഇപ്പോൾ പരീക്ഷകൾ ലഭ്യമല്ല.</p>";}catch(e){console.error(e);box.innerHTML="<p>Exams load ചെയ്യാൻ കഴിഞ്ഞില്ല.</p>";}}
 window.startExam=async id=>{try{const s=await getDoc(doc(db,"exams",id));if(!s.exists())return;activeExam={id,...s.data()};document.getElementById("examContent").innerHTML=`<h2>📝 ${esc(activeExam.title)}</h2><div class="input-group"><label>നിങ്ങളുടെ പേര് *</label><input id="studentName" placeholder="പേര് എഴുതുക"></div><div class="input-group"><label>Phone Number *</label><input id="studentPhone" placeholder="Phone Number നൽകുക"></div><div class="input-group"><label>സ്ഥലം / ബാച്ച് (Optional)</label><input id="studentPlace" placeholder="സ്ഥലം"></div><div id="questionsContainer"></div><button class="btn" id="submitExamBtn" onclick="submitExam()">പരീക്ഷ Submit ചെയ്യുക</button>`;const c=document.getElementById("questionsContainer");(activeExam.questions||[]).forEach((q,i)=>{let h=`<div class="question"><h4>${i+1}. ${esc(q.question)}</h4>`;(q.options||[]).forEach((o,j)=>h+=`<label class="option"><input type="radio" name="question${i}" value="${j}"> ${esc(o)}</label>`);h+="</div>";c.innerHTML+=h;});document.getElementById("examModal").style.display="block";}catch(e){alert("Exam തുറക്കാൻ കഴിഞ്ഞില്ല.");}};
 window.closeExam=()=>closeModal("examModal");
-window.submitExam=async()=>{const name=document.getElementById("studentName").value.trim(),phone=document.getElementById("studentPhone").value.trim(),place=document.getElementById("studentPlace").value.trim(),qs=activeExam.questions||[];if(!name||!phone)return alert("പേരും Phone Number-ഉം നൽകുക.");let score=0,answers=[];for(let i=0;i<qs.length;i++){const selected=document.querySelector(`input[name="question${i}"]:checked`),idx=selected?Number(selected.value):-1;if(idx===qs[i].answer)score++;answers.push({question:qs[i].question,selectedIndex:idx,selectedAnswer:idx>=0?qs[i].options[idx]:"Not answered",correctIndex:qs[i].answer,correctAnswer:qs[i].options[qs[i].answer]});}const result={name,phone,place,examId:activeExam.id,examName:activeExam.title,score,total:qs.length,percentage:qs.length?Math.round(score/qs.length*100):0,answers,submittedAt:new Date().toISOString()};const b=document.getElementById("submitExamBtn");b.disabled=true;b.innerText="Saving Result...";try{await addDoc(collection(db,"examResults"),result);document.getElementById("examContent").innerHTML=`<div class="result-box"><h2>🎉 പരീക്ഷ പൂർത്തിയായി!</h2><p>അഭിനന്ദനങ്ങൾ ${esc(name)}</p><div class="score"><b>${score}/${qs.length}</b><span>നിങ്ങളുടെ മാർക്ക്</span></div><p>${result.percentage}% Score</p><p>നിങ്ങളുടെ Result വിജയകരമായി Save ചെയ്തു.</p><button class="btn" onclick="location.reload()">Close</button></div>`;}catch(e){console.error(e);alert("Result save ചെയ്യുന്നതിൽ പ്രശ്നമുണ്ട്. Firestore Rules പരിശോധിക്കുക.");b.disabled=false;b.innerText="പരീക്ഷ Submit ചെയ്യുക";}};
+window.submitExam=async()=>{const name=document.getElementById("studentName").value.trim(),phone=document.getElementById("studentPhone").value.trim(),place=document.getElementById("studentPlace").value.trim(),qs=activeExam.questions||[];if(!name||!phone||!place)return alert("പേര്, Mobile Number, സ്ഥലം എന്നിവ നൽകുക.");let score=0,answers=[];for(let i=0;i<qs.length;i++){const selected=document.querySelector(`input[name="question${i}"]:checked`),idx=selected?Number(selected.value):-1;if(idx===qs[i].answer)score++;answers.push({question:qs[i].question,selectedIndex:idx,selectedAnswer:idx>=0?qs[i].options[idx]:"Not answered",correctIndex:qs[i].answer,correctAnswer:qs[i].options[qs[i].answer]});}const result={name,phone,place,examId:activeExam.id,examName:activeExam.title,score,total:qs.length,percentage:qs.length?Math.round(score/qs.length*100):0,answers,submittedAt:new Date().toISOString()};const b=document.getElementById("submitExamBtn");b.disabled=true;b.innerText="Saving Result...";try{await addDoc(collection(db,"examResults"),result);document.getElementById("examContent").innerHTML=`<div class="result-box">
+  <div style="font-size:46px">🤲</div>
+  <h2>جزاك الله خيرًا</h2>
+  <h3>പരീക്ഷയിൽ പങ്കെടുത്തതിന് നന്ദി</h3>
+  <p>അല്ലാഹു നിങ്ങൾക്ക് അറിവിലും നന്മയിലും ബറകത്ത് നൽകട്ടെ.</p>
+  <p class="muted">നിങ്ങളുടെ പരീക്ഷ വിജയകരമായി സമർപ്പിച്ചിരിക്കുന്നു.</p>
+  <button class="btn" onclick="location.reload()">Close</button>
+</div>`;}catch(e){console.error(e);alert("Result save ചെയ്യുന്നതിൽ പ്രശ്നമുണ്ട്. Firestore Rules പരിശോധിക്കുക.");b.disabled=false;b.innerText="പരീക്ഷ Submit ചെയ്യുക";}};
 
 window.addMaterial=async()=>{const title=document.getElementById("materialTitle").value.trim(),link=document.getElementById("materialLink").value.trim();if(!title||!link)return alert("Title, Link നൽകുക");try{await addDoc(collection(db,"studyMaterials"),{title,link,createdAt:new Date().toISOString()});document.getElementById("materialTitle").value="";document.getElementById("materialLink").value="";await loadPublicMaterials();await loadAdminContent();alert("Study Material Saved");}catch(e){console.error(e);alert("Save failed. Firestore Rules പരിശോധിക്കുക.");}};
 async function loadPublicMaterials(){const box=document.getElementById("publicMaterials");try{const s=await getDocs(collection(db,"studyMaterials"));box.innerHTML="";s.forEach(d=>{const x=d.data();box.innerHTML+=`<a class="material" target="_blank" href="${esc(x.link)}">📄 ${esc(x.title)} ↗</a>`});if(!s.size)box.innerHTML="<p class='muted'>Study materials ഉടൻ ലഭ്യമാകും.</p>";}catch(e){box.innerHTML="<p>Materials load ചെയ്യാൻ കഴിഞ്ഞില്ല.</p>";}}
@@ -411,13 +423,42 @@ async function loadPublicAnnouncements(){const box=document.getElementById("publ
 
 async function loadAdminData(){await Promise.all([loadResults(),loadAdminContent()]);}
 async function loadAdminContent(){const box=document.getElementById("adminContentList");try{const s=await getDocs(collection(db,"exams"));let h=`<h4>📝 Exams (${s.size})</h4>`;s.forEach(d=>{const x=d.data();h+=`<div class="notice"><b>${esc(x.title)}</b><br><small>${(x.questions||[]).length} Questions</small><div style="margin-top:8px"><button class="btn small" onclick="editExam('${d.id}')">Edit</button> <button class="btn small red" onclick="deleteContent('exams','${d.id}')">Delete</button></div></div>`});for(const [col,label] of [["studyMaterials","📚 Study Materials"],["announcements","📢 Announcements"]]){const z=await getDocs(collection(db,col));h+=`<h4>${label} (${z.size})</h4>`;z.forEach(d=>{const x=d.data();h+=`<div class="notice">${esc(x.title||x.text)} <button style="float:right" class="btn small red" onclick="deleteContent('${col}','${d.id}')">Delete</button></div>`});}box.innerHTML=h;}catch(e){console.error(e);box.innerHTML="<p>Content load failed.</p>";}}
-window.deleteContent=async(col,id=>{});
-window.deleteContent=async function(col,id){if(!confirm("Delete ചെയ്യണോ?"))return;try{await deleteDoc(doc(db,col,id));await loadAdminContent();loadPublicExams();loadPublicMaterials();loadPublicAnnouncements();}catch(e){alert("Delete failed");}};
+window.deleteContent=async function(col,id){
+  if(!confirm("Delete ചെയ്യണോ?")) return;
+  try{
+    await deleteDoc(doc(db,col,id));
+    await loadAdminContent();
+    await loadPublicExams();
+    await loadPublicMaterials();
+    await loadPublicAnnouncements();
+  }catch(e){
+    console.error("Delete failed:",e);
+    alert("Delete failed. Firestore Rules പരിശോധിക്കുക.");
+  }
+};
 window.editExam=async id=>{try{const s=await getDoc(doc(db,"exams",id));if(!s.exists())return;const x=s.data();editingExamId=id;document.getElementById("builderExamTitle").value=x.title||"";document.getElementById("builderExamDescription").value=x.description||"";const box=document.getElementById("builderQuestions");box.innerHTML="";(x.questions||[]).forEach(q=>{addQuestionField();const el=box.lastElementChild;el.querySelector(".bq").value=q.question;const opts=el.querySelectorAll(".bo");q.options.forEach((o,i)=>{if(opts[i])opts[i].value=o;});el.querySelector(".correctSelect").value=q.answer;});renumberQuestions();document.getElementById("examBuilderModal").style.display="block";}catch(e){alert("Exam load failed");}};
 
 async function loadResults(){try{const s=await getDocs(collection(db,"examResults")),r=s.docs.map(d=>({id:d.id,...d.data()}));r.sort((a,b)=>(b.percentage||0)-(a.percentage||0));window._results=r;document.getElementById("totalStudents").innerText=r.length;const ex=await getDocs(collection(db,"exams"));document.getElementById("totalExams").innerText=ex.size;document.getElementById("highestScore").innerText=r.length?Math.max(...r.map(x=>x.score||0)):0;filterAdminResults();}catch(e){console.error(e);}}
-window.filterAdminResults=()=>{const q=(document.getElementById("resultSearch")?.value||"").toLowerCase(),rows=(window._results||[]).filter(r=>[r.name,r.phone,r.examName].join(" ").toLowerCase().includes(q));document.getElementById("adminResultsTable").innerHTML=rows.map(r=>`<tr><td>${esc(r.name)}</td><td>${esc(r.phone)}</td><td>${esc(r.examName)}</td><td>${r.score}/${r.total}<br><small>${r.percentage}%</small></td><td>${r.submittedAt?new Date(r.submittedAt).toLocaleString():""}</td><td><button class="btn small" onclick="viewResult('${r.id}')">View</button> <button class="btn small red" onclick="deleteResult('${r.id}')">Delete</button></td></tr>`).join("")||"<tr><td colspan='6'>Result ലഭ്യമല്ല.</td></tr>";};
-window.viewResult=id=>{const r=(window._results||[]).find(x=>x.id===id);if(!r)return;let h=`<h2>📊 ${esc(r.name)} - Result Details</h2><p><b>Phone:</b> ${esc(r.phone)}<br><b>Exam:</b> ${esc(r.examName)}<br><b>Score:</b> ${r.score}/${r.total} (${r.percentage}%)</p>`;(r.answers||[]).forEach((a,i)=>h+=`<div class="question"><b>${i+1}. ${esc(a.question)}</b><p>Your Answer: ${esc(a.selectedAnswer)}</p><p><b>Correct Answer:</b> ${esc(a.correctAnswer)}</p></div>`);document.getElementById("resultDetailContent").innerHTML=h;document.getElementById("resultDetailModal").style.display="block";};
+window.filterAdminResults=()=>{
+  const q=(document.getElementById("resultSearch")?.value||"").toLowerCase();
+  const rows=(window._results||[]).filter(r=>{
+    const name=r.name||r.studentName||r.student_name||"";
+    const phone=r.phone||r.mobile||r.phoneNumber||"";
+    const exam=r.examName||r.exam||"";
+    return [name,phone,exam].join(" ").toLowerCase().includes(q);
+  });
+  document.getElementById("adminResultsTable").innerHTML=rows.map(r=>{
+    const name=r.name||r.studentName||r.student_name||"—";
+    const phone=r.phone||r.mobile||r.phoneNumber||"—";
+    const place=r.place||r.location||"—";
+    const exam=r.examName||r.exam||"—";
+    const score=(r.score??0)+"/"+(r.total??0);
+    const percentage=r.percentage??0;
+    const date=r.submittedAt?new Date(r.submittedAt).toLocaleString():"";
+    return `<tr><td>${esc(name)}</td><td>${esc(phone)}</td><td>${esc(place)}</td><td>${esc(exam)}</td><td>${score}<br><small>${percentage}%</small></td><td>${esc(date)}</td><td><button class="btn small" onclick="viewResult('${r.id}')">View</button> <button class="btn small red" onclick="deleteResult('${r.id}')">Delete</button></td></tr>`;
+  }).join("")||"<tr><td colspan='7'>Result ലഭ്യമല്ല.</td></tr>";
+};
+window.viewResult=id=>{const r=(window._results||[]).find(x=>x.id===id);if(!r)return;let h=`<h2>📊 ${esc(r.name)} - Result Details</h2><p><b>Phone:</b> ${esc(r.phone||r.mobile||r.phoneNumber||"—")}<br><b>Place:</b> ${esc(r.place||r.location||"—")}<br><b>Exam:</b> ${esc(r.examName)}<br><b>Score:</b> ${r.score}/${r.total} (${r.percentage}%)</p>`;(r.answers||[]).forEach((a,i)=>h+=`<div class="question"><b>${i+1}. ${esc(a.question)}</b><p>Your Answer: ${esc(a.selectedAnswer)}</p><p><b>Correct Answer:</b> ${esc(a.correctAnswer)}</p></div>`);document.getElementById("resultDetailContent").innerHTML=h;document.getElementById("resultDetailModal").style.display="block";};
 window.deleteResult=async id=>{if(!confirm("ഈ Result delete ചെയ്യണോ?"))return;try{await deleteDoc(doc(db,"examResults",id));loadResults();}catch(e){alert("Delete failed");}};
 
 loadPublicExams();loadPublicMaterials();loadPublicAnnouncements();

@@ -137,8 +137,8 @@ footer{background:linear-gradient(110deg,#032b22,#07513c);color:#dce8e2;padding:
   }
 
   header{
-    position:sticky!important;
-    top:0!important;
+    position:relative!important;
+    top:auto!important;
     z-index:100!important;
     min-height:68px;
     padding:10px 16px!important;
@@ -322,6 +322,18 @@ footer{background:linear-gradient(110deg,#032b22,#07513c);color:#dce8e2;padding:
   .btn{width:100%;text-align:center}
 }
 .hero h2{font-size:45px}.card{padding:20px}}
+
+
+/* ONLY REQUESTED CHANGE: larger desktop navigation + normal scrolling */
+@media (min-width:761px){
+  header nav a,
+  header nav button,
+  nav a,
+  nav button{
+    font-size:16px!important;
+    font-weight:700!important;
+  }
+}
 
 </style>
 </head>

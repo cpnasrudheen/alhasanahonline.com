@@ -21,11 +21,14 @@ body{margin:0;background:
 body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.035;
  background-image:linear-gradient(45deg,#063c2d 1px,transparent 1px),linear-gradient(-45deg,#063c2d 1px,transparent 1px);
  background-size:34px 34px;z-index:-1}
+@keyframes siteReveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+body{animation:siteReveal .65s ease-out both}
+@media(prefers-reduced-motion:reduce){body{animation:none}}
 header{background:rgba(4,42,32,.93);backdrop-filter:blur(18px);color:#fff;padding:13px 5%;
  display:flex;align-items:center;justify-content:space-between;gap:24px;position:sticky;top:0;z-index:20;
  border-bottom:1px solid rgba(217,173,72,.55);box-shadow:0 8px 30px rgba(0,0,0,.13)}
-.brand{display:flex;flex-direction:column;position:relative;padding-left:18px}
-.brand:before{content:"✦";position:absolute;left:0;top:5px;color:var(--gold)}
+.brand{display:flex;flex-direction:row;align-items:center;gap:12px;position:relative;padding-left:0}
+.brand:before{display:none}
 .brand h1{margin:0;font:700 27px 'Playfair Display',serif;letter-spacing:.3px}
 .brand h1 span{color:var(--gold2)}
 .brand small{color:#d6e4dc;opacity:.8;font-size:10px;letter-spacing:2px}
@@ -72,6 +75,7 @@ input,textarea,select{width:100%;padding:13px 14px;border:1px solid rgba(6,60,45
 input:focus,textarea:focus,select:focus{border-color:#168060;box-shadow:0 0 0 4px rgba(22,128,96,.10)}
 textarea{min-height:100px}.muted{color:#718078;font-size:13px;line-height:1.7}
 .notice{background:linear-gradient(90deg,#fff9e8,#fffdf7);border-left:4px solid var(--gold);padding:16px 18px;border-radius:12px;margin:12px 0;box-shadow:0 8px 24px rgba(117,87,22,.06)}
+.announcement-notice{background:linear-gradient(90deg,#fff0ef,#fffafa);border-left:4px solid var(--red);color:#682c29;padding:16px 18px;border-radius:12px;margin:12px 0;box-shadow:0 8px 24px rgba(143,57,51,.10)}
 .material{display:flex;align-items:center;gap:12px;padding:17px 18px;border:1px solid var(--line);border-radius:14px;margin:11px 0;text-decoration:none;color:#07513c;font-weight:700;background:rgba(255,255,255,.85);transition:.2s}
 .material:before{content:"📖";font-size:21px}.material:hover{transform:translateX(4px);border-color:rgba(217,173,72,.65)}
 .modal{display:none;position:fixed;inset:0;background:rgba(2,23,17,.78);backdrop-filter:blur(8px);z-index:50;padding:30px;overflow:auto}
@@ -386,6 +390,8 @@ header nav,
 
 <div class="modal" id="adminLoginModal"><div class="modal-box" style="max-width:500px"><span class="close" onclick="closeModal('adminLoginModal')">×</span><h2>🔐 Admin Login</h2><label>Email</label><input id="adminEmail" type="email" placeholder="Admin Email"><label>Password</label><input id="adminPassword" type="password" placeholder="Password"><label style="display:flex;align-items:center;gap:8px;font-size:13px;margin:2px 0 12px"><input id="showAdminPassword" type="checkbox" style="width:auto;margin:0" onchange="document.getElementById('adminPassword').type=this.checked?'text':'password'"> Show Password</label><button class="btn" onclick="adminLogin()">Admin Login</button></div></div>
 
+<div class="modal" id="announcementEditModal"><div class="modal-box" style="max-width:560px"><span class="close" onclick="closeModal('announcementEditModal')">×</span><h2>📢 Edit Announcement</h2><label>Announcement</label><textarea id="editAnnouncementText" placeholder="Announcement എഴുതുക"></textarea><button class="btn" onclick="saveAnnouncementEdit()">Save Changes</button></div></div>
+
 <div class="modal" id="examBuilderModal"><div class="modal-box"><span class="close" onclick="closeExamBuilder()">×</span><h2>➕ Create Exam</h2><p class="muted">Draft ആയി save ചെയ്താൽ വിദ്യാർത്ഥികൾക്ക് കാണില്ല. പരീക്ഷ സമയത്ത് <b>Publish Now</b> അമർത്തുക.</p><label>Exam Title *</label><input id="builderExamTitle" placeholder="Exam name"><label>Short Description</label><textarea id="builderExamDescription" placeholder="Exam description"></textarea><label>Exam Time (minutes) *</label><input id="builderExamDuration" type="number" min="1" max="300" value="10" placeholder="Exam time in minutes"><div style="display:flex;justify-content:space-between;align-items:center"><h3>📝 Questions</h3></div><div id="builderQuestions"></div><div style="margin-top:12px"><button class="btn small" onclick="addQuestionField()">+ Add New Question</button></div><div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:18px"><span class="muted" id="questionCount">0 Questions Added</span><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" onclick="saveExam(false)">💾 Save as Draft</button><button class="btn gold" onclick="saveExam(true)">🚀 Publish Now</button></div></div></div></div>
 
 <div class="modal" id="examModal"><div class="modal-box"><span class="close" onclick="closeExam()">×</span><div id="examContent"></div></div></div>
@@ -405,7 +411,7 @@ const firebaseConfig={
  appId:"1:610914231755:web:476e058a0e56bd42ca824e"
 };
 const app=initializeApp(firebaseConfig),db=getFirestore(app),auth=getAuth(app);
-let activeExam=null,editingExamId=null;
+let activeExam=null,editingExamId=null,editingAnnouncementId=null;
 const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
 window.closeModal=id=>document.getElementById(id).style.display="none";
@@ -441,11 +447,13 @@ window.addMaterial=async()=>{const title=document.getElementById("materialTitle"
 async function loadPublicMaterials(){const box=document.getElementById("publicMaterials");try{const s=await getDocs(collection(db,"studyMaterials"));box.innerHTML="";s.forEach(d=>{const x=d.data();box.innerHTML+=`<a class="material" target="_blank" href="${esc(x.link)}">📄 ${esc(x.title)} ↗</a>`});if(!s.size)box.innerHTML="<p class='muted'>Study materials ഉടൻ ലഭ്യമാകും.</p>";}catch(e){box.innerHTML="<p>Materials load ചെയ്യാൻ കഴിഞ്ഞില്ല.</p>";}}
 
 window.addAnnouncement=async()=>{const text=document.getElementById("announcementText").value.trim();if(!text)return alert("Announcement എഴുതുക");try{await addDoc(collection(db,"announcements"),{text,createdAt:new Date().toISOString()});document.getElementById("announcementText").value="";await loadPublicAnnouncements();await loadAdminContent();alert("Announcement Published");}catch(e){console.error(e);alert("Publish failed. Firestore Rules പരിശോധിക്കുക.");}};
-async function loadPublicAnnouncements(){const box=document.getElementById("publicAnnouncements");try{const s=await getDocs(collection(db,"announcements"));box.innerHTML="";s.forEach(d=>{const x=d.data();box.innerHTML+=`<div class="notice">📢 ${esc(x.text)}</div>`});if(!s.size)box.innerHTML="<p class='muted'>Announcements ഇല്ല.</p>";}catch(e){box.innerHTML="<p>Announcements load ചെയ്യാൻ കഴിഞ്ഞില്ല.</p>";}}
+async function loadPublicAnnouncements(){const box=document.getElementById("publicAnnouncements");try{const s=await getDocs(collection(db,"announcements"));box.innerHTML="";s.forEach(d=>{const x=d.data();box.innerHTML+=`<div class="announcement-notice">📢 ${esc(x.text)}</div>`});if(!s.size)box.innerHTML="<p class='muted'>Announcements ഇല്ല.</p>";}catch(e){box.innerHTML="<p>Announcements load ചെയ്യാൻ കഴിഞ്ഞില്ല.</p>";}}
 
 async function loadAdminData(){await Promise.all([loadResults(),loadAdminContent()]);}
-async function loadAdminContent(){const box=document.getElementById("adminContentList");try{const s=await getDocs(collection(db,"exams"));let h=`<h4>📝 Exams (${s.size})</h4>`;s.forEach(d=>{const x=d.data(),status=x.published===true?"✅ Published":"📝 Draft";const action=x.published===true?`<button class="btn small" onclick="setExamPublished('${d.id}',false)">Unpublish</button>`:`<button class="btn small gold" onclick="setExamPublished('${d.id}',true)">Publish</button>`;h+=`<div class="notice"><b>${esc(x.title)}</b><br><small>${(x.questions||[]).length} Questions · ${status}</small><div style="margin-top:8px">${action} <button class="btn small" onclick="editExam('${d.id}')">Edit</button> <button class="btn small red" onclick="deleteContent('exams','${d.id}')">Delete</button></div></div>`});for(const [col,label] of [["studyMaterials","📚 Study Materials"],["announcements","📢 Announcements"]]){const z=await getDocs(collection(db,col));h+=`<h4>${label} (${z.size})</h4>`;z.forEach(d=>{const x=d.data();h+=`<div class="notice">${esc(x.title||x.text)} <button style="float:right" class="btn small red" onclick="deleteContent('${col}','${d.id}')">Delete</button></div>`});}box.innerHTML=h;}catch(e){console.error(e);box.innerHTML="<p>Content load failed.</p>";}}
+async function loadAdminContent(){const box=document.getElementById("adminContentList");try{const s=await getDocs(collection(db,"exams"));let h=`<h4>📝 Exams (${s.size})</h4>`;s.forEach(d=>{const x=d.data(),status=x.published===true?"✅ Published":"📝 Draft";const action=x.published===true?`<button class="btn small" onclick="setExamPublished('${d.id}',false)">Unpublish</button>`:`<button class="btn small gold" onclick="setExamPublished('${d.id}',true)">Publish</button>`;h+=`<div class="notice"><b>${esc(x.title)}</b><br><small>${(x.questions||[]).length} Questions · ${status}</small><div style="margin-top:8px">${action} <button class="btn small" onclick="editExam('${d.id}')">Edit</button> <button class="btn small red" onclick="deleteContent('exams','${d.id}')">Delete</button></div></div>`});const materials=await getDocs(collection(db,"studyMaterials"));h+=`<h4>📚 Study Materials (${materials.size})</h4>`;materials.forEach(d=>{const x=d.data();h+=`<div class="notice">${esc(x.title)} <button style="float:right" class="btn small red" onclick="deleteContent('studyMaterials','${d.id}')">Delete</button></div>`});const announcements=await getDocs(collection(db,"announcements"));h+=`<h4>📢 Announcements (${announcements.size})</h4>`;announcements.forEach(d=>{const x=d.data();h+=`<div class="announcement-notice">${esc(x.text)} <div style="margin-top:8px"><button class="btn small" onclick="editAnnouncement('${d.id}')">Edit</button> <button class="btn small red" onclick="deleteContent('announcements','${d.id}')">Delete</button></div></div>`});box.innerHTML=h;}catch(e){console.error(e);box.innerHTML="<p>Content load failed.</p>";}}
 window.setExamPublished=async(id,published)=>{try{await updateDoc(doc(db,"exams",id),{published,publishedAt:published?new Date().toISOString():null,updatedAt:new Date().toISOString()});await loadPublicExams();await loadAdminContent();alert(published?"Exam is now public.":"Exam moved to Draft.");}catch(e){console.error(e);alert("Status മാറ്റാൻ കഴിഞ്ഞില്ല. Firestore Rules പരിശോധിക്കുക.");}};
+window.editAnnouncement=async id=>{try{const s=await getDoc(doc(db,"announcements",id));if(!s.exists())return;editingAnnouncementId=id;document.getElementById("editAnnouncementText").value=s.data().text||"";document.getElementById("announcementEditModal").style.display="block";}catch(e){console.error(e);alert("Announcement load ചെയ്യാൻ കഴിഞ്ഞില്ല.");}};
+window.saveAnnouncementEdit=async()=>{const text=document.getElementById("editAnnouncementText").value.trim();if(!editingAnnouncementId||!text)return alert("Announcement എഴുതുക");try{await updateDoc(doc(db,"announcements",editingAnnouncementId),{text,updatedAt:new Date().toISOString()});closeModal("announcementEditModal");editingAnnouncementId=null;await loadPublicAnnouncements();await loadAdminContent();alert("Announcement updated");}catch(e){console.error(e);alert("Update failed. Firestore Rules പരിശോധിക്കുക.");}};
 window.deleteContent=async function(col,id){
   if(!confirm("Delete ചെയ്യണോ?")) return;
   try{
